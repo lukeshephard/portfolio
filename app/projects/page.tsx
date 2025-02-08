@@ -2,11 +2,11 @@
 
 import Footer from "../template/global/footer"
 import Header from "../template/global/header"
-import { ALL_PROJECTS } from "./allProjects";
+import { Project } from "./project";
 import ProjectDisplay from "./projectDisplay";
 
 export default function Page() {
-    const projectDisplays = ALL_PROJECTS.map(project => <ProjectDisplay project={project} key={project.getName()}/>)   
+    const projectDisplays = Project.ALL_PROJECTS().map(project => <ProjectDisplay project={project} key={project.getName()}/>)   
 
     return (
         <>
