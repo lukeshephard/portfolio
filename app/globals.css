@@ -64,6 +64,11 @@ a:active {
   color: #525252; /* neutral-600 */
 }
 
+li {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -71,7 +76,14 @@ h1 {
   padding-bottom: 2.5rem;
 }
 
-p a {
+h2 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  text-decoration: underline;
+  padding-bottom: 1.5rem;
+}
+
+p a, li a {
   color: #fbbf24; /* amber-400 */
   text-decoration: underline;
 }

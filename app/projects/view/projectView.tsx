@@ -7,7 +7,7 @@ export default function ProjectView() {
     const searchParams = useSearchParams();
     const searchName = searchParams.get("name") as string;
 
-    const project = Project.getPorjectByName(searchName)
+    const project = Project.getProjectByName(searchName)
 
     return (
         <h1>

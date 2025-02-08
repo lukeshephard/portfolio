@@ -10,7 +10,7 @@ export default function Header({currentPage}: {currentPage?: string}) {
     const PAGES = [
         new NavLink("Home", "/"),
         new NavLink("Projects"),
-        new NavLink("Contact"),
+        new NavLink("Socials"),
     ]
     const pageLinks = PAGES.map(page => {
         const label = page.getLabel();

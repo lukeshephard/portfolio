@@ -8,6 +8,11 @@ export const projectDatabase = [
         title: "Database Demo"
     },
     {
+        name: "advent-of-code-2024",
+        title: "Advent of Code 2024",
+        isWebsite: false
+    },
+    {
         name: "website-template",
         title: "Website Template"
     },
