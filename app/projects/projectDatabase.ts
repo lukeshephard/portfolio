@@ -48,5 +48,5 @@ export const projectDatabase = [
         name: "battleships-two-player",
         title: "Battleships (Two Player)",
         isPrivate: true
-    } 
+    },
 ]
