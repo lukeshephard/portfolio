@@ -83,16 +83,18 @@ h2 {
   padding-bottom: 1.5rem;
 }
 
+/* ADDED LI A FOR LINKS IN LISTS */
+
 p a, li a {
   color: #fbbf24; /* amber-400 */
   text-decoration: underline;
 }
 
-p a:hover {
+p a:hover, li a:hover {
   color: #f59e0b; /* amber-500 */
 }
 
-p a:active { 
+p a:active, li a:active { 
   color: #d97706; /* amber-600 */
 }
 
