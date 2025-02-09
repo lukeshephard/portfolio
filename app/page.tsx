@@ -2,11 +2,14 @@ import { Project } from "./projects/project";
 import ProjectLabel from "./projects/projectLabel";
 import Footer from "./template/global/footer";
 import Header from "./template/global/header";
+import { NameLink } from "./template/link/nameLink";
 import { NavLink } from "./template/link/navLink";
 
 export default function Page() {
   const projectLink = new NavLink("projects").generateElement();
   const contactLink = new NavLink("contact", "/socials/").generateElement();
+
+  const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
 
   return (
     <>
@@ -27,7 +30,7 @@ export default function Page() {
           <ul>
             <li>I am currently studying Computer Science in my second year at Queen Mary University of London.</li>
             <li>I am 20 years old.</li>
-            <li>Here are my cool <a href="https://codestats.net/users/ShephardLuke">coding statistics</a>.</li>
+            <li>Here are my cool {codeStatsLink}.</li>
             <li>Programming projects are my favourite pass time (if you couldn&#39;t tell haha).</li>
           </ul>
         </div>

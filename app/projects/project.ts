@@ -8,6 +8,8 @@ export class Project {
     private isPrivate: boolean;
     private informationLink: NavLink;
     private isWebsite: boolean;
+    private githubLink: NameLink;
+    private websiteLink: NameLink;
 
     public static ALL_PROJECTS(): {[key: string]: Project} { // Gets every project
         return ALL_PROJECTS;
@@ -16,8 +18,8 @@ export class Project {
     public static CreateFromObject(obj : {[key: string]: unknown}) { // Creates a project from an object with any keys (anything can be empty)
         const pName = obj.name ? obj.name as string : "";
         const pTitle = obj.title ? obj.title as string : "Unnamed Project";
-        const pIsPrivate = obj.isPrivate != undefined ? obj.isPrivate as boolean : false;
-        const pIsWebsite = obj.isWebsite != undefined ? obj.isWebsite as boolean : true;
+        const pIsPrivate = obj.isPrivate == undefined ? false: obj.isPrivate as boolean
+        const pIsWebsite = obj.isWebsite == undefined ? true : obj.isWebsite as boolean
 
         return new Project(pName, pTitle, pIsPrivate, pIsWebsite)
     }
@@ -34,11 +36,17 @@ export class Project {
         this.title = title;
         this.isPrivate = isPrivate;
         this.isWebsite = isWebsite;
-        if (isWebsite) {
-            this.informationLink = new NameLink(this.title, "https://" + this.name + ".ShephardLuke.co.uk"); //new NavLink(this.title, "projects/view?name=" + this.name);
-        } else {
-            this.informationLink = new NameLink(this.title, "https://github.com/ShephardLuke/" + this.name)
-        }
+        // if (isWebsite) {
+        //     this.informationLink = new NameLink(this.title, "https://" + this.name + ".ShephardLuke.co.uk"); //new NavLink(this.title, "projects/view?name=" + this.name);
+        // } else if (!isPrivate) {
+        //     this.informationLink = new NameLink(this.title, "https://github.com/ShephardLuke/" + this.name)
+        // } else {
+        //     this.informationLink = new NameLink(this.title, "https://github.com/ShephardLuke/" + this.name, false)
+        // }
+
+        this.informationLink = new NavLink(this.title, "/projects/view?name=" + this.name);
+        this.websiteLink = new NameLink(this.title + " website", "https://" + this.name + ".ShephardLuke.co.uk", isWebsite);
+        this.githubLink = new NameLink(this.title + " on Github", "https://github.com/ShephardLuke/" + this.name, !isPrivate)
 
     }
 
@@ -56,6 +64,14 @@ export class Project {
 
     getInformationLink() {
         return this.informationLink;
+    }
+
+    getWebsiteLink() {
+        return this.websiteLink;
+    }
+
+    getGithubLink() {
+        return this.githubLink;
     }
 }
 

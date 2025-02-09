@@ -98,3 +98,8 @@ p a:active, li a:active {
   color: #d97706; /* amber-600 */
 }
 
+/* ADDED FOR PERSONAL-WEBSITE */
+
+.disabled {
+  color: #525252;
+}

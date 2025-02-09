@@ -47,11 +47,13 @@ export const projectDatabase = [
     {
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
-        isPrivate: true
+        isPrivate: true,
+        isWebsite: false
     },
     {
         name: "battleships-two-player",
         title: "Battleships (Two Player)",
-        isPrivate: true
+        isPrivate: true,
+        isWebsite: false
     },
 ]

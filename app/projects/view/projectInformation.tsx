@@ -1,7 +1,12 @@
 import { Project } from "../project";
 
 export default function ProjectInformation({project}: {project: Project}) {
+    const websiteLink = project.getWebsiteLink().generateElement()
+    const githubLink = project.getGithubLink().generateElement()
     return (
-        <p>{project.getIsPrivate()}</p>
+        <>
+            <p>{websiteLink}</p>
+            <p>{githubLink}</p>
+        </>
     )
 }

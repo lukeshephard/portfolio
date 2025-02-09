@@ -9,7 +9,7 @@ export class NavLink extends NameLink {
         super(label, customLink ? customLink : "/" + label.toLowerCase().replace(" ", "-"))
     }    
 
-    generateElement(): React.JSX.Element {
+    generateElement(): React.JSX.Element { // Opens in same tab using the link component
         return <Link key={this.getLabel()} href={this.getLink()}>{this.getLabel()}</Link>
     }
 }
