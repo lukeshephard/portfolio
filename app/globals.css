@@ -97,9 +97,3 @@ p a:hover, li a:hover, .linkStyle:hover {
 p a:active, li a:active, .linkStyle:active { 
   color: #d97706; /* amber-600 */
 }
-
-/* ADDED FOR PERSONAL-WEBSITE */
-
-.disabled {
-  color: #525252;
-}

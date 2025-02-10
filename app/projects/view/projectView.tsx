@@ -12,13 +12,13 @@ export default function ProjectView() {
 
     const project = Project.getProjectByName(searchName);
 
-    const projectInformation = project ? <ProjectInformation project={project}/> : null;
+    const projectInformation = project.getName() != "" ? <ProjectInformation project={project}/> : null;
 
     return (
         <>
             <button className="linkStyle" onClick={() => {router.back()}}>Back</button>
             <div className="pt-5">
-                <h1>{project ? project.getTitle() : "Project not found."}</h1>
+                <h1>Project - {project.getName() != "" ? project.getTitle() : "Project not found."}</h1>
                 {projectInformation}
             </div>
         </>

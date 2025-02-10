@@ -23,8 +23,12 @@ export class NameLink {
 
     generateElement(): React.JSX.Element { // Opens in new tab
         if (!this.enabled) {
-            return <></>
+            return <span>(Disabled) {this.getLabel()}</span>
         }
         return <a key={this.getLabel()} href={this.getLink()} target="_blank">{this.getLabel()}</a> // ADDED _blank TARGET FOR NEW TAB
+    }
+
+    isEnabled() {
+        return this.enabled;
     }
 }
