@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { NavLink } from "../link/navLink";
+import { NameLink } from "../link/nameLink";
 
 export default function Header({currentPage}: {currentPage?: string}) {
 
@@ -11,11 +12,12 @@ export default function Header({currentPage}: {currentPage?: string}) {
         new NavLink("Home", "/"),
         new NavLink("Projects"),
         new NavLink("Socials"),
+        new NameLink("View on GitHub", "https://github.com/shephardluke/website-template"),
     ]
     const pageLinks = PAGES.map(page => {
         const label = page.getLabel();
         if (currentPage == label) {
-            return <div key={"currentPage"} className="underline header">{page.generateElement()}</div>
+            return <div key={"currentPage"} className="underline header linkStyle">{page.generateElement()}</div>
         } 
         return page.generateElement();
     })

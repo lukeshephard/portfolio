@@ -85,15 +85,15 @@ h2 {
 
 /* ADDED LI A FOR LINKS IN LISTS AND LINKSTYLE FOR THINGS LIKE BUTTONS THAT ARE DISGUISED AS LINKS */
 
-p a, li a, .linkStyle {
+p a, li a, .linkStyle, .linkStyle a {
   color: #fbbf24; /* amber-400 */
   text-decoration: underline;
 }
 
-p a:hover, li a:hover, .linkStyle:hover {
+p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
   color: #f59e0b; /* amber-500 */
 }
 
-p a:active, li a:active, .linkStyle:active { 
+p a:active, li a:active, .linkStyle:active, .linkStyle a:active { 
   color: #d97706; /* amber-600 */
 }
