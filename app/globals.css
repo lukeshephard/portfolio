@@ -1,4 +1,4 @@
-/* website-template v1.2 */
+/* website-template v1.3 */
 
 @tailwind base;
 @tailwind components;
@@ -64,26 +64,12 @@ a:active {
   color: #525252; /* neutral-600 */
 }
 
-li {
-  list-style-type: square;
-  list-style-position: inside;
-}
-
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
   text-decoration: underline;
   padding-bottom: 2.5rem;
 }
-
-h2 {
-  font-size: 1.75rem;
-  line-height: 2rem;
-  text-decoration: underline;
-  padding-bottom: 1.5rem;
-}
-
-/* ADDED LI A FOR LINKS IN LISTS AND LINKSTYLE FOR THINGS LIKE BUTTONS THAT ARE DISGUISED AS LINKS */
 
 p a, li a, .linkStyle, .linkStyle a {
   color: #fbbf24; /* amber-400 */
@@ -96,4 +82,24 @@ p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
 
 p a:active, li a:active, .linkStyle:active, .linkStyle a:active { 
   color: #d97706; /* amber-600 */
+}
+
+.disabledLinkStyle, .disabledLinkStyle a {
+  color: #9ca3af; /* gray-400 */
+  text-decoration: underline;
+}
+
+.disabledLinkStyle:hover, .disabledLinkStyle a:hover {
+  color: #71717a;
+}
+
+.disabledLinkStyle:active, .disabledLinkStyle a:active {
+  color: #52525b;
+}
+
+/* CHANGED FOR PERSONAL-WEBSITE */
+
+li {
+  list-style-type: square;
+  list-style-position: inside;
 }

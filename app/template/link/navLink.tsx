@@ -1,4 +1,4 @@
-// website-template v1.2
+// website-template v1.3
 
 import Link from "next/link"
 import { NameLink } from "./nameLink"
@@ -9,7 +9,7 @@ export class NavLink extends NameLink {
         super(label, customLink ? customLink : "/" + label.toLowerCase().replace(" ", "-"))
     }    
 
-    generateElement(): React.JSX.Element { // Opens in same tab using the link component
+    generateElement(): React.JSX.Element { // Returns as a NextJS Link Component
         return <Link key={this.getLabel()} href={this.getLink()}>{this.getLabel()}</Link>
     }
 }
