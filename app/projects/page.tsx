@@ -13,7 +13,7 @@ export default function Page() {
             <Header currentPage="Projects"/>
             <div className="main">
                 <h1>Projects</h1>
-                <p>At the moment this page is a list of my projects (working on a better page).<br/>Clicking one will take you to its website if it has one, or its github page otherwise.</p>
+                <p>At the moment this page is a list of my projects.<br/>Clicking one will give you more information on the project, and ways to view it if it has any.</p>
                 <div className="pt-5 text-2xl">
                     {projectLabels}
                 </div>
