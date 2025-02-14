@@ -19,18 +19,6 @@ export const projectDatabase = [
         lastEdited: 1739200006236,
     },
     {
-        name: "advent-of-code-2024",
-        title: "Advent of Code 2024",
-        summary: "My solutions to Advent of Code 2024.",
-        description: `I found out about Advent of Code a little late into the Christmas of 2024, but once I started I wanted to try finish it all anyway.
-            As off writing this it is just over half way done, and the first half was very fun with some of the problems being my all time favourites.
-            I got a bit busy and need to learn Dijkstra's algorithm before I carry on, but I'm going to finish it eventually.
-            I chose to do it in python using the procedural programming paradigm as they are 2 areas that I do not do much so I thought it would work well as a good recap.
-            If I ever get the chance, I will try to go back and do previous years but my project backlog is already huge enough as it is haha...`,
-        lastEdited: 1739204235250,
-        isWebsite: false
-    },
-    {
         name: "website-template",
         title: "Website Template",
         summary: "A base template that I use for my webstites",
@@ -44,11 +32,32 @@ export const projectDatabase = [
         name: "tic-tac-toe",
         title: "Tic Tac Toe",
         summary: "The famous X and O game, extending greatly from the React tutorial to add other features like bots.",
-        description: `This was first React project. Everything felt a bit overwhelming so I followed the react tutorial and tried out NextJS.
+        description: `This was my first React project. Everything felt a bit overwhelming so I followed the react tutorial and tried out Next.js.
             Eventually I got the hang of it so after I had finished the tutorial I went on to add new features. I added bots with different difficulties,
             and made custom components like buttons and select boxes to aid user experience. After 1.0 I worked on a 2.0 version (with a lot of features/ideas) but it got way too big way too fast so I scrapped it.
             However, the quality of life improvments I made in the alpha versions were really good so I'm planning to bring them over along while adding website-template to make a final 1.1 release (when I get around to it, probably after website-template has mobile support).`,
-        lastEdited: 1739201341617,
+        lastEdited: 1739574175154,
+    },
+    {
+        name: "weather-api-experiments",
+        title: "Weather API Experiments",
+        summary: "A series of experiments to help me get used to the OpenWeather API and using it with React Native, for an upcoming university project.",
+        description: `I wanted to get used to using the OpenWeather API before I started the project, so I would be find it easier to get started.
+            I also have not used React Native before but it is very similar to using React with Next.js. I had to get used to not using Tailwind and TypeScript though which I already miss.`,
+        isWebsite: false,
+        lastEdited: 1739574314940,
+    }, 
+    {
+        name: "advent-of-code-2024",
+        title: "Advent of Code 2024",
+        summary: "My solutions to Advent of Code 2024.",
+        description: `I found out about Advent of Code a little late into the Christmas of 2024, but once I started I wanted to try finish it all anyway.
+            As off writing this it is just over half way done, and the first half was very fun with some of the problems being my all time favourites.
+            I got a bit busy and need to learn Dijkstra's algorithm before I carry on, but I'm going to finish it eventually.
+            I chose to do it in python using the procedural programming paradigm as they are 2 areas that I do not do much so I thought it would work well as a good recap.
+            If I ever get the chance, I will try to go back and do previous years but my project backlog is already huge enough as it is haha...`,
+        lastEdited: 1739204235250,
+        isWebsite: false
     },
     {
         name: "little-man-computer",

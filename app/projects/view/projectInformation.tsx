@@ -35,7 +35,7 @@ export default function ProjectInformation({project}: {project: Project}) {
             <p className="text-2xl">{project.getSummary()}</p>
             {linkElement}
             <p className="pt-5">{project.getDescription()}</p>
-            <p className="pt-5 text-gray-400">Page last edited: {lastEdited}</p>
+            <p className="pt-5 text-gray-400"><em>This page was lasted edited on {lastEdited}.</em></p>
         </>
     )
 }
