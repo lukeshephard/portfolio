@@ -1,3 +1,5 @@
+import { Language } from "./language";
+
 // See project.ts for all available attributes
 export const projectDatabase = [
     {
@@ -7,7 +9,9 @@ export const projectDatabase = [
         description: `I thought it would be fun and a good learning experience to try to make a personal website.
             I also thought a place to showcase my projects to would cool, and even mention some private projects like university ones.
             At the moment it is being improved over time as I improve my react and front-end skills.`,
-        lastEdited: 1739200006236,
+        languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
+        created: 1723547040,
+        lastEdited: 1739831648,
     },
     {
         name: "database-demo",
@@ -16,7 +20,9 @@ export const projectDatabase = [
         description: `Originally a prototype I was making to test out how databases work in web browsers,
             I kept thinking of new interesting features to add and now it is my main project at the moment. While it does not really have
             much practical use other than a neat gimmick, it helps a lot with working on my GUI skills and currently is helping me improve my webpage designs.`,
-        lastEdited: 1739200006236,
+        languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
+        created: 1731950100,
+        lastEdited: 1739831648,
     },
     {
         name: "website-template",
@@ -26,7 +32,9 @@ export const projectDatabase = [
             To fix this, I made a repository that I keep a template in and update it when I have a lot of new features to add.
             This template shares a bunch of files that I use across multiple projects, like buttons and styling. After an update I can then
             easily update my past projects with the newer design as they already have the shared files.`,
-        lastEdited: 1739200663746,
+        languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
+        created: 1733346000,
+        lastEdited: 1739831648,
     },
     {
         name: "tic-tac-toe",
@@ -36,7 +44,9 @@ export const projectDatabase = [
             Eventually I got the hang of it so after I had finished the tutorial I went on to add new features. I added bots with different difficulties,
             and made custom components like buttons and select boxes to aid user experience. After 1.0 I worked on a 2.0 version (with a lot of features/ideas) but it got way too big way too fast so I scrapped it.
             However, the quality of life improvments I made in the alpha versions were really good so I'm planning to bring them over along while adding website-template to make a final 1.1 release (when I get around to it, probably after website-template has mobile support).`,
-        lastEdited: 1739574175154,
+        languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
+        created: 1723910640,
+        lastEdited: 1739831648,
     },
     {
         name: "weather-api-experiments",
@@ -44,8 +54,10 @@ export const projectDatabase = [
         summary: "A series of experiments to help me get used to the OpenWeather API and using it with React Native, for an upcoming university project.",
         description: `I wanted to get used to using the OpenWeather API before I started the project, so I would be find it easier to get started.
             I also have not used React Native before but it is very similar to using React with Next.js. I had to get used to not using Tailwind and TypeScript though which I already miss.`,
+        languages: [Language.JavaScript, Language.CSS, Language.HTML, Language.Python],
         isWebsite: false,
-        lastEdited: 1739574314940,
+        created: 1739446200,
+        lastEdited: 1739831648,
     }, 
     {
         name: "advent-of-code-2024",
@@ -56,7 +68,9 @@ export const projectDatabase = [
             I got a bit busy and need to learn Dijkstra's algorithm before I carry on, but I'm going to finish it eventually.
             I chose to do it in python using the procedural programming paradigm as they are 2 areas that I do not do much so I thought it would work well as a good recap.
             If I ever get the chance, I will try to go back and do previous years but my project backlog is already huge enough as it is haha...`,
-        lastEdited: 1739204235250,
+        languages: [Language.Python],
+        created: 1734556325,
+        lastEdited: 1739831648,
         isWebsite: false
     },
     {
@@ -70,7 +84,9 @@ export const projectDatabase = [
             Overall, it went well and I got an A* for it. It was made in p5.js as that is what we used throughout A-level.
             I have a lot of new features and ideas for a reimagined version that I would love to do in the future, made in React instead and using
             everything I have learned in recent years to properly rebuild it from the ground up.`,
-        lastEdited: 1739202134043,
+        languages: [Language.JavaScript, Language.CSS, Language.HTML],
+        created: 1664409600,
+        lastEdited: 1739831648,
     },
     {
         name: "point-region-quadtree",
@@ -83,7 +99,9 @@ export const projectDatabase = [
             You can see in the files I had some partially working FSA code too. I didn't really want to just leave what I did though as nothing so I turned it into this.
             I do like though how there is a whole hidden layer of unused stuff inside the repository. Adding "new FSADisplay()" to index.js will show the little I had started on the actual Automata Tool I wanted to create in the first place.
             The canvas was optimised though and it does run well so that part was a success.`,
-        lastEdited: 1739204714253,
+        languages: [Language.JavaScript, Language.CSS],
+        created: 1719922811,
+        lastEdited: 1739831648,
     },
     {
         name: "maze-generator",
@@ -94,7 +112,9 @@ export const projectDatabase = [
             really just an experiment. Since it was made in p5.js you can right click and save an image of the maze though which is a pretty cool unintended feature,
             though there are no entrances and exits to the mazes so they are pretty useless. I keep it on my Github as it is something cool I did once and it works well for what it is.
             I have tons of A-level experiments but most of them are clunky, unfinished or straight up broken at this point so at least I have this one to showcase.`,
-        lastEdited: 1739203740900,
+        languages: [Language.JavaScript, Language.HTML, Language.CSS],
+        created: 1642377600,
+        lastEdited: 1739831648,
     },
     {
         name: "automata-tool-prototype",
@@ -108,7 +128,9 @@ export const projectDatabase = [
             is cool though, but the user has to manually drag out each state from the center to see the full machine. There is an algorithm to build graphs like that and position
             them neatly but again that was too much for me. One big issue as you can see was I did not use any libraries, and I would definitely use one for that diagram side of things next time.
             I started to work on a more fleshed out version as I thought this went well, but then it became point-region-quadtree and it has more information on that page.`,
-        lastEdited: 1739204714253,
+        languages: [Language.JavaScript, Language.HTML, Language.CSS],
+        created: 1718929499,
+        lastEdited: 1739831648,
     },
     {
         name: "battleships",
@@ -120,31 +142,36 @@ export const projectDatabase = [
             and the top grid just runs a turn when the player clicks a cell and that is basically the game. One of the hardest parts was making the edges of cells disappear to form the outline of boats.
             There is also a local two player version that I made and I was going to combine them together but they were quite different in terms of code that I never got round to do it, so they are separate projects.
             I would love to recreate this in React sometime, as I already have Tic Tac Toe and that is pretty similar to Battleships in terms of implementation.`,
-        lastEdited: 1739206426248,
+        languages: [Language.JavaScript, Language.HTML, Language.CSS],
+        created: 1637452800,
+        lastEdited: 1739831648,
     },
     {
         name: "clock-of-clocks",
         title:  "Clock of Clocks",
         summary: "Website that displays a digital clock made of tiny anologue clocks.",
-        description: "TBA",
-        lastEdited: 1739206465535,
+        languages: [Language.JavaScript, Language.HTML, Language.CSS],
+        created: 1646092800,
+        lastEdited: 1739831648,
     },
     {
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
         summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming)",
-        description: "TBA",
+        languages: [Language.Java],
         isPrivate: true,
         isWebsite: false,
-        lastEdited: 1739206465535,
+        created: 1711505160,
+        lastEdited: 1739831648,
     },
     {
         name: "battleships-two-player",
         title: "Battleships (Two Player)",
         summary: "A two player version of my Battleships project.",
-        description: "TBA",
         isPrivate: true,
         isWebsite: false,
-        lastEdited: 1739206465535,
+        languages: [Language.JavaScript, Language.HTML, Language.CSS],
+        created: 1639267200,
+        lastEdited: 1739831648,
     },
 ]

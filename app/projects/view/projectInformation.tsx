@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { Project } from "../project";
 
 export default function ProjectInformation({project}: {project: Project}) {
@@ -23,19 +25,20 @@ export default function ProjectInformation({project}: {project: Project}) {
     if (links.length == 0) {
         linkElement = <p className="pt-5">This project cannot be viewed as it has no website and is in a private repository.</p>
     }
+    
+    dayjs.extend(relativeTime)
 
-    let lastEdited: string;
-    if (isNaN(project.getLastEdited().getTime())) {
-        lastEdited = "Unknown";
-    } else {
-        lastEdited = project.getLastEdited().toString()
-    }
     return (
         <>
             <p className="text-2xl">{project.getSummary()}</p>
             {linkElement}
-            <p className="pt-5">{project.getDescription()}</p>
-            <p className="pt-5 text-gray-400"><em>This page was lasted edited on {lastEdited}.</em></p>
+            {project.getDescription() != "" ? <p className="pt-5">{project.getDescription()}</p> : null}
+
+            {project.getLanguages().length > 0 ? <p className="pt-5">Languages: {project.getLanguages().toString()}</p> : null}
+
+            {project.getCreated().isValid() ? <p className="pt-5">I created this project {project.getCreated().fromNow()} ({project.getCreated().format("DD/MM/YYYY")}).</p> : null}
+
+            <p className="pt-5 text-gray-400"><em>This page was lasted edited {project.getLastEdited().fromNow()} ({project.getLastEdited().format("DD/MM/YYYY")}).</em></p>
         </>
     )
 }

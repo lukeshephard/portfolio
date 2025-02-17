@@ -1,5 +1,7 @@
+import dayjs, { Dayjs } from "dayjs";
 import { NameLink } from "../template/link/nameLink";
 import { NavLink } from "../template/link/navLink";
+import { Language } from "./language";
 import { projectDatabase } from "./projectDatabase";
 
 export class Project {
@@ -7,7 +9,10 @@ export class Project {
     private title: string;
     private summary: string;
     private description: string;
-    private lastEdited: Date;
+    private languages: Language[];
+
+    private created: Dayjs;
+    private lastEdited: Dayjs;
 
     private isPrivate: boolean;
     private informationLink: NavLink;
@@ -22,14 +27,17 @@ export class Project {
     public static CreateFromObject(obj : {[key: string]: unknown}) { // Creates a project from an object with any keys (every parameter is optional)
         const pName = obj.name ? obj.name as string : "";
         const pTitle = obj.title ? obj.title as string : "Unnamed Project";
-        const pSummary = obj.summary ? obj.summary as string: "";
+        const pSummary = obj.summary ? obj.summary as string : "";
         const pDescription = obj.description ? obj.description as string : "";
-        const pLastEdited = obj.lastEdited ? new Date(obj.lastEdited as number) : new Date(NaN);
+        const pLanguages = obj.languages ? obj.languages as Language[] : [];
+
+        const pCreated = obj.created ? dayjs.unix(obj.created as number) : dayjs(null)  
+        const pLastEdited = obj.lastEdited ? dayjs.unix(obj.lastEdited as number) : dayjs(null);
 
         const pIsPrivate = obj.isPrivate == undefined ? false: obj.isPrivate as boolean
         const pIsWebsite = obj.isWebsite == undefined ? true : obj.isWebsite as boolean
 
-        return new Project(pName, pTitle, pSummary, pDescription,  pLastEdited, pIsPrivate, pIsWebsite)
+        return new Project(pName, pTitle, pSummary, pDescription, pLanguages, pCreated, pLastEdited, pIsPrivate, pIsWebsite)
     }
 
     public static getProjectByName(name: string) {
@@ -39,18 +47,21 @@ export class Project {
         return ALL_PROJECTS[name]
     }
 
-    private constructor(name: string, title: string, summary: string, description: string, lastEdited: Date, isPrivate: boolean, isWebsite: boolean) { // Always has to go through CreateFromObject
+    private constructor(name: string, title: string, summary: string, description: string, languages: Language[], created: Dayjs, lastEdited: Dayjs, isPrivate: boolean, isWebsite: boolean) { // Always has to go through CreateFromObject
         this.name = name;
         this.title = title;
         this.summary = summary;
         this.description = description;
+        this.languages = languages;
+
+        this.created = created;
         this.lastEdited = lastEdited;
 
         this.isPrivate = isPrivate;
         this.isWebsite = isWebsite;
         this.informationLink = new NavLink(this.title, "/projects/view?name=" + this.name);
-        this.websiteLink = new NameLink(this.title + " website", "https://" + this.name + ".ShephardLuke.co.uk", isWebsite);
-        this.githubLink = new NameLink(this.title + " on Github", "https://github.com/ShephardLuke/" + this.name, !isPrivate)
+        this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".ShephardLuke.co.uk", isWebsite);
+        this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/ShephardLuke/" + this.name, !isPrivate)
 
     }
 
@@ -66,8 +77,16 @@ export class Project {
         return this.summary;
     }
 
+    getLanguages() {
+        return this.languages;
+    }
+
     getDescription() {
         return this.description;
+    }
+
+    getCreated() {
+        return this.created;
     }
 
     getLastEdited() {
