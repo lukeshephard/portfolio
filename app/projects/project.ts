@@ -4,6 +4,22 @@ import { NavLink } from "../template/link/navLink";
 import { Language } from "./language";
 import { projectDatabase } from "./projectDatabase";
 
+type ProjectObject = {
+    name: string;
+    title: string;
+    summary: string;
+    description: string;
+    languages: Language[];
+
+    created: Dayjs;
+    lastEdited: Dayjs;
+
+    isPrivate: boolean;
+    isWebsite: boolean;
+    
+    hasMainImage: boolean;
+}
+
 export class Project {
     private name: string;
     private title: string;
@@ -15,8 +31,11 @@ export class Project {
     private lastEdited: Dayjs;
 
     private isPrivate: boolean;
-    private informationLink: NavLink;
     private isWebsite: boolean;
+
+    private mainImagePath: string;
+
+    private informationLink: NavLink;
     private githubLink: NameLink;
     private websiteLink: NameLink;
 
@@ -25,19 +44,22 @@ export class Project {
     }
 
     public static CreateFromObject(obj : {[key: string]: unknown}) { // Creates a project from an object with any keys (every parameter is optional)
-        const pName = obj.name ? obj.name as string : "";
-        const pTitle = obj.title ? obj.title as string : "Unnamed Project";
-        const pSummary = obj.summary ? obj.summary as string : "";
-        const pDescription = obj.description ? obj.description as string : "";
-        const pLanguages = obj.languages ? obj.languages as Language[] : [];
+        const objWithDefaults = structuredClone(obj);
+        objWithDefaults.name = obj.name ? obj.name as string : "";
+        objWithDefaults.title = obj.title ? obj.title as string : "Unnamed Project";
+        objWithDefaults.summary = obj.summary ? obj.summary as string : "";
+        objWithDefaults.description = obj.description ? obj.description as string : "";
+        objWithDefaults.languages = obj.languages ? obj.languages as Language[] : [];
 
-        const pCreated = obj.created ? dayjs.unix(obj.created as number) : dayjs(null)  
-        const pLastEdited = obj.lastEdited ? dayjs.unix(obj.lastEdited as number) : dayjs(null);
+        objWithDefaults.created = obj.created ? dayjs.unix(obj.created as number) : dayjs(null)  
+        objWithDefaults.lastEdited = obj.lastEdited ? dayjs.unix(obj.lastEdited as number) : dayjs(null);
 
-        const pIsPrivate = obj.isPrivate == undefined ? false: obj.isPrivate as boolean
-        const pIsWebsite = obj.isWebsite == undefined ? true : obj.isWebsite as boolean
+        objWithDefaults.isPrivate = obj.isPrivate == undefined ? false: obj.isPrivate as boolean
+        objWithDefaults.isWebsite = obj.isWebsite == undefined ? true : obj.isWebsite as boolean
 
-        return new Project(pName, pTitle, pSummary, pDescription, pLanguages, pCreated, pLastEdited, pIsPrivate, pIsWebsite)
+        objWithDefaults.hasMainImage = obj.hasMainImage == undefined ? true : obj.hasMainImage as boolean
+
+        return new Project(objWithDefaults as ProjectObject)
     }
 
     public static getProjectByName(name: string) {
@@ -47,21 +69,24 @@ export class Project {
         return ALL_PROJECTS[name]
     }
 
-    private constructor(name: string, title: string, summary: string, description: string, languages: Language[], created: Dayjs, lastEdited: Dayjs, isPrivate: boolean, isWebsite: boolean) { // Always has to go through CreateFromObject
-        this.name = name;
-        this.title = title;
-        this.summary = summary;
-        this.description = description;
-        this.languages = languages;
+    private constructor(obj: ProjectObject) { // Always has to go through CreateFromObject
+        this.name = obj.name;
+        this.title = obj.title;
+        this.summary = obj.summary;
+        this.description = obj.description;
+        this.languages = obj.languages;
 
-        this.created = created;
-        this.lastEdited = lastEdited;
+        this.created = obj.created;
+        this.lastEdited = obj.lastEdited;
 
-        this.isPrivate = isPrivate;
-        this.isWebsite = isWebsite;
+        this.isPrivate = obj.isPrivate;
+        this.isWebsite = obj.isWebsite;
+
+        this.mainImagePath = obj.hasMainImage ? "/images/projects/" + this.name + "/main.png" : "";
+
         this.informationLink = new NavLink(this.title, "/projects/view?name=" + this.name);
-        this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".ShephardLuke.co.uk", isWebsite);
-        this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/ShephardLuke/" + this.name, !isPrivate)
+        this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".ShephardLuke.co.uk", obj.isWebsite);
+        this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/ShephardLuke/" + this.name, !obj.isPrivate)
 
     }
 
@@ -95,6 +120,14 @@ export class Project {
 
     getIsPrivate() {
         return this.isPrivate;
+    }
+
+    getIsWebsite() {
+        return this.isWebsite;
+    }
+
+    getMainImagePath() {
+        return this.mainImagePath;
     }
 
     getInformationLink() {

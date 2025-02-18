@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Project } from "../project";
+import ProjectMainImage from "../projectMainImage";
 
 export default function ProjectInformation({project}: {project: Project}) {
     const websiteLink = project.getWebsiteLink()
@@ -31,7 +32,11 @@ export default function ProjectInformation({project}: {project: Project}) {
     return (
         <>
             <p className="text-2xl">{project.getSummary()}</p>
+            
             {linkElement}
+
+            <ProjectMainImage project={project} className="mt-5 w-2/5 h-auto border"/>
+
             {project.getDescription() != "" ? <p className="pt-5">{project.getDescription()}</p> : null}
 
             {project.getLanguages().length > 0 ? <p className="pt-5">Languages: {project.getLanguages().toString()}</p> : null}

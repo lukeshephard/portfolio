@@ -27,14 +27,14 @@ export const projectDatabase = [
     {
         name: "website-template",
         title: "Website Template",
-        summary: "A base template that I use for my webstites",
+        summary: "A base template that I use for my websites.",
         description: `With my newer projects, I get more and more experience with React and then the newer ones end up looking nicer than the older ones.
             To fix this, I made a repository that I keep a template in and update it when I have a lot of new features to add.
             This template shares a bunch of files that I use across multiple projects, like buttons and styling. After an update I can then
             easily update my past projects with the newer design as they already have the shared files.`,
         languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
         created: 1733346000,
-        lastEdited: 1739831648,
+        lastEdited: 1739882255,
     },
     {
         name: "tic-tac-toe",
@@ -51,13 +51,13 @@ export const projectDatabase = [
     {
         name: "weather-api-experiments",
         title: "Weather API Experiments",
-        summary: "A series of experiments to help me get used to the OpenWeather API and using it with React Native, for an upcoming university project.",
+        summary: "A series of experiments to help me get used to the OpenWeather API and using it with Create React App, for an upcoming university project.",
         description: `I wanted to get used to using the OpenWeather API before I started the project, so I would be find it easier to get started.
-            I also have not used React Native before but it is very similar to using React with Next.js. I had to get used to not using Tailwind and TypeScript though which I already miss.`,
+            I also have not used React alone before but it is very similar to using React with Next.js. I had to get used to not using Tailwind and TypeScript though which I already miss.`,
         languages: [Language.JavaScript, Language.CSS, Language.HTML, Language.Python],
         isWebsite: false,
         created: 1739446200,
-        lastEdited: 1739831648,
+        lastEdited: 1739876794,
     }, 
     {
         name: "advent-of-code-2024",
@@ -157,12 +157,12 @@ export const projectDatabase = [
     {
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
-        summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming)",
+        summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming).",
         languages: [Language.Java],
         isPrivate: true,
         isWebsite: false,
         created: 1711505160,
-        lastEdited: 1739831648,
+        lastEdited: 1739882255,
     },
     {
         name: "battleships-two-player",
