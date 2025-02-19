@@ -3,10 +3,13 @@ import { NameLink } from "../template/link/nameLink";
 import { NavLink } from "../template/link/navLink";
 import { Language } from "./language";
 import { projectDatabase } from "./projectDatabase";
+import { Release } from "./release";
 
-type ProjectObject = {
+type ProjectObject = { // Type to turn objects into valid Projects, an oject MUST have all of these properties
     name: string;
     title: string;
+    latestRelease: Release
+
     summary: string;
     description: string;
     languages: Language[];
@@ -23,6 +26,8 @@ type ProjectObject = {
 export class Project {
     private name: string;
     private title: string;
+    private latestRelease: Release;
+
     private summary: string;
     private description: string;
     private languages: Language[];
@@ -47,6 +52,8 @@ export class Project {
         const objWithDefaults = structuredClone(obj);
         objWithDefaults.name = obj.name ? obj.name as string : "";
         objWithDefaults.title = obj.title ? obj.title as string : "Unnamed Project";
+        objWithDefaults.latestRelease = obj.latestRelease ? obj.latestRelease as Release : new Release("-1", "No version", NaN)
+
         objWithDefaults.summary = obj.summary ? obj.summary as string : "";
         objWithDefaults.description = obj.description ? obj.description as string : "";
         objWithDefaults.languages = obj.languages ? obj.languages as Language[] : [];
@@ -62,7 +69,7 @@ export class Project {
         return new Project(objWithDefaults as ProjectObject)
     }
 
-    public static getProjectByName(name: string) {
+    public static getProjectByName(name: string) { // Get project from the hashmap
         if (!(name in ALL_PROJECTS)) {
             return Project.CreateFromObject({})
         }
@@ -72,6 +79,8 @@ export class Project {
     private constructor(obj: ProjectObject) { // Always has to go through CreateFromObject
         this.name = obj.name;
         this.title = obj.title;
+        this.latestRelease = obj.latestRelease;
+
         this.summary = obj.summary;
         this.description = obj.description;
         this.languages = obj.languages;
@@ -96,6 +105,10 @@ export class Project {
 
     getTitle() {
         return this.title;
+    }
+
+    getlatestRelease() {
+        return this.latestRelease;
     }
 
     getSummary() {
@@ -143,7 +156,7 @@ export class Project {
     }
 }
 
-function createProjects(): {[key: string]: Project} { // Create an array of projects from a list of objects
+function createProjects(): {[key: string]: Project} { // Create a hashmap of projects from a list of objects
     const allProjects: {[key: string]: Project} = {}
     for (let i = 0; i < projectDatabase.length; i++) {
         allProjects[projectDatabase[i].name] = (Project.CreateFromObject(projectDatabase[i]))

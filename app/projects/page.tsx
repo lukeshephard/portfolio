@@ -6,7 +6,13 @@ import { Project } from "./project";
 import ProjectPreview from "./projectPreview";
 
 export default function Page() {
-    const projectLabels = Object.values(Project.ALL_PROJECTS()).map(project => <div className="pt-2" key={project.getName()}><ProjectPreview project={project}/></div>)   
+    const projects = Project.ALL_PROJECTS();
+
+    const projectNamesByDateDescending  = Object.keys(projects).sort((a, b) => projects[b].getCreated().unix() - projects[a].getCreated().unix())
+    const projectsByDateDescending = projectNamesByDateDescending.map(project => projects[project]);
+    console.log(projectsByDateDescending)
+    
+    const projectLabels = Object.values(projectsByDateDescending).map(project => <div className="pt-2" key={project.getName()}><ProjectPreview project={project}/></div>)   
 
     return (
         <>
