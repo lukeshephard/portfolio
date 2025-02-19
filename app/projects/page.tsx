@@ -13,7 +13,7 @@ export default function Page() {
             <Header currentPage="Projects"/>
             <div className="main">
                 <h1>Projects</h1>
-                <p>Here are my projects.<br/>Clicking one will give you more information on the project, and ways to view it if it has any.</p>
+                <p>Here are my projects. Most are on GitHub but some here will be private like university ones.<br/>Clicking one will give you more information on the project, and ways to view it if it has any.</p>
                 <div className="grid grid-cols-3 gap-5 pt-5 text-center">
                     {projectLabels}
                 </div>
