@@ -6,60 +6,59 @@ export const projectDatabase = [
     {
         name: "personal-website",
         title: "Personal Website",
-        latestRelease: new Release("0.3.0-alpha.1", "Projects Backend", 1739039400),
         summary: "My very own website to add everything about myself (the website you are on right now).",
+        latestRelease: new Release("0.3.0-alpha.1", "Projects Backend", 1739039400),
         description: `I thought it would be fun and a good learning experience to try to make a personal website.
             I also thought a place to showcase my projects to would cool, and even mention some private projects like university ones.
             At the moment it is being improved over time as I improve my react and front-end skills.`,
         languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
         created: 1723547040,
-        lastEdited: 1739831648,
     },
     {
         name: "database-demo",
         title: "Database Demo",
         summary: "A little database builder.",
+        latestRelease: new Release("0.7.1", "Bug Fix", 1734533400),
         description: `Originally a prototype I was making to test out how databases work in web browsers,
             I kept thinking of new interesting features to add and now it is my main project at the moment. While it does not really have
             much practical use other than a neat gimmick, it helps a lot with working on my GUI skills and currently is helping me improve my webpage designs.`,
         languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
         created: 1731950100,
-        lastEdited: 1739831648,
     },
     {
         name: "website-template",
         title: "Website Template",
         summary: "A base template that I use for my websites.",
+        latestRelease: new Release("1.3.0", "Header and links improvement", 1739486940),
         description: `With my newer projects, I get more and more experience with React and then the newer ones end up looking nicer than the older ones.
             To fix this, I made a repository that I keep a template in and update it when I have a lot of new features to add.
             This template shares a bunch of files that I use across multiple projects, like buttons and styling. After an update I can then
             easily update my past projects with the newer design as they already have the shared files.`,
         languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
         created: 1733346000,
-        lastEdited: 1739882255,
     },
     {
         name: "tic-tac-toe",
         title: "Tic Tac Toe",
         summary: "The famous X and O game, extending greatly from the React tutorial to add other features like bots.",
+        latestRelease: new Release("1.0.1", "Bug Fix", 1725207540),
         description: `This was my first React project. Everything felt a bit overwhelming so I followed the react tutorial and tried out Next.js.
             Eventually I got the hang of it so after I had finished the tutorial I went on to add new features. I added bots with different difficulties,
             and made custom components like buttons and select boxes to aid user experience. After 1.0 I worked on a 2.0 version (with a lot of features/ideas) but it got way too big way too fast so I scrapped it.
             However, the quality of life improvments I made in the alpha versions were really good so I'm planning to bring them over along while adding website-template to make a final 1.1 release (when I get around to it, probably after website-template has mobile support).`,
         languages: [Language.JavaScript, Language.CSS, Language.TypeScript],
         created: 1723910640,
-        lastEdited: 1739831648,
     },
     {
         name: "weather-api-experiments",
         title: "Weather API Experiments",
         summary: "A series of experiments to help me get used to the OpenWeather API and using it with Create React App, for an upcoming university project.",
+        latestRelease: new Release("1.3.0", "Experiment 3", 1739745300),
         description: `I wanted to get used to using the OpenWeather API before I started the project, so I would be find it easier to get started.
             I also have not used React alone before but it is very similar to using React with Next.js. I had to get used to not using Tailwind and TypeScript though which I already miss.`,
         languages: [Language.JavaScript, Language.CSS, Language.HTML, Language.Python],
         isWebsite: false,
         created: 1739446200,
-        lastEdited: 1739876794,
     }, 
     {
         name: "advent-of-code-2024",
@@ -72,13 +71,13 @@ export const projectDatabase = [
             If I ever get the chance, I will try to go back and do previous years but my project backlog is already huge enough as it is haha...`,
         languages: [Language.Python],
         created: 1734556325,
-        lastEdited: 1739831648,
         isWebsite: false
     },
     {
         name: "little-man-computer",
         title: "Little Man Computer",
         summary: "My A-level 2023 Computer Science Project.",
+        latestRelease: new Release("1.1.0", "GitHub Link", 1739817240),
         description: `This was my biggest project I had done to date at the time, I had to work on it over a number of weeks while documenting what I did.
             First I had to do research into little man computer, looking at existing projects and what I would change for mine. Then I had to design it,
             documenting each requirement and their priorities. Lastly I had to actually build it from those requirements. I aimed at a more mordern version,
@@ -88,12 +87,12 @@ export const projectDatabase = [
             everything I have learned in recent years to properly rebuild it from the ground up.`,
         languages: [Language.JavaScript, Language.CSS, Language.HTML],
         created: 1664409600,
-        lastEdited: 1739831648,
     },
     {
         name: "point-region-quadtree",
         title: "Point Region Quadtree",
         summary: "A showcase of a point region quadtree, the user can click on the canvas to add points and watch it divide.",
+        latestRelease: new Release("1.0.0", "Initial Release", 1724300400),
         description: `This project was supposed to be proper version of the Automata Tool, but it got too big and I think I lost control of it very quickly.
             It ended up at this vision for an app that could show different data structures and the user would be able to interact with them and see how they link to each other. 
             This was just before I started learning React, so I was still using pure HTML and JavaScript and experimenting with webpack. I was trying to optimise drawing shapes and text to canvases with minimal redrawing.
@@ -103,12 +102,12 @@ export const projectDatabase = [
             The canvas was optimised though and it does run well so that part was a success.`,
         languages: [Language.JavaScript, Language.CSS],
         created: 1719922811,
-        lastEdited: 1739831648,
     },
     {
         name: "maze-generator",
         title: "Maze Generator",
         summary: "A tool to generate random mazes of different sizes",
+        latestRelease: new Release("1.0.0", "Initial Release", 1724295120),
         description: `I wanted to have a look into mazes back when was doing A-Level so I made this app quickly just to experiment with
             path finding algorithms. It ends up becoming slow when big mazes are generated but I was not really interested in improving it, since it was
             really just an experiment. Since it was made in p5.js you can right click and save an image of the maze though which is a pretty cool unintended feature,
@@ -116,12 +115,12 @@ export const projectDatabase = [
             I have tons of A-level experiments but most of them are clunky, unfinished or straight up broken at this point so at least I have this one to showcase.`,
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1642377600,
-        lastEdited: 1739831648,
     },
     {
         name: "automata-tool-prototype",
         title: "Automata Tool (Prototype)",
         summary: "A concept for a tool that lets users create Automata, then import/export them.",
+        latestRelease: new Release("1.0.0", "Initial Release", 1724293200),
         description: `This was something I made after finishing year 1 of university, as I had this a cool idea and wanted to just see how well it would work.
             I made it in 3 days which is why it looks so plain and I still was using pure HTML and JavaScript to do this, with not much experience with styling.
             I just wanted to focus on the most important features, and style was not one of them here. The prototype works okay for what it is, I was limited
@@ -132,12 +131,12 @@ export const projectDatabase = [
             I started to work on a more fleshed out version as I thought this went well, but then it became point-region-quadtree and it has more information on that page.`,
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1718929499,
-        lastEdited: 1739831648,
     },
     {
         name: "battleships",
         title: "Battleships",
         summary: "A recreation of the popular board game, made in HTML, JavaScript and CSS.",
+        latestRelease: new Release("20/08/24", "Initial Release", 1724139120),
         description: `This is probably my favourite of my A-Level side projects, as it works well and everyone knows battleships so it's something I can actually show to people who don't know computer science.
             I also really like how it turned out, with my limited web skills at the time. I only had a months of learning how to program for the web after just knowing python. I saw the potential of having something
             I could share without needing it to be downloaded too and a game is perfect for that. The display is just 2 grids with each cell containing the class for the needed colour,
@@ -146,34 +145,33 @@ export const projectDatabase = [
             I would love to recreate this in React sometime, as I already have Tic Tac Toe and that is pretty similar to Battleships in terms of implementation.`,
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1637452800,
-        lastEdited: 1739831648,
     },
     {
         name: "clock-of-clocks",
         title:  "Clock of Clocks",
         summary: "Website that displays a digital clock made of tiny anologue clocks.",
+        latestRelease: new Release("1.0.0", "Initial Release", 1724115420),
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1646092800,
-        lastEdited: 1739831648,
     },
     {
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
         summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming).",
+        latestRelease: new Release("Part 2", "Finished Part 2", 1714162020),
         languages: [Language.Java],
         isPrivate: true,
         isWebsite: false,
         created: 1711505160,
-        lastEdited: 1739882255,
     },
     {
         name: "battleships-two-player",
         title: "Battleships (Two Player)",
         summary: "A two player version of my Battleships project.",
+        latestRelease: new Release("13/12/21", "", 1639380720),
         isPrivate: true,
         isWebsite: false,
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1639267200,
-        lastEdited: 1739831648,
     },
 ]

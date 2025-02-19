@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Project } from "./project";
+import { Project } from "../project";
 
 export default function ProjectMainImage({project, className}: {project: Project, className?: string}) {
     return (

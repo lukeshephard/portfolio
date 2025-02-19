@@ -1,9 +1,9 @@
 import dayjs, { Dayjs } from "dayjs";
 import { NameLink } from "../template/link/nameLink";
 import { NavLink } from "../template/link/navLink";
-import { Language } from "./language";
-import { projectDatabase } from "./projectDatabase";
-import { Release } from "./release";
+import { Language } from "./store/language";
+import { projectDatabase } from "./store/projectDatabase";
+import { Release } from "./store/release";
 
 type ProjectObject = { // Type to turn objects into valid Projects, an oject MUST have all of these properties
     name: string;
@@ -107,7 +107,7 @@ export class Project {
         return this.title;
     }
 
-    getlatestRelease() {
+    getLatestRelease() {
         return this.latestRelease;
     }
 

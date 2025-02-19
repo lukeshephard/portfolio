@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Project } from "../project";
-import ProjectMainImage from "../projectMainImage";
+import ProjectMainImage from "../display/projectMainImage";
 
 export default function ProjectInformation({project}: {project: Project}) {
     const websiteLink = project.getWebsiteLink()
