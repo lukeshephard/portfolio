@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
+import { formatDate } from "@/app/utils/textFormat";
 
 export default function ProjectInformation({project}: {project: Project}) {
     const websiteLink = project.getWebsiteLink()
@@ -41,9 +42,7 @@ export default function ProjectInformation({project}: {project: Project}) {
 
             {project.getLanguages().length > 0 ? <p className="pt-5">Languages: {project.getLanguages().toString()}</p> : null}
 
-            {project.getCreated().isValid() ? <p className="pt-5">I created this project {project.getCreated().fromNow()} ({project.getCreated().format("DD/MM/YYYY")}).</p> : null}
-
-            <p className="pt-5 text-gray-400"><em>This page was lasted edited {project.getLastEdited().fromNow()} ({project.getLastEdited().format("DD/MM/YYYY")}).</em></p>
+            {project.getCreated().isValid() ? <p className="pt-5">I created this project {formatDate(project.getCreated())}.</p> : null}
         </>
     )
 }

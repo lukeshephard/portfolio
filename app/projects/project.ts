@@ -15,7 +15,6 @@ type ProjectObject = { // Type to turn objects into valid Projects, an oject MUS
     languages: Language[];
 
     created: Dayjs;
-    lastEdited: Dayjs;
 
     isPrivate: boolean;
     isWebsite: boolean;
@@ -33,7 +32,6 @@ export class Project {
     private languages: Language[];
 
     private created: Dayjs;
-    private lastEdited: Dayjs;
 
     private isPrivate: boolean;
     private isWebsite: boolean;
@@ -59,7 +57,6 @@ export class Project {
         objWithDefaults.languages = obj.languages ? obj.languages as Language[] : [];
 
         objWithDefaults.created = obj.created ? dayjs.unix(obj.created as number) : dayjs(null)  
-        objWithDefaults.lastEdited = obj.lastEdited ? dayjs.unix(obj.lastEdited as number) : dayjs(null);
 
         objWithDefaults.isPrivate = obj.isPrivate == undefined ? false: obj.isPrivate as boolean
         objWithDefaults.isWebsite = obj.isWebsite == undefined ? true : obj.isWebsite as boolean
@@ -86,7 +83,6 @@ export class Project {
         this.languages = obj.languages;
 
         this.created = obj.created;
-        this.lastEdited = obj.lastEdited;
 
         this.isPrivate = obj.isPrivate;
         this.isWebsite = obj.isWebsite;
@@ -125,10 +121,6 @@ export class Project {
 
     getCreated() {
         return this.created;
-    }
-
-    getLastEdited() {
-        return this.lastEdited;
     }
 
     getIsPrivate() {
