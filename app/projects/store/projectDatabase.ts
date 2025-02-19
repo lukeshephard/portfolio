@@ -1,13 +1,14 @@
 import { Language } from "./language";
 import { Release } from "./release";
 
-// See project.ts for all available attributes
+// See project.ts for all available parameters
+// All of my projects
 export const projectDatabase = [
     {
         name: "personal-website",
         title: "Personal Website",
         summary: "My very own website to add everything about myself (the website you are on right now).",
-        latestRelease: new Release("0.3.0-alpha.1", "Projects Backend", 1739039400),
+        latestRelease: new Release("0.3.0", "Proper Projects Page", 1740008099),
         description: `I thought it would be fun and a good learning experience to try to make a personal website.
             I also thought a place to showcase my projects to would cool, and even mention some private projects like university ones.
             At the moment it is being improved over time as I improve my react and front-end skills.`,

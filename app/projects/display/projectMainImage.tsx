@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Project } from "../project";
 
-export default function ProjectMainImage({project, className}: {project: Project, className?: string}) {
+export default function ProjectMainImage({project, className}: {project: Project, className?: string}) { // Display the main image of a project
     return (
         project.getMainImagePath() != "" ?
         <Image

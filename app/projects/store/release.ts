@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from "dayjs";
 
-export class Release {
+export class Release { // A release of a project
     private version: string;
     private title: string;
     private date: Dayjs;

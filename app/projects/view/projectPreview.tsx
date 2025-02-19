@@ -2,10 +2,11 @@ import { formatDate } from "@/app/utils/textFormat";
 import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
 
-export default function ProjectPreview({project}: {project: Project}) { // Show project as a preview
+export default function ProjectPreview({project}: {project: Project}) { // Show project as a preview box
     
     let latestReleaseText = `Not released yet`;
     const latestRelease = project.getLatestRelease()
+
     if (latestRelease.getDate().isValid()) {
         latestReleaseText =  `${latestRelease.getVersion()} ${latestRelease.getTitle() != "" ? `- ${latestRelease.getTitle()}` : ""} | ${formatDate(latestRelease.getDate())}`
     }

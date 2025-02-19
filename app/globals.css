@@ -97,9 +97,20 @@ p a:active, li a:active, .linkStyle:active, .linkStyle a:active {
   color: #52525b;
 }
 
-/* CHANGED FOR PERSONAL-WEBSITE */
+/* ADDED FOR PERSONAL-WEBSITE */
 
 li {
   list-style-type: square;
   list-style-position: inside;
+}
+
+select {
+  background-color: theme('colors.light-blue');
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  text-decoration: underline;
+  padding-bottom: 1.5rem;
 }

@@ -4,7 +4,7 @@ import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
 import { formatDate } from "@/app/utils/textFormat";
 
-export default function ProjectInformation({project}: {project: Project}) {
+export default function ProjectInformation({project}: {project: Project}) { // Displaying the actual information for a project in a nice format
     const websiteLink = project.getWebsiteLink()
     const githubLink = project.getGithubLink()
 

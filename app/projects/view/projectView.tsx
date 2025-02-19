@@ -4,7 +4,7 @@ import { Project } from "../project";
 import ProjectInformation from "./projectInformation";
 import { useRouter } from "next/navigation";
 
-export default function ProjectView() {
+export default function ProjectView() { // Shows project information page if the search parameter is found, otherwise display not found.
     const router = useRouter()
 
     const searchParams = useSearchParams();
