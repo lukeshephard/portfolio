@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation"
 import { Project } from "../project";
 import ProjectInformation from "./projectInformation";
 import { useRouter } from "next/navigation";
+import { NavLink } from "@/app/template/link/navLink";
 
 export default function ProjectView() { // Shows project information page if the search parameter is found, otherwise display not found.
     const router = useRouter()
@@ -17,7 +18,8 @@ export default function ProjectView() { // Shows project information page if the
     return (
         <>
             <button className="linkStyle" onClick={() => {router.back()}}>Back</button>
-            <div className="pt-5">
+            <p className="mt-5">{new NavLink("Other Projects", "/projects").generateElement()}</p>
+            <div className="pt-5 max-w-[75rem]">
                 <h1>Project - {project.getName() != "" ? project.getTitle() : "Project not found."}</h1>
                 {projectInformation}
             </div>

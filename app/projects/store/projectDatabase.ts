@@ -8,7 +8,7 @@ export const projectDatabase = [
         name: "personal-website",
         title: "Personal Website",
         summary: "My very own website to add everything about myself (the website you are on right now).",
-        latestRelease: new Release("0.3.0", "Proper Projects Page", 1740008099),
+        latestRelease: new Release("0.3.0", "Proper Projects Page", 1740011589),
         description: `I thought it would be fun and a good learning experience to try to make a personal website.
             I also thought a place to showcase my projects to would cool, and even mention some private projects like university ones.
             At the moment it is being improved over time as I improve my react and front-end skills.`,
@@ -151,6 +151,9 @@ export const projectDatabase = [
         name: "clock-of-clocks",
         title:  "Clock of Clocks",
         summary: "Website that displays a digital clock made of tiny anologue clocks.",
+        description: `My teacher back in A-Level showed me this one day, and I wanted to have a go at making my own version of it. I only spent a bit of time on it and just focused on the clocks as I did not know much CSS at that time.
+            It works well still, my goal was easy customisation and it worked since I was easily able to turn it into a stopwatch as well. I also was able to make the second clocks smaller as a nice touch.
+            I made it when we were using p5.js in A-Level, I have no clue how I would go about making this in React.`,
         latestRelease: new Release("1.0.0", "Initial Release", 1724115420),
         languages: [Language.JavaScript, Language.HTML, Language.CSS],
         created: 1646092800,
@@ -159,6 +162,10 @@ export const projectDatabase = [
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
         summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming).",
+        description: `This is a project I had to do for my Object-Oriented module at university. I had over a month to do it in 2 parts. The first part was extending some base (buggy on purpose) code to fix and make a horse race simulator that shows the race in the terminal.
+            Then for part 2 we took our functions and made a GUI to run the races in a window instead. I used the Swing library for this, and since I did not have that long my code became very messy and complicated. I had to document only part 1 though and just add comments to part 2.
+            It also helped me learn GitHub and Git as it was the first university project to enforce it and use it in marking. Even though I did not have time to implement some of the required features as I spent too much time on the GUI,
+            I guess my GUI made up for it as I ended up getting a 98% for the project. I make it public but the starter code is owned by whoever designed the project and I do not know how much is copied over to the next year.`,
         latestRelease: new Release("Part 2", "Finished Part 2", 1714162020),
         languages: [Language.Java],
         isPrivate: true,
@@ -169,6 +176,9 @@ export const projectDatabase = [
         name: "battleships-two-player",
         title: "Battleships (Two Player)",
         summary: "A two player version of my Battleships project.",
+        description: `This version uses Node.js and Socket.IO to connect two clients together and let them play against each other. This was (and still is) my biggest multiplayer project, and it worked pretty well when I played against some friends on it.
+            However, now it is a bit broken I guess from being years old at this point. The other one was broken too but I fixed that and I will fix this when I get round to it. Back then I was going to merge 1 and 2 player but never got to do it (I got distracted doing a new project...), so they are both completely separate.
+            One thing I don't like about this project is how when 2 players are playing no other players can create a match. I was new to Socket.IO and did not want to spend time on a lobby system which makes sense. Either I will end up merging them or completely remake it, or both.`,
         latestRelease: new Release("13/12/21", "", 1639380720),
         isPrivate: true,
         isWebsite: false,

@@ -30,9 +30,14 @@ export default function ProjectInformation({project}: {project: Project}) { // D
     
     dayjs.extend(relativeTime)
 
+    const releaseVersion = `, released ${formatDate(project.getLatestRelease().getDate())}`
+
     return (
         <>
             <p className="text-2xl">{project.getSummary()}</p>
+            <br/>
+            
+            <p>Latest Release: {project.getLatestReleaseLink().generateElement()}{project.getLatestRelease().getDate().isValid() ? releaseVersion : null}.</p>
             
             {linkElement}
 

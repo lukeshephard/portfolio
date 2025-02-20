@@ -1,3 +1,4 @@
+import { formatDate } from "@/app/utils/textFormat";
 import dayjs, { Dayjs } from "dayjs";
 
 export class Release { // A release of a project
@@ -21,6 +22,24 @@ export class Release { // A release of a project
 
     getDate() {
         return this.date;
+    }
+
+    getFullVersion() {
+        let latestReleaseText = `Not released yet`;
+        if (this.getDate().isValid()) {
+            latestReleaseText = `${this.getVersion()}${this.getTitle() != "" ? ` - ${this.getTitle()}` : ""}`
+        }
+        return latestReleaseText
+    }
+
+    getText() {
+        let latestReleaseText = `Not released yet`;
+
+        if (this.getDate().isValid()) {
+            latestReleaseText =  `${this.getFullVersion()} | ${formatDate(this.getDate())}`
+        }
+
+        return latestReleaseText;
     }
 
 }
