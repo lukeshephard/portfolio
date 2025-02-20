@@ -7,7 +7,6 @@ import { Project } from "./project";
 import ProjectPreview from "./view/projectPreview";
 import { formatDate } from "../utils/textFormat";
 import { ReactElement, useState } from "react";
-import ProjectLabel from "./display/projectLabel";
 import MainProjects from "./mainProjects";
 
 enum SortMethod { // Enums to store sorting methods and orders
