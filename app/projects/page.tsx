@@ -133,10 +133,10 @@ export default function Page() { // The main project page (aka projects.shephard
 
                 <div className="pt-5 text-2xl">
                     <label htmlFor="projectSortBy">Sort By:</label>
-                    <select className="ml-5" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
+                    <select className="ml-5 p-1" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
                         {sortByMethods}
                     </select>
-                    <select className="ml-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
+                    <select className="ml-5 p-1" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
                         {sortByOrders}
                     </select>
                 </div>

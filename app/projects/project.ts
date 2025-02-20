@@ -93,7 +93,7 @@ export class Project {
         this.informationLink = new NavLink(this.title, "/projects/view?name=" + this.name);
         this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".ShephardLuke.co.uk", obj.isWebsite);
         this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/ShephardLuke/" + this.name, !obj.isPrivate)
-        this.latestReleaseLink = new NameLink(this.getLatestRelease().getFullVersion(), "https://github.com/ShephardLuke/" + this.name + "/releases/tag/v" + this.latestRelease.getVersion(), this.latestRelease.getDate().isValid() && !obj.isPrivate)
+        this.latestReleaseLink = new NameLink(this.getLatestRelease().getFullVersion(), "https://github.com/ShephardLuke/" + this.name + "/releases/tag/v" + encodeURIComponent(this.latestRelease.getVersion()), this.latestRelease.getDate().isValid() && !obj.isPrivate)
 
     }
 
