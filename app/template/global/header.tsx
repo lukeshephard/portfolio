@@ -28,11 +28,11 @@ export default function Header({currentPage}: {currentPage?: string}) {
     })
 
     return (
-        <div className="flex justify p-10 header">
-            <div className="header whitespace-nowrap">
+        <div className="flex flex-col text-center lg:flex-row justify p-10 header">
+            <div className="header">
                 <Link className="text-4xl" href={"/"}>{MAIN_TITLE}</Link>
             </div>
-            <div key={"links"} className="flex justify-around header text-2xl items-center w-full">
+            <div key={"links"} className="flex flex-col pt-5 space-y-5 lg:space-y-0 lg:pt-0 lg:flex-row justify-around header text-2xl items-center w-full">
                 {pageLinks}
             </div>
         </div>

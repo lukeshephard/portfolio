@@ -125,23 +125,26 @@ export default function Page() { // The main project page (aka projects.shephard
 
                 <br/>
                 <p><MainProjects/></p>
+                <br />
                 <p>I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.</p>
                 <br/>
 
                 <p>Clicking a project will give you more information on the project, and ways to view it if it has any.</p>
                 <hr className="mt-5"/>
-
-                <div className="pt-5 text-2xl">
+    
+                <div className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
+                    <p className="pt-5">Total Projects: {Object.keys(projects).length}</p>
                     <label htmlFor="projectSortBy">Sort By:</label>
-                    <select className="ml-5 p-1" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
+                    <select className="ml-5 p-1 mr-5 w-max" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
                         {sortByMethods}
                     </select>
-                    <select className="ml-5 p-1" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
+                    <select className="ml-5 p-1 w-max mr-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
                         {sortByOrders}
                     </select>
                 </div>
 
-                <div className="grid grid-cols-3 gap-5 pt-5 text-center">
+                <p className="pt-10 text-2xl text-center lg:text-left">{projectLabels.length} Results:</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center">
                     {projectLabels}
                 </div>
             </div>
