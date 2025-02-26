@@ -161,12 +161,10 @@ export const projectDatabase = [
     {
         name: "HorseRaceSimulator",
         title: "Horse Race Simulator",
-        summary: "A coursework project for one of my first year university modules (ECS414U - Object-Oriented Programming).",
-        description: `This is a project I had to do for my Object-Oriented module at university. I had over a month to do it in 2 parts. The first part was extending some base (buggy on purpose) code to fix and make a horse race simulator that shows the race in the terminal.
-            Then for part 2 we took our functions and made a GUI to run the races in a window instead. I used the Swing library for this, and since I did not have that long my code became very messy and complicated. I had to document only part 1 though and just add comments to part 2.
-            It also helped me learn GitHub and Git as it was the first university project to enforce it and use it in marking. Even though I did not have time to implement some of the required features as I spent too much time on the GUI,
-            I guess my GUI made up for it as I ended up getting a 98% for the project. I make it public but the starter code is owned by whoever designed the project and I do not know how much is copied over to the next year.`,
-        latestRelease: new Release("Part 2", "Finished Part 2", 1714162020),
+        summary: "A horse race simulator built during my first year of university.",
+        description: `With this project I first made the simulator in the terminal then extended upon it with the Java Swing library to add a GUI. It allows the user to create and name their own horses, and race them against each other.
+            The user can then see their horse's statistics if they choose to. There is a lot of customization, for example the user can choose the number of lanes and distance of the race and the GUI will adjust the racetrack on the screen to show these changes.`,
+        latestRelease: new Release("2.0.0", "GUI", 1714162020),
         languages: [Language.Java],
         isPrivate: true,
         isWebsite: false,
