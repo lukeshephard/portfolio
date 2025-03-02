@@ -35,8 +35,8 @@ export default function Page() { // The website home page
           <ul>
             <li>I am 20 years old.</li>
             <li>I am currently studying Computer Science in my second year at Queen Mary University of London.</li>
-            <li>Here are my cool {codeStatsLink}.</li>
-            <li>Programming projects are my favourite pastime (if you couldn&#39;t tell haha).</li>
+            <li>Here are my {codeStatsLink}.</li>
+            <li>Programming projects are my favourite pastime.</li>
           </ul>
         </div>
 
