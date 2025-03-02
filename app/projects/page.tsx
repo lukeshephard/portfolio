@@ -5,9 +5,9 @@ import Footer from "../template/global/footer"
 import Header from "../template/global/header"
 import { Project } from "./project";
 import ProjectPreview from "./view/projectPreview";
-import { formatDate } from "../utils/textFormat";
 import { ReactElement, useState } from "react";
 import MainProjects from "./mainProjects";
+import { FormatDate } from "../utils/formatDate";
 
 enum SortMethod { // Enums to store sorting methods and orders
     Title = "Title",
@@ -120,7 +120,7 @@ export default function Page() { // The main project page (aka projects.shephard
             <Header currentPage="Projects"/>
             <div className="main">
                 <h1>Projects</h1>
-                <p>Here are my current projects, as of {formatDate(Project.getProjectByName("personal-website").getLatestRelease().getDate())}.</p>
+                <p>Here are my current projects, as of <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/>.</p>
                 <p>Most of these are on my GitHub but some here will be private like university ones.</p>
 
                 <br/>

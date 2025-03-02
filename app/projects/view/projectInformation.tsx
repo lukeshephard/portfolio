@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
-import { formatDate } from "@/app/utils/textFormat";
+import { FormatDate } from "@/app/utils/formatDate";
 
 export default function ProjectInformation({project}: {project: Project}) { // Displaying the actual information for a project in a nice format
     const websiteLink = project.getWebsiteLink()
@@ -30,7 +30,7 @@ export default function ProjectInformation({project}: {project: Project}) { // D
     
     dayjs.extend(relativeTime)
 
-    const releaseVersion = `, released ${formatDate(project.getLatestRelease().getDate())}`
+    const releaseVersion = <span>, released  <FormatDate date={project.getLatestRelease().getDate()}/></span>
 
     return (
         <>
@@ -41,13 +41,13 @@ export default function ProjectInformation({project}: {project: Project}) { // D
             
             {linkElement}
 
-            <ProjectMainImage project={project} className="mt-5 w-2/5 h-auto border"/>
+            <ProjectMainImage project={project} className="mt-5 w-max lg:w-3/5 h-auto border"/>
 
             {project.getDescription() != "" ? <p className="pt-5">{project.getDescription()}</p> : null}
 
             {project.getLanguages().length > 0 ? <p className="pt-5">Languages: {project.getLanguages().toString()}</p> : null}
 
-            {project.getCreated().isValid() ? <p className="pt-5">I created this project {formatDate(project.getCreated())}.</p> : null}
+            {project.getCreated().isValid() ? <p className="pt-5" suppressHydrationWarning>I created this project <FormatDate date={project.getCreated()}/>.</p> : null}
         </>
     )
 }

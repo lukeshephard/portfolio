@@ -1,5 +1,6 @@
-import { formatDate } from "@/app/utils/textFormat";
+import { FormatDate } from "@/app/utils/formatDate";
 import dayjs, { Dayjs } from "dayjs";
+import { ReactNode } from "react";
 
 export class Release { // A release of a project
     private version: string;
@@ -33,10 +34,10 @@ export class Release { // A release of a project
     }
 
     getText() {
-        let latestReleaseText = `Not released yet`;
+        let latestReleaseText: ReactNode = `Not released yet`;
 
         if (this.getDate().isValid()) {
-            latestReleaseText =  `${this.getFullVersion()} | ${formatDate(this.getDate())}`
+            latestReleaseText =  <span>{this.getFullVersion()} | <FormatDate date={this.getDate()}/></span> 
         }
 
         return latestReleaseText;

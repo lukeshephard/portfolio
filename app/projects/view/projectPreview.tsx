@@ -1,6 +1,7 @@
-import { formatDate } from "@/app/utils/textFormat";
+import { FormatDate } from "@/app/utils/formatDate";
 import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
+import { useState } from "react";
 
 export default function ProjectPreview({project}: {project: Project}) { // Show project as a preview box
 
@@ -12,7 +13,7 @@ export default function ProjectPreview({project}: {project: Project}) { // Show 
                 <ProjectMainImage project={project} className="mt-5 max-h-96 w-auto border m-auto"/>
 
                 <p className="mt-5">Latest release: {project.getLatestRelease().getText()}.</p>
-                <p className="mt-5">Created {formatDate(project.getCreated())}.</p>
+                <p className="mt-5">Created <FormatDate date={project.getCreated()}/>.</p>
             </a>
         </div>
     )
