@@ -10,7 +10,7 @@ setInterval(updateDates, 60000)
 const dates: DateUpdater[] = [];
 
 
-class DateUpdater {
+class DateUpdater { // Takes dates and their set methods for updating
     private date: Dayjs
     private setMethod: Dispatch<SetStateAction<string>>
 
@@ -28,7 +28,7 @@ class DateUpdater {
     }
 }
 
-function updateDates() {
+function updateDates() { // Updates global date array when the interval goes off
     console.log("updating " + dates.length + " dates...")
     for (const date of dates) {
         date.getSetMethod()(date.getDate().fromNow());
