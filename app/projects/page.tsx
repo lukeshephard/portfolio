@@ -134,7 +134,7 @@ export default function Page() { // The main project page (aka projects.shephard
                     <hr className="mt-5"/>
         
                     <section className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
-                        <p className="italic text-gray-400 text-base">The following data is from <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/>.</p>
+                        <p className="italic text-gray-400 text-base">The following data was last updated <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/>.</p>
                         <h2 className="pt-5">Total Projects: {Object.keys(projects).length}</h2>
                         <label htmlFor="projectSortBy">Sort By:</label>
 

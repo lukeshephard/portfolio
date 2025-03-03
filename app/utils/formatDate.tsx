@@ -1,18 +1,48 @@
 'use client'
-// Used for keeping the text format the same across all areas of the website, to keep consistency.
 
 import dayjs, { Dayjs } from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime"
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 dayjs.extend(relativeTime)
 
+setInterval(updateDates, 60000)
+const dates: DateUpdater[] = [];
+
+
+class DateUpdater {
+    private date: Dayjs
+    private setMethod: Dispatch<SetStateAction<string>>
+
+    constructor(date: Dayjs, setMethod: Dispatch<SetStateAction<string>>) {
+        this.date = date;
+        this.setMethod = setMethod;
+    }
+
+    getDate() {
+        return this.date;
+    }
+
+    getSetMethod() {
+        return this.setMethod;
+    }
+}
+
+function updateDates() {
+    console.log("updating " + dates.length + " dates...")
+    for (const date of dates) {
+        date.getSetMethod()(date.getDate().fromNow());
+    }
+
+}
+
 export function FormatDate({date} : {date: Dayjs}) { // Returns the given date as a string in a special format
     const [isClient, setIsClient] = useState(false)
-    const [dateString] = useState(date.fromNow())
+    const [dateString, setDateString] = useState(date.fromNow())
 
     useEffect(() => {
         setIsClient(true)
+        dates.push(new DateUpdater(date, setDateString))
     }, [])
 
     if (!date.isValid()) {
