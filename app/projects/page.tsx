@@ -118,36 +118,42 @@ export default function Page() { // The main project page (aka projects.shephard
     return (
         <>
             <Header currentPage="Projects"/>
-            <div className="main">
+            <main>
                 <h1>Projects</h1>
-                <p>Here are my current projects, as of <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/>.</p>
-                <p>Most of these are on my GitHub but some here will be private like university ones.</p>
+                <section>
+                    <header>
+                        <h2>Here are my current projects as of <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/></h2>
+                        <p>Most of these are on my GitHub but some here will be private like university ones.</p>
 
-                <br/>
-                <p><MainProjects/></p>
-                <br />
-                <p>I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.</p>
-                <br/>
+                        <br/>
+                        <MainProjects/>
+                        <br />
 
-                <p>Clicking a project will give you more information on the project, and ways to view it if it has any.</p>
-                <hr className="mt-5"/>
-    
-                <div className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
-                    <p className="pt-5">Total Projects: {Object.keys(projects).length}</p>
-                    <label htmlFor="projectSortBy">Sort By:</label>
-                    <select className="ml-5 p-1 mr-5 w-max" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
-                        {sortByMethods}
-                    </select>
-                    <select className="ml-5 p-1 w-max mr-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
-                        {sortByOrders}
-                    </select>
-                </div>
+                        <p>I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.</p>
+                        <br/>
+                        <p>Clicking a project will give you more information on the project, and ways to view it if it has any.</p>
+                    </header>
 
-                <p className="pt-10 text-2xl text-center lg:text-left">{projectLabels.length} Results:</p>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center">
-                    {projectLabels}
-                </div>
-            </div>
+                    <hr className="mt-5"/>
+        
+                    <div className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
+                        <h2 className="pt-5">Total Projects: {Object.keys(projects).length}</h2>
+                        <label htmlFor="projectSortBy">Sort By:</label>
+                        <select className="ml-5 p-1 mr-5 w-max" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
+                            {sortByMethods}
+                        </select>
+                        <select className="ml-5 p-1 w-max mr-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
+                            {sortByOrders}
+                        </select>
+                        <p className="pt-10 text-2xl text-center lg:text-left">{projectLabels.length} Results:</p>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center text-base">
+                            {projectLabels}
+                        </div>
+                    </div>
+
+  
+                </section>
+            </main>
             <Footer/>
         </>
     )

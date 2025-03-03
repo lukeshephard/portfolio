@@ -33,7 +33,8 @@ export default function ProjectInformation({project}: {project: Project}) { // D
     const releaseVersion = <span>, released  <FormatDate date={project.getLatestRelease().getDate()}/></span>
 
     return (
-        <>
+        <article>
+            <h1>{project.getTitle()}</h1>
             <p className="text-2xl">{project.getSummary()}</p>
             <br/>
             
@@ -48,6 +49,6 @@ export default function ProjectInformation({project}: {project: Project}) { // D
             {project.getLanguages().length > 0 ? <p className="pt-5">Languages: {project.getLanguages().toString()}</p> : null}
 
             {project.getCreated().isValid() ? <p className="pt-5" suppressHydrationWarning>I created this project <FormatDate date={project.getCreated()}/>.</p> : null}
-        </>
+        </article>
     )
 }

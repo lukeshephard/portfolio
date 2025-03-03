@@ -8,12 +8,12 @@ export default function Footer() {
     const repo = pk.name;
     const releaseNotesLink = new NameLink("Release notes", "https://github.com/shephardluke/" + repo + "/releases/tag/v" + pk.version).generateElement()
 
-    return (
+    return ( // ADDED FOOTER INSTEAD OF DIV
         <>
-            <div className="text-center p-10 flex-col justify-center gap-4 bg-darkest-blue">
+            <footer className="text-center p-10 flex-col justify-center gap-4 bg-darkest-blue">
                 <p className="text-xl">{repo} v{pk.version}</p>
                 <p className="text-base">{releaseNotesLink}</p>
-            </div>
+            </footer>
         </>
     )
 }

@@ -13,15 +13,14 @@ export default function ProjectView() { // Shows project information page if the
 
     const project = Project.getProjectByName(searchName);
 
-    const projectInformation = project.getName() != "" ? <ProjectInformation project={project}/> : null;
+    const projectInformation = project.getName() !== "" ? <ProjectInformation project={project}/> : null;
 
     return (
         <>
             <button className="linkStyle" onClick={() => {router.back()}}>Back</button>
             <p className="mt-5">{new NavLink("Other Projects", "/projects").generateElement()}</p>
             <div className="pt-5 max-w-[75rem]">
-                <h1>Project - {project.getName() != "" ? project.getTitle() : "Project not found."}</h1>
-                {projectInformation}
+                {project.getName() !== "" ?  projectInformation : <h1>Project Not Found</h1>}
             </div>
         </>
     )

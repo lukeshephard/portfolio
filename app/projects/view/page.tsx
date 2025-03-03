@@ -7,11 +7,11 @@ export default function View() { // Shows a project page, when given the name of
     return (
         <>
             <Header/>
-            <div className="main">
+            <main>
                 <Suspense>
                     <ProjectView/>
                 </Suspense>
-            </div>
+            </main>
             <Footer/>
         </>
     )
