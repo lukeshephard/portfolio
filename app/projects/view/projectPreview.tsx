@@ -1,7 +1,6 @@
 import { FormatDate } from "@/app/utils/formatDate";
 import { Project } from "../project";
 import ProjectMainImage from "../display/projectMainImage";
-import { useState } from "react";
 
 export default function ProjectPreview({project}: {project: Project}) { // Show project as a preview box
 

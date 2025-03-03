@@ -9,7 +9,7 @@ dayjs.extend(relativeTime)
 
 export function FormatDate({date} : {date: Dayjs}) { // Returns the given date as a string in a special format
     const [isClient, setIsClient] = useState(false)
-    const [dateString, setDateString] = useState(date.fromNow())
+    const [dateString] = useState(date.fromNow())
 
     useEffect(() => {
         setIsClient(true)

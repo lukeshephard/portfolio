@@ -10,7 +10,6 @@ export default function Page() { // The website home page
   const FAVOURITE_PROJECT = "personal-website";
 
   const projectLink = new NavLink("projects").generateElement();
-  const contactLink = new NavLink("socials", "/socials/").generateElement();
 
   const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
 
@@ -24,9 +23,7 @@ export default function Page() { // The website home page
           <p>
             Hi, I&#39;m Luke! Welcome to my little corner of the internet...
             <br />
-            I made this website mostly to just organise my {projectLink} and write about them.
-            <br />
-            I have my {contactLink} (and a bit of contact info) on here too.
+            This website currently is just a place to organise my {projectLink} and write about them.
           </p>
         </div>
 
