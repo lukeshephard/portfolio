@@ -121,35 +121,39 @@ export default function Page() { // The main project page (aka projects.shephard
             <main>
                 <h1>Projects</h1>
                 <section>
-                    <header>
-                        <h2>Here are my current projects as of <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/></h2>
-                        <p>Most of these are on my GitHub but some here will be private like university ones.</p>
-
-                        <br/>
-                        <MainProjects/>
-                        <br />
-
-                        <p>I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.</p>
-                        <br/>
-                        <p>Clicking a project will give you more information on the project, and ways to view it if it has any.</p>
-                    </header>
+                    <section>
+                        <h2>A home for all of my projects.</h2>
+                        
+                        <p>
+                            Most of these are on my GitHub but some here will be private like university ones.<br/>
+                            <MainProjects/><br/>
+                            I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.<br/><br/>
+                        </p>
+                    </section>
 
                     <hr className="mt-5"/>
         
-                    <div className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
+                    <section className="pt-5 text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
+                        <p className="italic text-gray-400 text-base">The following data is from <FormatDate date={Project.getProjectByName("personal-website").getLatestRelease().getDate()}/>.</p>
                         <h2 className="pt-5">Total Projects: {Object.keys(projects).length}</h2>
                         <label htmlFor="projectSortBy">Sort By:</label>
+
                         <select className="ml-5 p-1 mr-5 w-max" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
                             {sortByMethods}
                         </select>
+
                         <select className="ml-5 p-1 w-max mr-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
                             {sortByOrders}
                         </select>
-                        <p className="pt-10 text-2xl text-center lg:text-left">{projectLabels.length} Results:</p>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center text-base">
-                            {projectLabels}
-                        </div>
-                    </div>
+
+                        <section className="pt-5">
+                            <h3 className="text-center lg:text-left underline">{projectLabels.length} Results:</h3>
+                            <p className="pt-5 text-base">Clicking a project will give you more information on the project, and ways to view it if it has any.<br/></p>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center text-base">
+                                {projectLabels}
+                            </div>
+                        </section>
+                    </section>
 
   
                 </section>

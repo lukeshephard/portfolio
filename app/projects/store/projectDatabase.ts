@@ -8,7 +8,7 @@ export const projectDatabase = [
         name: "personal-website",
         title: "Personal Website",
         summary: "My very own website to add everything about myself (the website you are on right now).",
-        latestRelease: new Release("0.4.0", "Responsive Design", 1740942751),
+        latestRelease: new Release("0.4.0", "Responsive Design", 1740964735),
         description: `I thought it would be fun and a good learning experience to try to make a personal website.
             I also thought a place to showcase my projects to would cool, and even mention some private projects like university ones.
             At the moment it is being improved over time as I improve my react and front-end skills.`,
