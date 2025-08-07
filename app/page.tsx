@@ -1,7 +1,5 @@
 import { Project } from "./projects/project";
 import ProjectLabel from "./projects/display/projectLabel";
-import Footer from "./template/global/footer";
-import Header from "./template/global/header";
 import { NameLink } from "./template/link/nameLink";
 import { NavLink } from "./template/link/navLink";
 import MainProjects from "./projects/mainProjects";
@@ -14,11 +12,8 @@ export default function Page() { // The website home page
   const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
 
   return (
-    <>
-      <Header currentPage="Home"/>
-      
-      <main>
-        <h1>Home</h1>
+    <>      
+        <h1>About</h1>
         <section>
           <p>Hi, I&#39;m Luke! Welcome to my little corner of the internet...</p>
           <p>This website currently is just a place to organise my {projectLink} and write about them.</p>
@@ -42,9 +37,6 @@ export default function Page() { // The website home page
             <li>My A-Level coursework I did in 2023 is <ProjectLabel project={Project.getProjectByName("little-man-computer")}/>.</li>
           </ul>
         </section>
-      </main>
-
-      <Footer/>
     </>
   );
 }
