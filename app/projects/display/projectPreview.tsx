@@ -1,11 +1,11 @@
 import { FormatDate } from "@/app/utils/formatDate";
 import { Project } from "../project";
-import ProjectMainImage from "../display/projectMainImage";
+import ProjectMainImage from "./projectMainImage";
 
 export default function ProjectPreview({project}: {project: Project}) { // Show project as a preview box
 
     return (
-        <article className="p-5 h-full bg-darkest-blue">
+        <article className="p-5 h-full bg-foreground">
             <h3 className="pb-5 text-2xl underline">{project.getTitle()}</h3>
             <p>{project.getSummary()}</p>
             <ProjectMainImage project={project} className="mt-5 max-h-96 w-auto border m-auto"/>

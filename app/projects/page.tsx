@@ -2,7 +2,7 @@
 
 import { Dayjs } from "dayjs";
 import { Project } from "./project";
-import ProjectPreview from "./view/projectPreview";
+import ProjectPreview from "./display/projectPreview";
 import { ReactElement, useState } from "react";
 import MainProjects from "./mainProjects";
 import { FormatDate } from "../utils/formatDate";
