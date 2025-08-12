@@ -8,6 +8,7 @@
     "deploy": "opennextjs-cloudflare build && wrangler deploy",
     "upload": "opennextjs-cloudflare build && wrangler versions upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
   },
@@ -31,8 +32,8 @@
     "typescript": "^5",
     "wrangler": "^4.29.0"
   },
-  "description": "Luke Christopher Shephard's personal website",
+  "description": "Luke Shephard's Personal Website",
   "main": "index.js",
-  "author": "Luke Christopher Shephard",
+  "author": "Luke Shephard",
   "license": "MIT"
 }

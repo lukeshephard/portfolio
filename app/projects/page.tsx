@@ -21,7 +21,7 @@ enum SortOrder {
 const projects = Project.ALL_PROJECTS();
 const sortedProjectNames = Object.keys(projects);
 
-export default function Page() { // The main project page (aka projects.shephardluke.co.uk)
+export default function Page() { // The main project page
 
     const [sortMethod, setSortMethod] = useState(SortMethod.LatestReleaseDate);
     const [sortOrder, setSortOrder] = useState(SortOrder.Descending);
