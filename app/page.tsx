@@ -1,3 +1,5 @@
+'use client'
+
 import { Project } from "./projects/project";
 import ProjectLabel from "./projects/display/projectLabel";
 import { NameLink } from "./template/link/nameLink";

@@ -6,8 +6,8 @@ export default function ProjectMainImage({project, className}: {project: Project
         project.getMainImagePath() != "" ?
         <Image
             src={project.getMainImagePath()}
-            width={0}
-            height={0}
+            width={1920}
+            height={1080}
             className={className}
             alt={`The main picture of my ${project.getTitle()} project.`}
         />

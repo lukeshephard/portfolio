@@ -16,7 +16,10 @@
 
   --color-text: var(--text);
   --color-text-title: var(--text-title);
+
   --color-logo: var(--logo);
+  --color-logo-hover: var(--logo-hover);
+  --color-logo-active: var(--logo-active);
 
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
@@ -30,11 +33,13 @@
   --text-title: black;
   --text: var(--color-neutral-700);
 
-  --link: var(--color-blue-400);
-  --link-hover: var(--color-blue-500);
-  --link-active: var(--color-blue-600);
+  --logo: var(--color-blue-400);
+  --logo-hover: var(--color-blue-500);
+  --logo-active: var(--color-blue-600);
 
-  --logo: var(--link);
+  --link: var(--color-logo);
+  --link-hover: var(--color-logo-hover);
+  --link-active: var(--color-logo-active);
 }
 
 [data-theme="dark"] {
