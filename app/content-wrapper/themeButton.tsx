@@ -1,4 +1,4 @@
-import { LucideIcon, Moon, Palette, Sun, SunMoon, User } from "lucide-react";
+import { LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 

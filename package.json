@@ -4,16 +4,15 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "preview": "opennextjs-cloudflare build && wrangler dev",
-    "deploy": "opennextjs-cloudflare build && wrangler deploy",
-    "upload": "opennextjs-cloudflare build && wrangler versions upload",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "upload": "wrangler versions upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.6.5",
     "dayjs": "^1.11.13",
     "lucide-react": "^0.539.0",
     "next": "^15.4.6",
@@ -30,7 +29,7 @@
     "eslint-config-next": "15.4.6",
     "tailwindcss": "^4.1.11",
     "typescript": "^5",
-    "wrangler": "^4.29.0"
+    "wrangler": "^4.30.0"
   },
   "description": "Luke Shephard's Personal Website",
   "main": "index.js",
