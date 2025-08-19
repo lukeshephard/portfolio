@@ -8,7 +8,7 @@ export default function NavbarItem({name, icon, activeIcon, customLink}: {name: 
 
     return (
         <li className="list-none">
-            <Link href={"/" + (customLink !== undefined? customLink : name.toLowerCase())} className={`flex gap-2 [&>svg]:mt-auto [&>svg]:mb-auto no-underline hover:text-link-hover active:text-link-active justify-center ${selected? "text-link" : "text-text"}`} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>{hovered || selected? activeIcon : icon}{name}</Link>
+            <Link href={"/" + (customLink !== undefined? customLink : name.toLowerCase())} className={`flex gap-2 [&>svg]:mt-auto [&>svg]:mb-auto no-underline hover:text-link-hover active:text-link-active justify-center ${selected? "text-link" : "text-text"}`} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>{selected? activeIcon : icon}{name}</Link>
         </li>
     )
 }
