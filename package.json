@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "0.4.0",
+  "version": "1.0.0-alpha.1",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -34,5 +34,13 @@
   "description": "Luke Shephard's Personal Website",
   "main": "index.js",
   "author": "Luke Shephard",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukeshephard/personal-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukeshephard/personal-website/issues"
+  },
+  "homepage": "https://github.com/lukeshephard/personal-website#readme"
 }

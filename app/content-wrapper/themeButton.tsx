@@ -15,7 +15,7 @@ export default function ThemeButton() {
     }, [])
 
     const createThemeIcon = useCallback((icon: LucideIcon) => {
-        return createElement(hovered ? icon : Palette, { className: "flex m-auto size-9 cursor-pointer hover:text-link-hover active:text-link-active", onClick: () => setTheme(themeList[(themeList.indexOf(theme? theme : "system") + 1) % themeList.length]), onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) });
+        return createElement(icon, { className: "flex m-auto size-9 cursor-pointer hover:text-link-hover active:text-link-active", onClick: () => setTheme(themeList[(themeList.indexOf(theme? theme : "system") + 1) % themeList.length]), onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) });
     }, [setTheme, theme, themeList, hovered]) 
 
     const [themeIcon, setThemeIcon] = useState<ReactNode>(createThemeIcon(SunMoon));
