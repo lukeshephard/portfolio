@@ -8,9 +8,9 @@ import CardArray from "./utils/cardArray";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center text-text">
-        <h1 className="text-5xl pb-10 text-text-title">Hi. I&apos;m <span className="text-logo">Luke</span>.</h1> 
+      <div className="flex flex-col items-center text-text"> 
         <CardArray>
+          <Card title="Hi. I'm Luke."></Card>
           <Card title="A Passionate Web Developer.">
               <p>I work hard on improving my programming skills every day. I enjoy turning ideas into reality through my projects.</p>
               <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><Archive/> Projects</button>

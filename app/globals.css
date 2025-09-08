@@ -42,6 +42,9 @@
   --link: var(--color-logo);
   --link-hover: var(--color-logo-hover);
   --link-active: var(--color-logo-active);
+
+  --swiper-navigation-color: var(--color-logo);
+  --swiper-pagination-color: var(--color-logo);
 }
 
 [data-theme="dark"] {
@@ -69,7 +72,6 @@
 
   main {
     background-color: var(--background);
-    padding: 2.5rem;
   }
 
   button {
@@ -82,13 +84,6 @@
 
   a:active { 
     color: #525252; /* neutral-600 */
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    text-decoration: underline;
-    padding-bottom: 2.5rem;
   }
 
   p a, li a, .linkStyle, .linkStyle a {
@@ -128,13 +123,6 @@
 
   h1, h2, h3, h4, h5 {
     color: var(--text-title)
-  }
-
-  h2 {
-    font-size: 1.75rem;
-    line-height: 2rem;
-    text-decoration: underline;
-    padding-bottom: 1.5rem;
   }
 
 }
