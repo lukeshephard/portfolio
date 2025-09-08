@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from "react";
-import { Archive, ArchiveRestore, BookOpen, BookUser, User, UserSearch } from "lucide-react";
+import { Archive, ArchiveRestore, BookMarked, BookOpen, GitPullRequestArrow, GitPullRequestDraft, User, UserSearch } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
@@ -17,7 +17,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
     return (
         <>
             {/* Header */}
-            <header className="flex flex-col lg:flex-row lg:h-18 justify-between px-[2.5rem] p-3">
+            <header className="flex flex-col lg:flex-row lg:h-18 justify-between p-3">
                 <p className={`text-2xl text-center lg:text-left lg:text-3xl my-auto ${shadowsIntoLight.className}`}><Link href="/" className="block no-underline text-logo hover:text-logo-hover active:text-logo-active">Luke Shephard</Link></p>
                 
                 {/* Navbar */}
@@ -26,7 +26,8 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                         <ul className="flex flex-col gap-6 lg:flex-row lg:gap-12">
                             <NavbarItem name="About" icon={<User/>} activeIcon={<UserSearch/>} customLink=""/>
                             <NavbarItem name="Projects" icon={<Archive/>} activeIcon={<ArchiveRestore/>}/>
-                            <NavbarItem name="Socials" icon={<BookUser/>} activeIcon={<BookOpen/>}/>
+                            <NavbarItem name="Experience" icon={<GitPullRequestDraft/>} activeIcon={<GitPullRequestArrow/>}/>
+                            <NavbarItem name="Education" icon={<BookMarked/>} activeIcon={<BookOpen/>}/>
                         </ul>
                     </nav>
                     <ThemeButton/>

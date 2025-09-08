@@ -12,6 +12,7 @@
 
   /* Theme setup */
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
 
   --color-text: var(--text);
@@ -28,6 +29,7 @@
 
 :root {
   --background: var(--color-neutral-100);
+  --background-alt: #dddcdc;
   --foreground: var(--color-neutral-300);
 
   --text-title: black;
@@ -44,6 +46,8 @@
 
 [data-theme="dark"] {
   --background: var(--color-neutral-900);
+  --background-alt: var(--color-neutral-800);
+
   --foreground: var(--color-neutral-800);
 
   --text-title: white;

@@ -1,44 +1,30 @@
 'use client'
 
-import { Project } from "./projects/project";
-import ProjectLabel from "./projects/display/projectLabel";
-import { NameLink } from "./template/link/nameLink";
-import { NavLink } from "./template/link/navLink";
-import MainProjects from "./projects/mainProjects";
+import { Archive, BookMarked, BoxSelect } from "lucide-react";
+import Card from "./utils/card";
+import CardArray from "./utils/cardArray";
 
-export default function Page() { // The website home page
-  const FAVOURITE_PROJECT = "personal-website";
-
-  const projectLink = new NavLink("projects").generateElement();
-
-  const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
-
+// About me page
+export default function Home() {
   return (
-    <>      
-        <h1>About</h1>
-        <section>
-          <p>Hi, I&#39;m Luke! Welcome to my little corner of the internet...</p>
-          <p>This website currently is just a place to organise my {projectLink} and write about them.</p>
-        </section>
-
-        <section className="pt-10">
-          <h2>About me</h2>
-          <ul>
-            <li>I am 20 years old.</li>
-            <li>I am currently studying Computer Science in my second year at Queen Mary University of London.</li>
-            <li>Here are my {codeStatsLink}.</li>
-            <li>Programming projects are my favourite pastime.</li>
-          </ul>
-        </section>
-
-        <section className="pt-10">
-          <h2>Highlighted Projects</h2>
-          <ul>
-            <li>My favourite project is currently <ProjectLabel project={Project.getProjectByName(FAVOURITE_PROJECT)}/>.</li>
-            <li><MainProjects/></li>
-            <li>My A-Level coursework I did in 2023 is <ProjectLabel project={Project.getProjectByName("little-man-computer")}/>.</li>
-          </ul>
-        </section>
+    <>
+      <div className="flex flex-col items-center text-text">
+        <h1 className="text-5xl pb-10 text-text-title">Hi. I&apos;m <span className="text-logo">Luke</span>.</h1> 
+        <CardArray>
+          <Card title="A Passionate Web Developer.">
+              <p>I work hard on improving my programming skills every day. I enjoy turning ideas into reality through my projects.</p>
+              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><Archive/> Projects</button>
+          </Card>
+          <Card title="A Striving Go-Getter.">
+              <p>I put 110% into the work I do, ensuring I achieve by best results.</p>
+              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><BoxSelect/> Experience</button>
+          </Card>
+          <Card title="A Motivated Student.">
+              <p>I&apos;m a student whos eager to learn new skills and expand my knowledge to reach my full potentional.</p>
+              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><BookMarked/> Education</button>
+          </Card>
+        </CardArray>
+      </div>
     </>
   );
 }
