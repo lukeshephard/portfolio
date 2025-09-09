@@ -1,10 +1,10 @@
-import { LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
+import { LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 
 // Button to switch themes
 export default function ThemeButton() {
-    const [hovered, setHovered] = useState(false);
+    const [, setHovered] = useState(false);
     const { theme, setTheme } = useTheme();
 
     const themeList = useMemo(() => {
@@ -16,7 +16,7 @@ export default function ThemeButton() {
 
     const createThemeIcon = useCallback((icon: LucideIcon) => {
         return createElement(icon, { className: "flex m-auto size-9 cursor-pointer hover:text-link-hover active:text-link-active", onClick: () => setTheme(themeList[(themeList.indexOf(theme? theme : "system") + 1) % themeList.length]), onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) });
-    }, [setTheme, theme, themeList, hovered]) 
+    }, [setTheme, theme, themeList]) 
 
     const [themeIcon, setThemeIcon] = useState<ReactNode>(createThemeIcon(SunMoon));
 

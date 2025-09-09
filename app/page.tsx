@@ -1,8 +1,8 @@
 'use client'
 
 import { Archive, BookMarked, BoxSelect } from "lucide-react";
-import Card from "./utils/card";
-import CardArray from "./utils/cardArray";
+import Card from "./card/card";
+import CardArray from "./card/cardArray";
 
 // About me page
 export default function Home() {

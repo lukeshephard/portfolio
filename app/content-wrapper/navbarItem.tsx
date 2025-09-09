@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 
 export default function NavbarItem({name, icon, activeIcon, customLink}: {name: string, icon: ReactNode, activeIcon: ReactNode, customLink?: string}) { // A list item on the nav bar
-    const [hovered, setHovered] = useState(false);
+    const [, setHovered] = useState(false);
     const selected = usePathname() === "/" + (customLink !== undefined? customLink : name.toLowerCase());
 
     return (

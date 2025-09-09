@@ -40,7 +40,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
             <hr className="text-text-title"/>
 
             {/* Main content */}
-            <main className="w-full m-auto">
+            <main className="w-full m-auto text-center">
                 {children}
             </main>
         </>

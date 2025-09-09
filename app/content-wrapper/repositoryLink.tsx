@@ -1,5 +1,4 @@
-import { Code, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { Code } from "lucide-react";
 
 // Link to repository
 export default function RepositoryLink() {

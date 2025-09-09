@@ -8,8 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Experience page.
-- Education page.
+- Experience and education pages with placeholder text.
 
 ### Changed
 - The layout of the content to be centered and presented as "cards".
