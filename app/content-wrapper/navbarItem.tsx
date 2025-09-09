@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 export default function NavbarItem({name, icon, activeIcon, customLink}: {name: string, icon: ReactNode, activeIcon: ReactNode, customLink?: string}) { // A list item on the nav bar
-    const [, setHovered] = useState(false);
     const selected = usePathname() === "/" + (customLink !== undefined? customLink : name.toLowerCase());
 
     return (
         <li className="list-none">
-            <Link href={"/" + (customLink !== undefined? customLink : name.toLowerCase())} className={`flex gap-2 [&>svg]:mt-auto [&>svg]:mb-auto no-underline hover:text-link-hover active:text-link-active justify-center ${selected? "text-link" : "text-text"}`} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>{selected? activeIcon : icon}{name}</Link>
+            <Link href={"/" + (customLink !== undefined? customLink : name.toLowerCase())} className={`flex gap-2 [&>svg]:mt-auto [&>svg]:mb-auto no-underline hover:text-link-hover active:text-link-active justify-center ${selected? "text-link" : "text-text"}`}>{selected? activeIcon : icon}{name}</Link>
         </li>
     )
 }
