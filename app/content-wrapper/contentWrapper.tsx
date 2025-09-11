@@ -6,7 +6,6 @@ import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
 import ThemeButton from "./themeButton";
-import RepositoryLink from "./repositoryLink";
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",

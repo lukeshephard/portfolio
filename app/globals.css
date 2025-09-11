@@ -14,7 +14,6 @@
   /* Theme setup */
   --color-background: var(--background);
   --color-background-alt: var(--background-alt);
-  --color-foreground: var(--foreground);
 
   --color-text: var(--text);
   --color-text-title: var(--text-title);
@@ -31,7 +30,6 @@
 :root {
   --background: var(--color-neutral-100);
   --background-alt: #dddcdc;
-  --foreground: var(--color-neutral-300);
 
   --text-title: black;
   --text: var(--color-neutral-700);
@@ -44,19 +42,46 @@
   --link-hover: var(--color-logo-hover);
   --link-active: var(--color-logo-active);
 
-  --swiper-navigation-color: var(--color-logo);
-  --swiper-pagination-color: var(--color-logo);
+  --swiper-navigation-color: var(--color-link);
+  --swiper-pagination-color: var(--color-link);
 }
 
 [data-theme="dark"] {
   --background: var(--color-neutral-900);
   --background-alt: var(--color-neutral-800);
 
-  --foreground: var(--color-neutral-800);
-
   --text-title: white;
   --text: var(--color-neutral-300);
 }
+
+[data-theme="pre-release"] {
+  --background: #0a182b;
+  --background-alt:#0d203b;
+
+  --text-title: white;
+  --text: white;
+
+  --logo: white;
+  --logo-hover: var(--color-neutral-400);
+  --logo-active: var(--color-neutral-600);
+
+  --link: var(--color-amber-400);
+  --link-hover: var(--color-amber-500);
+  --link-active: var(--color-amber-600);
+}
+
+[data-theme="EXPERIMENTAL_SEASONAL"] {
+  --background: var(--color-neutral-950);
+  --background-alt: var(--color-neutral-900);
+
+  --text-title: var(--color-orange-500);
+  --text: var(--color-neutral-400);
+
+  --logo:  var(--color-purple-500);
+  --logo-hover: var(--color-purple-600);
+  --logo-active: var(--color-purple-700);
+}
+
 
 @layer base {
   body {

@@ -39,7 +39,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
             return React.createElement(currentPlatform, {
                 key: title + platform,
                 size: 36,
-                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-logo" : "text-text"}`,
+                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-link" : "text-text"}`,
                 onClick: () => setSelectedPlatform(platform)
             })
         })

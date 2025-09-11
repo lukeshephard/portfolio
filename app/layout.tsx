@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
-          <ThemeProvider>
+          <ThemeProvider defaultTheme="System">
             <ContentWrapper>
               {children}
             </ContentWrapper>

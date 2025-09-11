@@ -1,24 +1,42 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
+import { Ghost, History, LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { createElement, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { createElement, useEffect, useMemo, useState } from "react";
 
 // Button to switch themes
 export default function ThemeButton() {
     const [initialTheme, setInitialTheme] = useState<string | undefined>();
-    const [, setHovered] = useState(false);
     const { theme, setTheme } = useTheme();
 
-    const themeMap: {[key: string]: LucideIcon} = {
-        "system": SunMoon,
-        "light": Sun,
-        "dark": Moon,
-    }
+    const themeMap: {[theme: string]: {name: string, icon: LucideIcon}} = useMemo(() => {
+        return {
+            "system": {
+                name: "System",
+                icon: SunMoon
+            },
+            "light": {
+                name: "Light",
+                icon: Sun
+            },
+            "dark": {
+                name: "Dark",
+                icon: Moon
+            },
+            "pre-release": {
+                name: "Pre-Release",
+                icon: History
+            },
+            "EXPERIMENTAL_SEASONAL": {
+                name: "Seasonal (Experimental)",
+                icon: Ghost
+            },
+        }
+    }, [])
 
     function generateIconTags() {
         const iconTags = [];
         for (const theme of Object.keys(themeMap)) {
-            iconTags.push(<MenuItem key={`theme${theme}`} className="bg-background-alt whitespace-pre text-text" value={theme}>{createElement(themeMap[theme], {className: "text-text"})} {theme.substring(0, 1).toUpperCase() + theme.substring(1)}</MenuItem>)
+            iconTags.push(<MenuItem key={`theme${theme}`} className="bg-background-alt whitespace-pre text-text-title" value={theme}>{createElement(themeMap[theme].icon, {className: "text-text-title"})} {themeMap[theme].name}</MenuItem>)
         } 
 
         return iconTags
@@ -27,9 +45,16 @@ export default function ThemeButton() {
     useEffect(() => {
         if (initialTheme !== undefined) {
             return;
+        } else if (theme !== undefined && themeMap[theme] === undefined) {
+            console.log(`Cannot find theme "${theme}"! Defaulting to "System"...`)
+            setTheme("system");
+            return;
+        } else if (theme === undefined) {
+            setInitialTheme("system")
+            return;
         }
         setInitialTheme(theme);
-    }, [initialTheme, theme])
+    }, [setTheme, themeMap, initialTheme, theme])
 
     return initialTheme === undefined ? null : (
         <FormControl sx={{
@@ -38,10 +63,10 @@ export default function ThemeButton() {
                 color: "transparent"
             },
             "&:hover .MuiInputLabel-root": {
-                color: "var(--logo-hover)"
+                color: "var(--link-hover)"
             },
             ".MuiInputLabel-root.Mui-focused": {
-                color: "var(--logo-active)"
+                color: "var(--link-active)"
             },
         }} variant="outlined" fullWidth>
             <InputLabel>Theme</InputLabel>
@@ -49,9 +74,9 @@ export default function ThemeButton() {
                 label="Theme"
                 defaultValue={initialTheme}
                 renderValue={(value) => {
-                    return createElement(themeMap[value], {suppressHydrationWarning: true})
+                    return createElement(themeMap[value].icon, {suppressHydrationWarning: true})
                 }}
-                className="bg-background text-text h-12"
+                className="bg-background text-text-title h-12"
                 MenuProps={{
                     slotProps: {
                         paper: {
@@ -59,7 +84,7 @@ export default function ThemeButton() {
                         }
                     }
                 }}
-                onChange={(event) => setTheme(event.target.value.toLowerCase())}
+                onChange={(event) => setTheme(event.target.value)}
                 sx={{
                     "& .MuiSelect-icon": {
                         color: "var(--text-title)"
@@ -68,10 +93,10 @@ export default function ThemeButton() {
                         borderColor: "transparent"
                     },
                     "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "var(--logo-hover)"
+                        borderColor: "var(--link-hover)"
                     },
                     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "var(--logo-active)"
+                        borderColor: "var(--link-active)"
                     }
                 }}
             >
