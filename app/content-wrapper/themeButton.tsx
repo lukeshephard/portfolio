@@ -1,36 +1,83 @@
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 
 // Button to switch themes
 export default function ThemeButton() {
+    const [initialTheme, setInitialTheme] = useState<string | undefined>();
     const [, setHovered] = useState(false);
     const { theme, setTheme } = useTheme();
 
-    const themeList = useMemo(() => {
-        return ["system", "light", "dark"]
-    }, [])
-    const iconList = useMemo(() => {
-        return [SunMoon, Sun, Moon]
-    }, [])
+    const themeMap: {[key: string]: LucideIcon} = {
+        "system": SunMoon,
+        "light": Sun,
+        "dark": Moon,
+    }
 
-    const createThemeIcon = useCallback((icon: LucideIcon) => {
-        return createElement(icon, { className: "flex m-auto size-9 cursor-pointer hover:text-link-hover active:text-link-active", onClick: () => setTheme(themeList[(themeList.indexOf(theme? theme : "system") + 1) % themeList.length]), onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) });
-    }, [setTheme, theme, themeList]) 
+    function generateIconTags() {
+        const iconTags = [];
+        for (const theme of Object.keys(themeMap)) {
+            iconTags.push(<MenuItem key={`theme${theme}`} className="bg-background-alt whitespace-pre text-text" value={theme}>{createElement(themeMap[theme], {className: "text-text"})} {theme.substring(0, 1).toUpperCase() + theme.substring(1)}</MenuItem>)
+        } 
 
-    const [themeIcon, setThemeIcon] = useState<ReactNode>(createThemeIcon(SunMoon));
+        return iconTags
+    }
 
-    // Show theme icon in navbar depending on theme
     useEffect(() => {
-        // Theme validation, defaults to system
-        if (theme == undefined || !themeList.includes(theme)) {
-            setTheme("system");
+        if (initialTheme !== undefined) {
             return;
         }
+        setInitialTheme(theme);
+    }, [initialTheme, theme])
 
-        setThemeIcon(createThemeIcon(iconList[themeList.indexOf(theme)]))
-    }, [theme, themeList, iconList, setTheme, createThemeIcon])
-
-    return themeIcon;
+    return initialTheme === undefined ? null : (
+        <FormControl sx={{
+            color: "transparent",
+            "& .MuiInputLabel-root": {
+                color: "transparent"
+            },
+            "&:hover .MuiInputLabel-root": {
+                color: "var(--logo-hover)"
+            },
+            ".MuiInputLabel-root.Mui-focused": {
+                color: "var(--logo-active)"
+            },
+        }} variant="outlined" fullWidth>
+            <InputLabel>Theme</InputLabel>
+            <Select
+                label="Theme"
+                defaultValue={initialTheme}
+                renderValue={(value) => {
+                    return createElement(themeMap[value], {suppressHydrationWarning: true})
+                }}
+                className="bg-background text-text h-12"
+                MenuProps={{
+                    slotProps: {
+                        paper: {
+                            className: "bg-background-alt"
+                        }
+                    }
+                }}
+                onChange={(event) => setTheme(event.target.value.toLowerCase())}
+                sx={{
+                    "& .MuiSelect-icon": {
+                        color: "var(--text-title)"
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "transparent"
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "var(--logo-hover)"
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "var(--logo-active)"
+                    }
+                }}
+            >
+                {generateIconTags()}
+            </Select>
+        </FormControl>
+    );
 
 }

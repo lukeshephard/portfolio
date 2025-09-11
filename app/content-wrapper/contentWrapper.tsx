@@ -21,7 +21,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                 <p className={`text-2xl text-center lg:text-left lg:text-3xl my-auto ${shadowsIntoLight.className}`}><Link href="/" className="block no-underline text-logo hover:text-logo-hover active:text-logo-active">Luke Shephard</Link></p>
                 
                 {/* Navbar */}
-                <div className="flex flex-col py-6 justify-center mx-auto text-xl gap-6 lg:flex-row lg:py-0 lg:m-0 lg:my-auto lg:gap-12">
+                <div className="flex flex-col py-6 justify-center mx-auto text-xl gap-6 lg:flex-row lg:py-0 lg:m-0 lg:gap-12">
                     <nav className="my-auto">
                         <ul className="flex flex-col gap-6 lg:flex-row lg:gap-12">
                             <NavbarItem name="About" icon={<User/>} activeIcon={<UserSearch/>} customLink=""/>
@@ -31,10 +31,6 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                         </ul>
                     </nav>
                     <ThemeButton/>
-                    <div className="flex">
-                        <RepositoryLink/>
-                    </div>
-
                 </div>
             </header>
             <hr className="text-text-title"/>
