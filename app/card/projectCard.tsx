@@ -38,8 +38,8 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
 
             return React.createElement(currentPlatform, {
                 key: title + platform,
-                size: 36,
-                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-link" : "text-text"} hover:text-link-hover active:text-link-active`,
+                size: 48,
+                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-link" : "text-text"} hover:text-link-hover active:text-link-active border-1 rounded-lg p-2`,
                 onClick: () => setSelectedPlatform(platform)
             })
         })
@@ -53,11 +53,11 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         const linksList = []
 
         if (links.website) {
-            linksList.push(<a href={links.website} target="_blank" className="flex gap-3 no-underline hover:underline"><House className="my-auto"/>Homepage</a>)
+            linksList.push(<a href={links.website} target="_blank" className="flex gap-2 no-underline hover:underline"><House className="my-auto"/>Homepage</a>)
         }
 
         if (links.repository) {
-            linksList.push(<a href={links.repository} target="_blank" className="flex gap-3 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
+            linksList.push(<a href={links.repository} target="_blank" className="flex gap-2 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
         }
 
         let fullText = <>{linksList[0]}</>;
@@ -88,7 +88,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
                 </Swiper>
             </div>
             <div>
-                <p>Supported devices (select to change preview):</p>
+                <p>Supported devices:</p>
                 <p className="my-auto flex justify-center gap-3 pt-3">{generatePlatformIcons()}</p>
             </div>
             <p className="p-3 lg:w-1/3 lg:p-0">{devInfo}</p>
