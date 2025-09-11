@@ -42,6 +42,10 @@ export default function Projects() {
               <ProjectCard
               id="little-man-computer"
               title="Little Man Computer"
+              links={{
+                website: "https://little-man-computer.lukeshephard.com",
+                repository: "https://github.com/lukeshephard/little-man-computer"
+              }}
               platforms={[Platform.Laptop, Platform.Desktop]}
               description={`An educational web page designed to help students learn von Neumann architecture, using the Little Man Computer (LMC) model. Users can create their own programs then see an animation of how the program would be running on a CPU.`}
               imagesData={[

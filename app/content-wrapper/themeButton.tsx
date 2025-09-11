@@ -46,7 +46,7 @@ export default function ThemeButton() {
         if (initialTheme !== undefined) {
             return;
         } else if (theme !== undefined && themeMap[theme] === undefined) {
-            console.log(`Cannot find theme "${theme}"! Defaulting to "System"...`)
+            console.log(`Cannot find theme "${theme}"! Defaulting to "system"...`)
             setTheme("system");
             return;
         } else if (theme === undefined) {

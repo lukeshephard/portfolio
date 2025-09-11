@@ -5,15 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1-0-0-alpha.2]
 
 ### Added
 - Experience and education pages with placeholder text.
+- 2 new themes, a pre-release design and a seaonal theme for testing.
 
 ### Changed
 - The layout of the content to be centered and presented as "cards".
+- Project page to feature each project in its own card, at the moment 2 for testing.
+- Each project to have images for each of its supported platforms that the user can switch between.
+- Theme button to a dropdown allowing the user to select from all themes.
 
 ### Removed
+- Most projects from project page.
 - Socials page.
 
 ## [1.0.0-alpha.1] - 2025-08-19
