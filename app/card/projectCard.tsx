@@ -1,23 +1,25 @@
 import Platform from "../utils/platform";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
-import { Laptop, LaptopMinimal, LucideIcon, Monitor, Smartphone, Tablet, Tv, TvMinimal } from "lucide-react";
+import { Laptop, LucideIcon, Monitor, Smartphone, Tablet } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
-export default function ProjectCard({title, platforms, imagesData, description, devInfo}: {title: string, platforms: Platform[], description: string, imagesData: {fileName: string, alt:string}[], devInfo: string}) {
+export default function ProjectCard({id, title, platforms, imagesData, description, devInfo}: {id:string, title: string, platforms: Platform[], description: string, imagesData: {name: string, alt:string}[], devInfo: string}) {
     const [selectedPlatform, setSelectedPlatform] = useState<Platform | undefined>()
 
     useEffect(() => {
-        if (window.innerWidth < 640) {
+        if (platforms.includes(Platform.Phone) && window.innerWidth < 640) {
             setSelectedPlatform(Platform.Phone);
-        } else if (window.innerWidth < 1024) {
+        } else if (platforms.includes(Platform.Tablet) && window.innerWidth < 1024) {
             setSelectedPlatform(Platform.Tablet);
-        } else if (window.innerWidth < 1536) {
+        } else if (platforms.includes(Platform.Laptop) && window.innerWidth < 1536) {
             setSelectedPlatform(Platform.Laptop);
-        } else {
+        } else if (platforms.includes(Platform.Desktop)) {
             setSelectedPlatform(Platform.Desktop);
+        } else {
+            setSelectedPlatform(platforms[0]);
         }
-    }, [])
+    }, [platforms])
 
 
     function generatePlatformIcons() {
@@ -37,14 +39,14 @@ export default function ProjectCard({title, platforms, imagesData, description, 
             return React.createElement(currentPlatform, {
                 key: title + platform,
                 size: 36,
-                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-logo" : "text-black"}`,
+                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-logo" : "text-text"}`,
                 onClick: () => setSelectedPlatform(platform)
             })
         })
     }
 
 
-    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.fileName}><img className="m-auto max-w-full max-h-150" src={`/images/projects/${title}/${imageData.fileName}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
+    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><img className="m-auto max-w-full max-h-150" src={`/images/projects/${id}/${imageData.name}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
 
     return (
         <div className={"w-screen py-10 flex flex-col items-center gap-y-10"}>
@@ -61,7 +63,7 @@ export default function ProjectCard({title, platforms, imagesData, description, 
             </div>
             <div>
                 <p>Supported Devices:</p>
-                <p className="project-platforms text-left my-auto flex gap-3 pt-3">{generatePlatformIcons()}</p>
+                <p className="my-auto flex justify-center gap-3 pt-3">{generatePlatformIcons()}</p>
             </div>
             <p className="p-3 lg:w-1/3 lg:p-0">{devInfo}</p>
         </div>
