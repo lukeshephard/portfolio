@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from "react";
-import { Archive, ArchiveRestore, BookMarked, BookOpen, GitPullRequestArrow, GitPullRequestDraft, User, UserSearch } from "lucide-react";
+import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml, GitPullRequestArrow, GitPullRequestDraft, User, UserSearch } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
@@ -25,7 +25,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                         <ul className="flex flex-col gap-6 lg:flex-row lg:gap-12">
                             <NavbarItem name="About" icon={<User/>} activeIcon={<UserSearch/>} customLink=""/>
                             <NavbarItem name="Projects" icon={<Archive/>} activeIcon={<ArchiveRestore/>}/>
-                            <NavbarItem name="Experience" icon={<GitPullRequestDraft/>} activeIcon={<GitPullRequestArrow/>}/>
+                            <NavbarItem name="Experience" icon={<Code/>} activeIcon={<CodeXml/>}/>
                             <NavbarItem name="Education" icon={<BookMarked/>} activeIcon={<BookOpen/>}/>
                         </ul>
                     </nav>

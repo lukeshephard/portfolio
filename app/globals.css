@@ -34,9 +34,9 @@
   --text-title: black;
   --text: var(--color-neutral-700);
 
-  --logo: var(--color-blue-400);
-  --logo-hover: var(--color-blue-500);
-  --logo-active: var(--color-blue-600);
+  --logo: var(--color-blue-600);
+  --logo-hover: var(--color-blue-700);
+  --logo-active: var(--color-blue-800);
 
   --link: var(--color-logo);
   --link-hover: var(--color-logo-hover);
@@ -50,11 +50,16 @@
   --background: var(--color-neutral-900);
   --background-alt: var(--color-neutral-800);
 
+  --logo: var(--color-blue-400);
+  --logo-hover: var(--color-blue-500);
+  --logo-active: var(--color-blue-600);
+
+
   --text-title: white;
   --text: var(--color-neutral-300);
 }
 
-[data-theme="pre-release"] {
+[data-theme="luke_shephard"] {
   --background: #0a182b;
   --background-alt:#0d203b;
 

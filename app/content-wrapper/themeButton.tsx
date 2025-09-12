@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { Ghost, History, LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
+import { BookUser, Ghost, History, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, useEffect, useMemo, useState } from "react";
 
@@ -22,9 +22,9 @@ export default function ThemeButton() {
                 name: "Dark",
                 icon: Moon
             },
-            "pre-release": {
-                name: "Pre-Release",
-                icon: History
+            "luke_shephard": {
+                name: "Luke Shephard",
+                icon: BookUser
             },
             "EXPERIMENTAL_SEASONAL": {
                 name: "Seasonal (Experimental)",
@@ -35,8 +35,8 @@ export default function ThemeButton() {
 
     function generateIconTags() {
         const iconTags = [];
-        for (const theme of Object.keys(themeMap)) {
-            iconTags.push(<MenuItem key={`theme${theme}`} className="bg-background-alt whitespace-pre text-text-title" value={theme}>{createElement(themeMap[theme].icon, {className: "text-text-title"})} {themeMap[theme].name}</MenuItem>)
+        for (const themeName of Object.keys(themeMap)) {
+            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background whitespace-pre ${themeName === theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(themeMap[themeName].icon, {className: themeName === theme ? "text-link" : "text-text-title"})} {themeMap[themeName].name}</MenuItem>)
         } 
 
         return iconTags
@@ -73,14 +73,12 @@ export default function ThemeButton() {
             <Select
                 label="Theme"
                 defaultValue={initialTheme}
-                renderValue={(value) => {
-                    return createElement(themeMap[value].icon, {suppressHydrationWarning: true})
-                }}
+                renderValue={() => <Palette/>}
                 className="bg-background text-text-title h-12"
                 MenuProps={{
                     slotProps: {
                         paper: {
-                            className: "bg-background-alt"
+                            className: "bg-background"
                         }
                     }
                 }}
