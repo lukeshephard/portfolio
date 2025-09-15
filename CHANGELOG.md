@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Name of pre-release theme to Luke Shephard.
 - Default theme to Luke Shephard.
+- Minor theme and style changes.
 
 ### Fixed
 

@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { BookUser, Ghost, History, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
+import { BookUser, Ghost, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, useEffect, useMemo, useState } from "react";
 

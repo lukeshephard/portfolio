@@ -64,7 +64,7 @@
   --background-alt:#0d203b;
 
   --text-title: white;
-  --text: white;
+  --text: var(--color-neutral-200);
 
   --logo: white;
   --logo-hover: var(--color-neutral-400);

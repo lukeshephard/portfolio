@@ -1,30 +1,57 @@
 'use client'
 
-import { Archive, BookMarked, BoxSelect } from "lucide-react";
-import Card from "./card/card";
-import CardArray from "./card/cardArray";
+import { Cutive_Mono, IBM_Plex_Mono, VT323 } from "next/font/google";
+
+const ibmPlexMono = Cutive_Mono({
+  subsets: ["latin"],
+  weight: "400"
+})
 
 // About me page
 export default function Home() {
+
+  const firstName =
+`##         ##      ##  ##      ##  ##########
+##         ##      ##  ##    ##    ##        
+##         ##      ##  ##  ##      ##        
+##         ##      ##  ####        ##########
+##         ##      ##  ##  ##      ##        
+##         ##      ##  ##    ##    ##        
+#########    ######    ##      ##  ##########`
+
+  const lastName =
+`  ########  ##      ##  ##########  ########    ##      ##    ######    ########    ########  
+##          ##      ##  ##          ##      ##  ##      ##  ##      ##  ##      ##  ##      ##
+##          ##      ##  ##          ##      ##  ##      ##  ##      ##  ##      ##  ##      ##
+##########  ##########  ##########  ########    ##########  ##########  ########    ##      ##
+        ##  ##      ##  ##          ##          ##      ##  ##      ##  ##  ##      ##      ##
+        ##  ##      ##  ##          ##          ##      ##  ##      ##  ##    ##    ##      ##
+########    ##      ##  ##########  ##          ##      ##  ##      ##  ##      ##  ########  `
+
+
+function getFullName() {
+  const firstNameLines = firstName.split("\n");
+  const namePadding = `              ` // space = 2 char = 10 space = 2 (total 14)
+  const lastNameLines = lastName.split("\n");
+
+  let fullNameString = "";
+
+  for (let i = 0; i < firstNameLines.length; i++) {
+    if (i !== 0) {
+      fullNameString += "\n"
+    }
+    fullNameString = fullNameString + firstNameLines[i] + namePadding + lastNameLines[i]
+  }
+
+  return fullNameString;
+}
+
   return (
     <>
-      <div className="flex flex-col items-center text-text"> 
-        <CardArray>
-          <Card title="Hi. I'm Luke."></Card>
-          <Card title="A Passionate Web Developer.">
-              <p>I work hard on improving my programming skills every day. I enjoy turning ideas into reality through my projects.</p>
-              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><Archive/> Projects</button>
-          </Card>
-          <Card title="A Striving Go-Getter.">
-              <p>I put 110% into the work I do, ensuring I achieve by best results.</p>
-              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><BoxSelect/> Experience</button>
-          </Card>
-          <Card title="A Motivated Student.">
-              <p>I&apos;m a student whos eager to learn new skills and expand my knowledge to reach my full potentional.</p>
-              <button className="border rounded-xl p-1 flex gap-2 cursor-pointer"><BookMarked/> Education</button>
-          </Card>
-        </CardArray>
-      </div>
+    <div className={`h-full flex justify-center flex-col ${ibmPlexMono.className}`}>
+      <pre className="text-lg items-center text-center whitespace-pre py-12 text-text-title">{getFullName()}</pre>
+      <p className="text-3xl">Pushing the web design to its limits.</p>
+    </div>
     </>
   );
 }

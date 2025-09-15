@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from "react";
-import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml, GitPullRequestArrow, GitPullRequestDraft, User, UserSearch } from "lucide-react";
+import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml, User, UserSearch } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
@@ -35,7 +35,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
             <hr className="text-text-title"/>
 
             {/* Main content */}
-            <main className="w-full m-auto text-center">
+            <main className="w-full m-auto text-center ">
                 {children}
             </main>
         </>
