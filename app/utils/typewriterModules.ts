@@ -1,5 +1,9 @@
 import { TypewriterClass } from 'typewriter-effect';
 
+const styleGuide = {
+  success: "text-green-500",
+  fail: "text-red-500",
+}
 
 function simulateLoading(typewriter: TypewriterClass, duration: number, keepEllipsis=false) {
   typewriter.typeString("...");
@@ -9,64 +13,67 @@ function simulateLoading(typewriter: TypewriterClass, duration: number, keepElli
   }
 
   if (!keepEllipsis) {
-    typewriter.deleteChars(3)
+    typewriter.deleteChars(3);
   }
 
 }
 
 
-function checkSystemStatus(typewriter: TypewriterClass) {
-    typewriter.typeString("Checking system status...")
-    .typeString("<br/>/projects")
-    simulateLoading(typewriter, 1)
+function typewriterLine(typewriter: TypewriterClass, text: string) {
+  typewriter.typeString(`${text}<br/>`);
+}
 
-    typewriter.typeString(" ONLINE")
-    .typeString("<br/>/experience")
-    simulateLoading(typewriter, 3)
-    typewriter.typeString(" ONLINE")
-    .typeString("<br/>/education")
-    simulateLoading(typewriter, 2)
-    typewriter.typeString(" ONLINE")
-    .typeString("<br/>Styling")
-    simulateLoading(typewriter, 1)
+function typewriterLineWithLoading(typewriter: TypewriterClass, duration: number, text: string, finishText?: string) {
+  typewriter.typeString(text);
+  simulateLoading(typewriter, duration, finishText === undefined);
+  if (finishText) {
+    typewriterLine(typewriter, ` ${finishText}`);
+  } else {
+    typewriterLine(typewriter, "");
+  }
+}
 
-    typewriter.typeString(" OPERATIONAL")
-    .typeString("<br/>Themes")
-    simulateLoading(typewriter, 1)
-    typewriter.typeString(" OPERATIONAL")
-    .typeString("<br/>Images")
-    simulateLoading(typewriter, 3)
-    typewriter.typeString(" OPERATIONAL")
-    .typeString("<br/>External links")
-    simulateLoading(typewriter, 4)
-    typewriter.typeString(" OPERATIONAL")
+function styleText(text: string, style: string) {
+  return `<span class="${style}">${text}</span>`
+}
 
-    .typeString("<br/>SUCCESS 7 FAIL 0")
+function styleLink(link: string) {
+  return `<a href="${link}" ${link[0] === "/" ? `` : `target="_blank"`} class="text-link hover:text-link-hover active:text-link-active">${link}</a>`
+}
+
+export function initModule(typewriter: TypewriterClass) {
+  typewriterLineWithLoading(typewriter, 5, `GET ${styleLink("/backend")}`, `${styleText("200", styleGuide.success)} in 237ms`);
+  
+  typewriterLineWithLoading(typewriter, 7, "", "Checking status of pages");
+  typewriterLineWithLoading(typewriter, 1, `${styleLink("/projects")}`, `${styleText("SUCCESS", styleGuide.success)}`);
+  typewriterLineWithLoading(typewriter, 3, `${styleLink("/experience")}`, `${styleText("SUCCESS", styleGuide.success)}`);
+  typewriterLineWithLoading(typewriter, 2, `${styleLink("/education")}`, `${styleText("SUCCESS", styleGuide.success)}`);
+  typewriterLine(typewriter, `${styleText("SUCCESS", styleGuide.success)} 3 ${styleText("FAIL", styleGuide.fail)} 0`);
+
+  typewriterLineWithLoading(typewriter, 3, "", "Verifying system integrity");
+  typewriterLineWithLoading(typewriter, 1, "Styling", `${styleText("OPERATIONAL", styleGuide.success)}`);
+  typewriterLineWithLoading(typewriter, 1, "Themes", `${styleText("OPERATIONAL", styleGuide.success)}`);
+  typewriterLineWithLoading(typewriter, 3, "Images", `${styleText("OPERATIONAL", styleGuide.success)}`);
+  typewriterLine(typewriter, `${styleText("SUCCESS", styleGuide.success)} 3 ${styleText("FAIL", styleGuide.fail)} 0`);
 }
 
 function pullData(typewriter: TypewriterClass) {
-    typewriter.typeString("Pulling latest data...")
-    .typeString("<br/>GET https://github.com/lukeshephard/personal-website.git")
-    simulateLoading(typewriter, 11)
-    typewriter.typeString(" 200 in 3793ms")
-    .typeString("<br/>Verifying signature")
-    simulateLoading(typewriter, 4)
-    typewriter.typeString(" SUCCESS")
+  typewriterLineWithLoading(typewriter, 11, `GET ${styleLink("https://github.com/lukeshephard/personal-website.git")}`, `${styleText("200", styleGuide.success)} in 792ms`);
+  typewriterLineWithLoading(typewriter, 4, "Verifying signature", `${styleText("SUCCESS", styleGuide.success)}`);
+  typewriterLineWithLoading(typewriter, 8, "Pulling data");
 
-    .typeString("<br/>FOUND personal-website")
-    .typeString("<br/>VERSION 1.0.0-alpha-3")
-    .typeString("<br/>Checking version matches")
-    simulateLoading(typewriter, 2)
-    typewriter.typeString(" SUCCESS")      
+  typewriterLine(typewriter, `Found ${styleText("personal-website", styleGuide.success)} v1.0.0-alpha-3`);
+  typewriterLineWithLoading(typewriter, 8, "", "This is the latest version!");    
 }
 
-const allModules = [
-    checkSystemStatus,
-    pullData
-]
+function getRandomModule() { // exclude /backend (into)
+  const keys = Object.keys(moduleNameMap);
+  return keys[Math.floor(Math.random() * (keys.length - 1)) + 1]
+}
 
-function getRandomModule() {
-    return allModules[Math.floor(Math.random() * allModules.length)]
+export const moduleNameMap: {[key: string]: (typewriter: TypewriterClass) => void} = {
+  "startup.sys": initModule,
+  "pullData.exe": pullData,
 }
 
 

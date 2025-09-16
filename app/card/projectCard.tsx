@@ -53,11 +53,11 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         const linksList = []
 
         if (links.website) {
-            linksList.push(<a href={links.website} target="_blank" className="flex gap-2 no-underline hover:underline"><House className="my-auto"/>Homepage</a>)
+            linksList.push(<a href={links.website} target="_blank" className="flex gap-3 no-underline hover:underline"><House className="my-auto"/>Homepage</a>)
         }
 
         if (links.repository) {
-            linksList.push(<a href={links.repository} target="_blank" className="flex gap-2 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
+            linksList.push(<a href={links.repository} target="_blank" className="flex gap-3 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
         }
 
         let fullText = <>{linksList[0]}</>;
