@@ -66,13 +66,9 @@
   --text-title: white;
   --text: var(--color-neutral-200);
 
-  --logo: white;
-  --logo-hover: var(--color-neutral-400);
-  --logo-active: var(--color-neutral-600);
-
-  --link: var(--color-amber-400);
-  --link-hover: var(--color-amber-500);
-  --link-active: var(--color-amber-600);
+  --logo: var(--color-amber-300);
+  --logo-hover: var(--color-amber-400);
+  --logo-active: var(--color-amber-500);
 }
 
 [data-theme="EXPERIMENTAL_SEASONAL"] {
@@ -89,6 +85,21 @@
 
 
 @layer base {
+/* 
+  .hljs-keyword {
+    color: var(--link);
+  }
+
+  .hljs-title {
+    color: var(--text-title);
+  }
+
+  .hljs-string,
+  .hljs-number,
+  .hljs-literal {
+    color: var(--logo-active)
+  } */
+
   body {
     color: var(--text);
     background: var(--background);

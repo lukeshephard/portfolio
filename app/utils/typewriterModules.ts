@@ -1,4 +1,8 @@
 import { TypewriterClass } from 'typewriter-effect';
+import hljs from 'highlight.js/lib/core';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+hljs.registerLanguage('typescript', typescript);
 
 const styleGuide = {
   success: "text-green-500",
@@ -66,6 +70,12 @@ function pullData(typewriter: TypewriterClass) {
   typewriterLineWithLoading(typewriter, 8, "", "This is the latest version!");    
 }
 
+export function codeDisplay(typewriter: TypewriterClass, code: string) {
+  const highlightedCode = hljs.highlight(code, {language: "typescript"})
+  typewriterLine(typewriter, highlightedCode.value)
+  console.log(highlightedCode.value)
+}
+
 function getRandomModule() { // exclude /backend (into)
   const keys = Object.keys(moduleNameMap);
   return keys[Math.floor(Math.random() * (keys.length - 1)) + 1]
@@ -75,6 +85,7 @@ export const moduleNameMap: {[key: string]: (typewriter: TypewriterClass) => voi
   "startup.sys": initModule,
   "pullData.exe": pullData,
 }
+
 
 
 export default getRandomModule;

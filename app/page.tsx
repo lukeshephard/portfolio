@@ -1,10 +1,11 @@
 'use client'
 
-import { Cutive_Mono } from "next/font/google";
+import { Cutive_Mono, Geist } from "next/font/google";
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import { createElement, useEffect, useState } from "react";
 import { Pause, Play } from "lucide-react";
-import getRandomModule, { moduleNameMap } from "./utils/typewriterModules";
+import getRandomModule, { codeDisplay, moduleNameMap } from "./utils/typewriterModules";
+import 'highlight.js/styles/github-dark.css'; // Needs changing for light mode
 
 const cutiveMono = Cutive_Mono({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function Home() {
     }
 
     if (typewriterPlaying) {
+      console.log("ran")
       const cursors = document.getElementsByClassName("Typewriter__cursor__disabled");
       if (cursors.length > 0) {
         typewriter.start();
@@ -42,13 +44,15 @@ export default function Home() {
     if (typewriter === undefined) {
       return;
     }
-    console.log(`Running typewriter module ${typewriterModule.module}`);
-    moduleNameMap[typewriterModule.module](typewriter)
-    typewriter.pauseFor(3000)
-    .deleteAll(1)
-    .callFunction(() => {
-      setTypewriterModule({module: getRandomModule()})
-    })
+    // console.log(`Running typewriter module ${typewriterModule.module}`);
+    // moduleNameMap[typewriterModule.module](typewriter)
+    // typewriter.pauseFor(3000)
+    // .deleteAll(1)
+    // .callFunction(() => {
+    //   setTypewriterModule({module: getRandomModule()})
+    // })
+
+    codeDisplay(typewriter, getFullName.toString())
   }, [typewriter, typewriterModule])
 
   const firstName =
@@ -89,29 +93,32 @@ export default function Home() {
 
   return (
     <>
-      <div className={`h-full ${cutiveMono.className}`}>
-        <div className="grid grid-cols-[1fr_1fr_1fr] h-100 items-center">
-          <div className="text-left self-start text-lg h-100 overflow-y-scroll mr-9">
-            <p className="flex gap-3 text-text-title">Running: <span className="text-link">{typewriterModule.module}</span> {createElement(typewriterPlaying ? Pause : Play, {onClick: (() => setTypewriterPlaying(!typewriterPlaying)), className: "my-auto"})}</p>
-            <hr className="border-dashed"/>
-            <Typewriter
-              options={{
-                cursor: "▮"
-              }}
-              onInit={(typewriter) => {
-                typewriter.start()
-                .changeDeleteSpeed(1)
-                setTypewriter(typewriter)
-              }}
-            />
+      <div className={`h-full`}>
+          <div className={`absolute w-screen h-screen z-0 text-5xl saturate-60 contrast-60 blur-xs text-left self-start h-100 overflow-y-scroll ${cutiveMono.className}`}>            {/* <p className="flex gap-3 text-text-title">{typewriterPlaying ? "Running" : "Paused"} <span className="text-link">{typewriterModule.module}</span> {createElement(typewriterPlaying ? Pause : Play, {onClick: (() => setTypewriterPlaying(!typewriterPlaying)), className: "my-auto text-text-title"})}</p> */}
+            {/* <hr className="border-dashed"/> */}
+            <pre className="text-wrap">
+              <code className="select-none pointer-events-none inert">
+                <Typewriter
+                  options={{
+                    cursor: "▮",
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter.start()
+                    .changeDelay(30)
+                    setTypewriter(typewriter)
+                  }}
+                />
+              </code>
+            </pre>
           </div>
-          <div className="">
-            <pre className="text-lg text-center whitespace-pre py-12 text-text-title">{getFullName()}</pre>
-            <p className="text-3xl">Pushing web design to its limits.</p>
+        <div className="flex flex-col justify-center items-center z-10 mt-9">
+          <div className="backdrop-blur-xl backdrop-opacity-100 rounded-4xl py-6 px-6">
+            <pre className="text-lg text-center whitespace-pre text-logo py-12">{getFullName()}</pre>
+            <p className="text-3xl py-6">Computer Science Student | Aspiring Web Developer</p> 
+            <div className="flex justify-center">
+              <p className="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam corrupti voluptate aut labore rem deleniti adipisci aliquam dolorum laboriosam architecto cumque esse praesentium saepe eligendi debitis enim, quasi commodi!</p>
+            </div>
           </div>
-        </div>
-        <div className="mt-15">
-          <p>About me</p>
         </div>
       </div>
     </>
