@@ -36,7 +36,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
             </header>
 
             {/* Main content */}
-            <main className="pt-18 w-full m-auto text-center ">
+            <main className="pt-18 w-full m-auto">
                 <hr className="text-text-title"/>
                 {children}
             </main>

@@ -1,11 +1,10 @@
 'use client'
 
-import { Cutive_Mono, Geist } from "next/font/google";
+import { Cutive_Mono } from "next/font/google";
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
-import { createElement, useEffect, useState } from "react";
-import { Pause, Play } from "lucide-react";
-import getRandomModule, { codeDisplay, moduleNameMap } from "./utils/typewriterModules";
+import { useEffect, useState } from "react";
 import 'highlight.js/styles/github-dark.css'; // Needs changing for light mode
+import typewriterCodeDisplay from "./utils/typewriterCodeDisplay";
 
 const cutiveMono = Cutive_Mono({
   subsets: ["latin"],
@@ -15,9 +14,8 @@ const cutiveMono = Cutive_Mono({
 // About me page
 export default function Home() {
 
-  const [typewriter, setTypewriter] = useState<TypewriterClass | undefined>()
+  const [typewriter, setTypewriter] = useState<TypewriterClass | undefined>();
   const [typewriterPlaying, setTypewriterPlaying] = useState(true);
-  const [typewriterModule, setTypewriterModule] = useState<{module: string}>({module: Object.keys(moduleNameMap)[0]})
 
   useEffect(() => {
     if (typewriter === undefined) {
@@ -44,16 +42,10 @@ export default function Home() {
     if (typewriter === undefined) {
       return;
     }
-    // console.log(`Running typewriter module ${typewriterModule.module}`);
-    // moduleNameMap[typewriterModule.module](typewriter)
-    // typewriter.pauseFor(3000)
-    // .deleteAll(1)
-    // .callFunction(() => {
-    //   setTypewriterModule({module: getRandomModule()})
-    // })
 
-    codeDisplay(typewriter, getFullName.toString())
-  }, [typewriter, typewriterModule])
+    typewriterCodeDisplay(typewriter)
+  }, [typewriter])
+
 
   const firstName =
 `##         ##      ##  ##      ##  ##########
@@ -93,28 +85,26 @@ export default function Home() {
 
   return (
     <>
-      <div className={`h-full`}>
-          <div className={`absolute w-screen h-screen z-0 text-5xl saturate-60 contrast-60 blur-xs text-left self-start h-100 overflow-y-scroll ${cutiveMono.className}`}>            {/* <p className="flex gap-3 text-text-title">{typewriterPlaying ? "Running" : "Paused"} <span className="text-link">{typewriterModule.module}</span> {createElement(typewriterPlaying ? Pause : Play, {onClick: (() => setTypewriterPlaying(!typewriterPlaying)), className: "my-auto text-text-title"})}</p> */}
-            {/* <hr className="border-dashed"/> */}
-            <pre className="text-wrap">
-              <code className="select-none pointer-events-none inert">
-                <Typewriter
-                  options={{
-                    cursor: "▮",
-                  }}
-                  onInit={(typewriter) => {
-                    typewriter.start()
-                    .changeDelay(30)
-                    setTypewriter(typewriter)
-                  }}
-                />
-              </code>
-            </pre>
-          </div>
-        <div className="flex flex-col justify-center items-center z-10 mt-9">
-          <div className="backdrop-blur-xl backdrop-opacity-100 rounded-4xl py-6 px-6">
+      <div>
+        <div className={`absolute w-screen h-[calc(100vh-var(--spacing)*18-1px)] z-0 text-5xl saturate-60 contrast-60 blur-[1.5px] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
+          <pre className="text-wrap h-full overflow-hidden" id="codeBox">
+            <code className="select-none pointer-events-none text-3xl">
+              <Typewriter
+                options={{
+                  cursor: "▮",
+                }}
+                onInit={(typewriter) => {
+                  typewriter.start()
+                  setTypewriter(typewriter)
+                }}
+              />
+            </code>
+          </pre>
+        </div>
+        <div className="flex flex-col justify-center items-center z-10">
+          <div className="backdrop-blur-xl backdrop-opacity-100 rounded-4xl py-6 px-6 mt-9">
             <pre className="text-lg text-center whitespace-pre text-logo py-12">{getFullName()}</pre>
-            <p className="text-3xl py-6">Computer Science Student | Aspiring Web Developer</p> 
+            <p className="text-3xl py-6 text-center">Computer Science Student | Aspiring Web Developer</p> 
             <div className="flex justify-center">
               <p className="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam corrupti voluptate aut labore rem deleniti adipisci aliquam dolorum laboriosam architecto cumque esse praesentium saepe eligendi debitis enim, quasi commodi!</p>
             </div>
