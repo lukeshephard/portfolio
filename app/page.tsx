@@ -85,29 +85,27 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <div className={`absolute w-screen h-[calc(100vh-var(--spacing)*18-1px)] z-0 text-5xl saturate-60 contrast-60 blur-[1.5px] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
-          <pre className="text-wrap h-full overflow-hidden" id="codeBox">
-            <code className="select-none pointer-events-none text-3xl">
-              <Typewriter
-                options={{
-                  cursor: "▮",
-                }}
-                onInit={(typewriter) => {
-                  typewriter.start()
-                  setTypewriter(typewriter)
-                }}
-              />
-            </code>
-          </pre>
-        </div>
-        <div className="flex flex-col justify-center items-center z-10">
-          <div className="backdrop-blur-xl backdrop-opacity-100 rounded-4xl py-6 px-6 mt-9">
-            <pre className="text-lg text-center whitespace-pre text-logo py-12">{getFullName()}</pre>
-            <p className="text-3xl py-6 text-center">Computer Science Student | Aspiring Web Developer</p> 
-            <div className="flex justify-center">
-              <p className="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam corrupti voluptate aut labore rem deleniti adipisci aliquam dolorum laboriosam architecto cumque esse praesentium saepe eligendi debitis enim, quasi commodi!</p>
-            </div>
+      <div className={`absolute w-screen h-[calc(100vh-var(--spacing)*18-1px)] z-0 text-5xl saturate-60 contrast-60 blur-[1.5px] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
+        <pre className="text-wrap h-full overflow-hidden" id="codeBox">
+          <code className="select-none pointer-events-none text-3xl">
+            <Typewriter
+              options={{
+                cursor: "▮",
+              }}
+              onInit={(typewriter) => {
+                typewriter.start()
+                setTypewriter(typewriter)
+              }}
+            />
+          </code>
+        </pre>
+      </div>
+      <div className="flex flex-col justify-center items-center z-10">
+        <div className="backdrop-blur-xl backdrop-opacity-100 rounded-4xl py-6 px-6 mt-27">
+          <pre className="text-lg text-center whitespace-pre text-logo py-12">{getFullName()}</pre>
+          <p className="text-3xl py-6 text-center">Computer Science Student | Aspiring Web Developer</p> 
+          <div className="flex justify-center">
+            <p className="w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, quisquam corrupti voluptate aut labore rem deleniti adipisci aliquam dolorum laboriosam architecto cumque esse praesentium saepe eligendi debitis enim, quasi commodi!</p>
           </div>
         </div>
       </div>
