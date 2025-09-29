@@ -14,13 +14,11 @@ export default function Projects() {
       <>
           <div className="flex flex-col items-center text-text text-lg">
             <CardArray>
-              <Card title="Projects">
-              </Card>
-
+              <h1 className='pb-9 text-5xl'>Here are my flagship projects.</h1>
               <ProjectCard
               id="qmtrack"
               title="QMTrack"
-              platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop, Platform.Desktop]}
+              platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop]}
               description={`A prototype web app allowing students and staff to manage various services for Queen Mary University of London (QMUL), all in one place.
                 The main purpose of this app is to bring separate QMUL services together in an easy-to-use way for students and staff.`}
 
@@ -46,7 +44,7 @@ export default function Projects() {
                 website: "https://little-man-computer.lukeshephard.com",
                 repository: "https://github.com/lukeshephard/little-man-computer"
               }}
-              platforms={[Platform.Laptop, Platform.Desktop]}
+              platforms={[Platform.Laptop]}
               description={`An educational web page designed to help students learn von Neumann architecture, using the Little Man Computer (LMC) model. Users can create their own programs then see an animation of how the program would be running on a CPU.`}
               imagesData={[
                 {name: "running", alt: `A program running with the title "Square the input", partway through an animation.`},

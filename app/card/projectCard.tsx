@@ -12,10 +12,8 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
             setSelectedPlatform(Platform.Phone);
         } else if (platforms.includes(Platform.Tablet) && window.innerWidth < 1024) {
             setSelectedPlatform(Platform.Tablet);
-        } else if (platforms.includes(Platform.Laptop) && window.innerWidth < 1536) {
+        } else if (platforms.includes(Platform.Laptop)) {
             setSelectedPlatform(Platform.Laptop);
-        } else if (platforms.includes(Platform.Desktop)) {
-            setSelectedPlatform(Platform.Desktop);
         } else {
             setSelectedPlatform(platforms[0]);
         }
@@ -31,7 +29,6 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
                 "PHONE": Smartphone,
                 "TABLET": Tablet,
                 "LAPTOP": Laptop,
-                "DESKTOP": Monitor
             }
 
             const currentPlatform = iconMap[platform]
@@ -88,7 +85,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
                 </Swiper>
             </div>
             <div>
-                <p>Supported devices:</p>
+                <p>View on other platforms:</p>
                 <p className="my-auto flex justify-center gap-3 pt-3">{generatePlatformIcons()}</p>
             </div>
             <p className="p-3 lg:w-1/3 lg:p-0">{devInfo}</p>
