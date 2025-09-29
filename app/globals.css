@@ -1,109 +1,169 @@
-/* website-template v1.3 */
+@layer theme, base, mui, components, utilities;
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme inline {
+  /* Custom colors */
+  --color-lightest-blue: #3b82f6;
+  --color-light-blue: #1a3e74;
+  --color-moderate-blue: #12284a;
+  --color-dark-blue: #0d203b;
+  --color-darkest-blue: #0a182b;
+  --color-darkest-blue-2x: #07111f;
+  --color-darkest-blue-3x: #050b14;
+
+  /* Theme setup */
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+
+  --color-text: var(--text);
+  --color-text-title: var(--text-title);
+
+  --color-logo: var(--logo);
+  --color-logo-hover: var(--logo-hover);
+  --color-logo-active: var(--logo-active);
+
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-link-active: var(--link-active);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-neutral-100);
+  --background-alt: var(--color-neutral-300);
+
+  --text-title: black;
+  --text: var(--color-neutral-700);
+
+  --logo: #ffa600;
+  --logo-hover: rgb(231, 151, 1);
+  --logo-active: #c98200;
+
+  --link: var(--color-logo);
+  --link-hover: var(--color-logo-hover);
+  --link-active: var(--color-logo-active);
+
+  --swiper-navigation-color: var(--color-link);
+  --swiper-pagination-color: var(--color-link);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[data-theme="dark"] {
+  --background: var(--color-neutral-900);
+  --background-alt: var(--color-neutral-800);
+
+  --logo: var(--color-amber-300);
+  --logo-hover: var(--color-amber-400);
+  --logo-active: var(--color-amber-500);
+
+  --text-title: white;
+  --text: var(--color-neutral-300);
+}
+
+[data-theme="luke_shephard"] {
+  --background: var(--color-slate-950);
+  --background-alt: var(--color-slate-900);
+
+  --text-title: white;
+  --text: var(--color-neutral-200);
+
+  --logo: var(--color-amber-300);
+  --logo-hover: var(--color-amber-400);
+  --logo-active: var(--color-amber-500);
+}
+
+[data-theme="EXPERIMENTAL_SEASONAL"] {
+  --background: #000000;
+  --background-alt: #0e0e0e;
+
+  --text-title:var(--color-purple-600);
+  --text: var(--color-neutral-300);
+
+  --logo: var(--color-orange-600);
+  --logo-hover: var(--color-orange-700);
+  --logo-active: var(--color-orange-800);
+}
+
+
+@layer base {
+/* 
+  .hljs-keyword {
+    color: var(--link);
   }
-}
 
-body {
-  color: #e5e5e5; /* neutral-200 */
-  background: #020618; /* slate-950 */
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .hljs-title {
+    color: var(--text-title);
+  }
 
-input {
-  color: #f5f5f5;
-  background: theme('colors.darkest-blue');
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .hljs-string,
+  .hljs-number,
+  .hljs-literal {
+    color: var(--logo-active)
+  } */
 
-td, th {
-  text-wrap: wrap;
-  word-break: break-all;
-  padding: 1rem;
-}
+  body {
+    color: var(--text);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-main {
-  background-color: theme('colors.dark-blue');
-  padding: 2.5rem;
-}
+  td, th {
+    text-wrap: wrap;
+    word-break: break-all;
+    padding: 1rem;
+  }
 
-.header {
-  background-color: theme('colors.dark-blue');
-}
+  main {
+    background-color: var(--background);
+  }
 
-table {
-  background-color: theme('colors.darkest-blue');
-  margin-left: auto;
-  margin-right: auto;
-}
+  button {
+    text-wrap: nowrap;
+  }
 
-button {
-  text-wrap: nowrap;
-}
+  /* a:hover {
+    color: #a3a3a3;
+  }
 
-a:hover {
-  color: #a3a3a3; /* neutral-400 */
-}
+  a:active { 
+    color: #525252;
+  } */
 
-a:active { 
-  color: #525252; /* neutral-600 */
-}
+  p a, li a, .linkStyle, .linkStyle a {
+    color: var(--link);
+    text-decoration: underline;
+  }
 
-h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  padding-bottom: 2.5rem;
-}
+  p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
+    color: var(--link-hover);
+  }
 
-p a, li a, .linkStyle, .linkStyle a {
-  color: #ffd230; /* amber-300 */
-}
+  p a:active, li a:active, .linkStyle:active, .linkStyle a:active { 
+    color: var(--link-active);
+  }
 
-p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
-  color: #fbbf24; /* amber-400 */
-}
+  .disabledLinkStyle, .disabledLinkStyle a {
+    color: #9ca3af; /* gray-400 */
+    text-decoration: underline;
+  }
 
-p a:active, li a:active, .linkStyle:active, .linkStyle a:active { 
-  color: #f59e0b; /* amber-500 */ 
-}
+  .disabledLinkStyle:hover, .disabledLinkStyle a:hover {
+    color: #71717a;
+  }
 
-.disabledLinkStyle, .disabledLinkStyle a {
-  color: #9ca3af; /* gray-400 */
-}
+  .disabledLinkStyle:active, .disabledLinkStyle a:active {
+    color: #52525b;
+  }
 
-.disabledLinkStyle:hover, .disabledLinkStyle a:hover {
-  color: #71717a;
-}
+  select {
+    background-color: var(--foreground);
+  }
 
-.disabledLinkStyle:active, .disabledLinkStyle a:active {
-  color: #52525b;
-}
+  li {
+    list-style-type: square;
+    list-style-position: inside;
+  }
 
-/* ADDED FOR PERSONAL-WEBSITE */
+  h1, h2, h3, h4, h5 {
+    color: var(--text-title)
+  }
 
-li {
-  list-style-type: square;
-  list-style-position: inside;
-}
-
-select {
-  background-color: theme('colors.darkest-blue');
-}
-
-h2 {
-  font-size: 1.75rem;
-  line-height: 2rem;
-  padding-bottom: 1.5rem;
 }

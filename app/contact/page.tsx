@@ -1,9 +1,6 @@
-import Header from "../template/global/header"
-
 export default function Page() {
     return (
         <>
-            <Header currentPage="Contact"/>
             <main>
                 <h1>Contact</h1>
                 <section>

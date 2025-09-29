@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import ContentWrapper from "./content-wrapper/contentWrapper";
+import { ThemeProvider } from "next-themes";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { Geist } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const geist = Geist({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   title: "Luke Shephard",
-  description: "Luke Shephard's personal website.",
+  description: "Luke Shephard's Personal Website.",
+  icons: {
+    icon: [
+      { rel: "icon", url: "/icons/favicon-light.svg", media: "(prefers-color-scheme: light)"},
+      { rel: "icon", url: "/icons/favicon-dark.svg", media: "(prefers-color-scheme: dark)"}
+    ]
+  }
 };
 
 export default function RootLayout({
@@ -24,11 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geist.className} antialiased h-screen`}
       >
-        {children}
+        <AppRouterCacheProvider options={{enableCssLayer: true}}>
+          <ThemeProvider defaultTheme="luke_shephard">
+            <ContentWrapper>
+              {children}
+            </ContentWrapper>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

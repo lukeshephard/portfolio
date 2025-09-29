@@ -1,6 +1,5 @@
 import { Project } from "./projects/project";
 import ProjectLabel from "./projects/display/projectLabel";
-import Header from "./template/global/header";
 import { NameLink } from "./template/link/nameLink";
 import MainProjects from "./projects/mainProjects";
 
@@ -11,8 +10,6 @@ export default function Page() { // The website home page
 
   return (
     <>
-      <Header currentPage="Home"/>
-      
       <main>
         <h1>Home</h1>
         <section>

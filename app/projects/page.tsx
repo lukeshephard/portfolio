@@ -1,7 +1,6 @@
 'use client'
 
 import { Dayjs } from "dayjs";
-import Header from "../template/global/header"
 import { Project } from "./project";
 import ProjectPreview from "./view/projectPreview";
 import { ReactElement, useState } from "react";
@@ -116,7 +115,6 @@ export default function Page() { // The main project page
 
     return (
         <>
-            <Header currentPage="Projects"/>
             <main>
                 <h1>Projects</h1>
                 <section>
