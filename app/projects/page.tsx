@@ -1,7 +1,6 @@
 'use client'
 
 import { Dayjs } from "dayjs";
-import Footer from "../template/global/footer"
 import Header from "../template/global/header"
 import { Project } from "./project";
 import ProjectPreview from "./view/projectPreview";
@@ -23,7 +22,7 @@ enum SortOrder {
 const projects = Project.ALL_PROJECTS();
 const sortedProjectNames = Object.keys(projects);
 
-export default function Page() { // The main project page (aka projects.shephardluke.co.uk)
+export default function Page() { // The main project page
 
     const [sortMethod, setSortMethod] = useState(SortMethod.LatestReleaseDate);
     const [sortOrder, setSortOrder] = useState(SortOrder.Descending);
@@ -147,8 +146,7 @@ export default function Page() { // The main project page (aka projects.shephard
                         </select>
 
                         <section className="pt-5">
-                            <h3 className="text-center lg:text-left underline">{projectLabels.length} Results:</h3>
-                            <p className="pt-5 text-base">Clicking a project will give you more information on the project, and ways to view it if it has any.<br/></p>
+                            <p className="text-base">Clicking a project will give you more information on the project, and ways to view it if it has any.<br/></p>
                             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center text-base">
                                 {projectLabels}
                             </div>
@@ -158,7 +156,6 @@ export default function Page() { // The main project page (aka projects.shephard
   
                 </section>
             </main>
-            <Footer/>
         </>
     )
 }

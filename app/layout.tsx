@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Luke Christopher Shephard",
-  description: "Luke Christopher Shephard's personal website.",
+  title: "Luke Shephard",
+  description: "Luke Shephard's personal website.",
 };
 
 export default function RootLayout({

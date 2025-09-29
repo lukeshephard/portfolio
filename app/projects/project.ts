@@ -91,9 +91,9 @@ export class Project {
         this.mainImagePath = obj.hasMainImage ? "/images/projects/" + this.name + "/main.png" : "";
 
         this.informationLink = new NavLink(this.title, "/projects/view?name=" + this.name);
-        this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".ShephardLuke.co.uk", obj.isWebsite);
-        this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/ShephardLuke/" + this.name, !obj.isPrivate)
-        this.latestReleaseLink = new NameLink(this.getLatestRelease().getFullVersion(), "https://github.com/ShephardLuke/" + this.name + "/releases/tag/v" + encodeURIComponent(this.latestRelease.getVersion()), this.latestRelease.getDate().isValid() && !obj.isPrivate)
+        this.websiteLink = new NameLink(this.title + " - website", "https://" + this.name + ".lukeshephard.com", obj.isWebsite);
+        this.githubLink = new NameLink(this.title + " - GitHub repository", "https://github.com/lukeshephard/" + this.name, !obj.isPrivate)
+        this.latestReleaseLink = new NameLink(this.getLatestRelease().getFullVersion(), "https://github.com/lukeshephard/" + this.name + "/releases/tag/v" + encodeURIComponent(this.latestRelease.getVersion()), this.latestRelease.getDate().isValid() && !obj.isPrivate)
 
     }
 

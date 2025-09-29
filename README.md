@@ -1,9 +1,9 @@
 # Personal Website
-### https://shephardluke.co.uk
+### https://lukeshephard.com
 This is my website I made mostly just to keep my projects organised and to write a bit about them.
 
 ## Accessing the website
-The project can be accessed at https://shephardluke.co.uk, or it can be downloaded and accessed locally.
+The project can be accessed at https://lukeshephard.com, or it can be downloaded and accessed locally.
 
 ### Instructions using npm:
 To run locally, first clone or download the repository, then run 'npm install' in the directory to install all of the required packages.

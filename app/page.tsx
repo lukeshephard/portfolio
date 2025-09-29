@@ -1,6 +1,5 @@
 import { Project } from "./projects/project";
 import ProjectLabel from "./projects/display/projectLabel";
-import Footer from "./template/global/footer";
 import Header from "./template/global/header";
 import { NameLink } from "./template/link/nameLink";
 import { NavLink } from "./template/link/navLink";
@@ -43,8 +42,6 @@ export default function Page() { // The website home page
           </ul>
         </section>
       </main>
-
-      <Footer/>
     </>
   );
 }
