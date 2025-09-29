@@ -4,6 +4,7 @@ import Link from "next/link";
 import { NavLink } from "../link/navLink";
 import { NameLink } from "../link/nameLink";
 import { Shadows_Into_Light } from "next/font/google";
+import { Archive, UserRoundSearch } from "lucide-react";
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",
@@ -20,22 +21,22 @@ export default function Header({currentPage}: {currentPage?: string}) {
     const MAIN_TITLE = "Luke Shephard";
     
     const PAGES = [
-        new NavLink("Projects"),
-        new NavLink("Contact"),
+        new NavLink("Projects", undefined, <Archive/>),
+        new NavLink("Contact",  undefined, <UserRoundSearch/>),
         new NameLink("View Repository", "https://github.com/lukeshephard/" + repo),
     ]
 
     const pageLinks = PAGES.map(page => {
         const label = page.getLabel();
         if (currentPage == label) {
-            return <div key={"currentPage"} className="underline header linkStyle">{page.generateElement()}</div>
+            return <div key={"currentPage"} className="header linkStyle">{page.generateElement()}</div>
         } 
         return page.generateElement();
     })
     
     return (
         <>
-            <header className="flex flex-col text-center lg:flex-row justify p-10 header">
+            <header className="flex flex-col text-center lg:flex-row justify p-5 header">
                 <div className="header lg:whitespace-nowrap">
                     <Link className={`text-4xl ${shadowsIntoLight.className} linkStyle`} href={"/"}>{MAIN_TITLE}</Link>
                 </div>

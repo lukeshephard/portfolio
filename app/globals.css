@@ -64,7 +64,6 @@ a:active {
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
-  text-decoration: underline;
   padding-bottom: 2.5rem;
 }
 
@@ -82,7 +81,6 @@ p a:active, li a:active, .linkStyle:active, .linkStyle a:active {
 
 .disabledLinkStyle, .disabledLinkStyle a {
   color: #9ca3af; /* gray-400 */
-  text-decoration: underline;
 }
 
 .disabledLinkStyle:hover, .disabledLinkStyle a:hover {
@@ -107,6 +105,5 @@ select {
 h2 {
   font-size: 1.75rem;
   line-height: 2rem;
-  text-decoration: underline;
   padding-bottom: 1.5rem;
 }

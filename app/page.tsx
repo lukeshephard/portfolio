@@ -2,13 +2,10 @@ import { Project } from "./projects/project";
 import ProjectLabel from "./projects/display/projectLabel";
 import Header from "./template/global/header";
 import { NameLink } from "./template/link/nameLink";
-import { NavLink } from "./template/link/navLink";
 import MainProjects from "./projects/mainProjects";
 
 export default function Page() { // The website home page
   const FAVOURITE_PROJECT = "personal-website";
-
-  const projectLink = new NavLink("projects").generateElement();
 
   const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
 
@@ -20,7 +17,7 @@ export default function Page() { // The website home page
         <h1>Home</h1>
         <section>
           <p>Hi, I&#39;m Luke! Welcome to my little corner of the internet...</p>
-          <p>This website currently is just a place to organise my {projectLink} and write about them.</p>
+          <p>This website currently is just a place to organise my projects and write about them.</p>
         </section>
 
         <section className="pt-10">
