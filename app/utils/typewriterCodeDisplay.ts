@@ -2,77 +2,35 @@ import { TypewriterClass } from 'typewriter-effect';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
+import { wrap } from 'module';
 
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('xml', xml);
 
-// Turns a string into segments for the typewriter to randomly start from
-function createTypewriterQueue(code: string) {
-  console.log(code.split(/(&lt;|}|\[|]|\[]|\(\)|==|===)/).length);
-  return code.split(/(&lt;|}|\[|]|\[]|\(\)|==|===)/);
+function replaceConflictingCharacters(code: string) {
+    return code
+    .replaceAll("<", "‹")
+    .replaceAll(">", "›")
 }
 
 
 // Runs typewriter from a random point in the queue
 export function typewriterCodeDisplay(typewriter: TypewriterClass) {
-  const highlightedCode = hljs.highlight(availableCode[0], {language: "tsx"})
-  const queue = createTypewriterQueue(highlightedCode.value)
+    const wrapper = document.getElementsByClassName("Typewriter__wrapper")[0] as HTMLDivElement;
 
-  const codebox = document.getElementById("codeBox") as HTMLElement;
-  const cursor = document.getElementsByClassName("Typewriter__cursor")[0]
+    const highlightedStart = hljs.highlight(replaceConflictingCharacters(availableCode[0].start), {language: "tsx"})
+    const highlightedType = hljs.highlight(replaceConflictingCharacters(availableCode[0].type), {language: "tsx"})
 
-  console.log(highlightedCode.value)
-  const startIndex = 60 + Math.floor(Math.random() * 30);
-  const wrapper = document.getElementsByClassName("Typewriter__wrapper")[0] as HTMLDivElement;
-  
-  for (let i = startIndex-25; i < startIndex; i++) {
-    wrapper.innerHTML += queue[i]
-  }
+    wrapper.innerHTML = highlightedStart.value;
 
-  for (let i = startIndex; i < queue.length; i++) {
-    const currentItem = queue[i]
-    typewriter.typeString(currentItem.replaceAll("&lt;", "<").replaceAll("&gt;", ">"))
-    typewriter.callFunction(() => {
-      if (cursor.getBoundingClientRect().bottom > codebox.getBoundingClientRect().bottom) {
-        console.log("hitbottom");
-        typewriter.stop();
-      }
-    })
-  }
+    typewriter.typeString(highlightedType.value);
 }
 
 
 // Code for the typewriter, at the moment only 1 segment
 const availableCode = [
-`import Platform from "../utils/platform";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Navigation, Pagination } from "swiper/modules";
-import { FolderCode, House, Laptop, LucideIcon, Monitor, Smartphone, Tablet } from "lucide-react";
-import React, { ReactNode, useEffect, useState } from "react";
-
-export default function ProjectCard({id, title, platforms, imagesData, description, devInfo, links}: {id:string, title: string, platforms: Platform[], description: string, imagesData: {name: string, alt:string}[], devInfo: string, links?: {website?: string, repository?: string}}) {
-    const [selectedPlatform, setSelectedPlatform] = useState<Platform | undefined>()
-
-    useEffect(() => {
-        if (platforms.includes(Platform.Phone) && window.innerWidth < 640) {
-            setSelectedPlatform(Platform.Phone);
-        } else if (platforms.includes(Platform.Tablet) && window.innerWidth < 1024) {
-            setSelectedPlatform(Platform.Tablet);
-        } else if (platforms.includes(Platform.Laptop) && window.innerWidth < 1536) {
-            setSelectedPlatform(Platform.Laptop);
-        } else if (platforms.includes(Platform.Desktop)) {
-            setSelectedPlatform(Platform.Desktop);
-        } else {
-            setSelectedPlatform(platforms[0]);
-        }
-    }, [platforms])
-
-
-    function generatePlatformIcons(): ReactNode {
-        if (selectedPlatform === undefined) {
-            return null;
-        }
-        return platforms.map(platform => {
+{
+    start: `return platforms.map(platform => {
             const iconMap: {[key in Platform]: LucideIcon} = {
                 "PHONE": Smartphone,
                 "TABLET": Tablet,
@@ -91,7 +49,9 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         })
     }
 
-    function generateLinks(): ReactNode {
+    `,
+
+    type: `function generateLinks(): ReactNode {
         if (links === undefined) {
             return null;
         }
@@ -107,40 +67,8 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         }
 
         let fullText = <>{linksList[0]}</>;
-
-        for (let i = 1; i < linksList.length; i++) {
-            fullText = <>{fullText} | {linksList[i]}</>
-        }
-        
-        return <p className="flex gap-3">{fullText}</p>
-
-    }
-
-
-    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><img className="m-auto max-w-full max-h-120" src={\`/images/projects/$\{id}/\${imageData.name}/\${selectedPlatform.toLowerCase()}.png\`} alt={\`\${imageData.alt}\`}/></SwiperSlide>) : null
-
-    return (
-        <div className={"w-screen py-10 flex flex-col items-center gap-y-10"}>
-            <h2 className="text-6xl text-text-title no-underline">{title}</h2>
-            {generateLinks()}
-            <p className="p-3 lg:w-1/3 lg:p-0">{description}</p>
-            <div className="w-full p-3 lg:w-1/2 lg:max-h-120 lg:p-0">
-                <Swiper
-                modules={[Navigation, Pagination, A11y]}
-                navigation
-                pagination={{clickable: true}}
-                slidesPerView={1}>
-                    {imageSlides}
-                </Swiper>
-            </div>
-            <div>
-                <p>Supported devices:</p>
-                <p className="my-auto flex justify-center gap-3 pt-3">{generatePlatformIcons()}</p>
-            </div>
-            <p className="p-3 lg:w-1/3 lg:p-0">{devInfo}</p>
-        </div>
-    )
-}`
+    }`
+}
 ]
 
 

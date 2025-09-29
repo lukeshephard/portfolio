@@ -13,6 +13,12 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Luke Shephard",
   description: "Luke Shephard's Personal Website.",
+  icons: {
+    icon: [
+      { rel: "icon", url: "/icons/favicon-light.svg", media: "(prefers-color-scheme: light)"},
+      { rel: "icon", url: "/icons/favicon-dark.svg", media: "(prefers-color-scheme: dark)"}
+    ]
+  }
 };
 
 export default function RootLayout({
