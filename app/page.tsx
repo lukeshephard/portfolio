@@ -30,7 +30,7 @@ export default function Home() {
           <Link href={"/projects"} className="text-3xl mt-12 block w-45 justify-center m-auto bg-background-alt p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active"><Archive className="mr-3 size-9"/>Projects</Link>
         </div>
       </div>
-      <div className="pt-10 lg:p-0 text-xs lg:text-xl">
+      <div className="pt-10 lg:p-0 text-xs lg:text-xl mb-3">
         <p>Version {pk.version}</p>
         <p>Switch to latest 1.0.0 alpha version <a href="https://alpha.lukeshephard.com">here</a>.</p>
       </div>

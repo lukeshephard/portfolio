@@ -1,156 +1,61 @@
 'use client'
 
-import { Dayjs } from "dayjs";
-import { Project } from "./project";
-import ProjectPreview from "./view/projectPreview";
-import { ReactElement, useState } from "react";
-import MainProjects from "./mainProjects";
-import { FormatDate } from "../utils/formatDate";
+import 'swiper/css'
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-enum SortMethod { // Enums to store sorting methods and orders
-    Title = "Title",
-    CreatedDate = "Created Date",
-    LatestReleaseDate = "Latest Release Date",
-}
+import Card from "../card/card";
+import CardArray from "../card/cardArray";
+import ProjectCard from "../card/projectCard";
+import Platform from "../utils/platform";
 
-enum SortOrder {
-    Ascending = "Ascending",
-    Descending = "Descending",
-}
+export default function Projects() {
+  return (
+      <>
+          <div className="flex flex-col items-center text-text text-lg">
+            <CardArray>
+              <Card title="Projects">
+              </Card>
 
-const projects = Project.ALL_PROJECTS();
-const sortedProjectNames = Object.keys(projects);
+              <ProjectCard
+              id="qmtrack"
+              title="QMTrack"
+              platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop, Platform.Desktop]}
+              description={`A prototype web app allowing students and staff to manage various services for Queen Mary University of London (QMUL), all in one place.
+                The main purpose of this app is to bring separate QMUL services together in an easy-to-use way for students and staff.`}
 
-export default function Page() { // The main project page
+              imagesData={[
+                {name: "dashboard", alt:"Dashboard page showing the user's available activities and a service status list."},
+                {name: "navbar", alt:"Dashboard page with the left navbar fully extended to show all the services the user can choose from."},
+                {name: "ec-claims", alt: "Extenuating Circumstances (EC) claims page, showing a list of the current user's active claims."},
+                {name: "submit-issue-report", alt:`Submit Issue Report page allowing the user to select the category of the report and type a summary of their issue.
+                  There is also a button to attach any evidence and then a button to submit the report.`},
+                {name: "update-service-status", alt: "Service Status page allowing the user to change the status of any of the university services or post a maintence date."},
+                {name: "login", alt:"Login page with email and password inputs, with an image of Queen Mary University of London in the background."},
+              ]}
 
-    const [sortMethod, setSortMethod] = useState(SortMethod.LatestReleaseDate);
-    const [sortOrder, setSortOrder] = useState(SortOrder.Descending);
+              devInfo={`This was researched, designed and developed over 12 weeks in a group of 6 for my software engineering project university module.
+                The frontend was built with Vite and React and the backend was built with FastAPI, split into 3 people for each end. 
+                My role was the Lead Frontend Developer, so I was responsible for overseeing the frontend team and ensuring we had a robust user interface.`}
+              />
 
-    function getOrderName(order: SortOrder) { // Get the order name so depending on the order, e.g. for characters it shows A-Z but for dates it returns oldest/newest to help the user understand (I get confused with ascending and descending)
-        switch (sortMethod) {
-            case SortMethod.Title:
-                if (order == SortOrder.Ascending) {
-                    return "A-Z"
-                }
-                return "Z-A"
-            case SortMethod.CreatedDate:
-            case SortMethod.LatestReleaseDate:
-                if (order == SortOrder.Ascending) {
-                    return "Oldest First"
-                }
-                return "Newest First"
-        }
-    }
-
-
-    function sortDates(dateA: Dayjs, dateB: Dayjs, sortOrder: SortOrder) { // Date sorting function, makes NaN dates go to top
-        const ascending = sortOrder === SortOrder.Ascending;
-
-        if (!dateA.isValid()) {
-            if (!ascending) {
-                return -1
-            }
-            return 1
-        }
-        if (!dateB.isValid()) {
-            if (!ascending) {
-                return 1
-            }
-            return -1
-        }
-        
-        if (!ascending) {
-            return dateB.unix() - dateA.unix()
-        }
-        return dateA.unix() - dateB.unix()
-    }
-
-
-    switch (sortMethod) { // Sort project names depending on the current method
-        case SortMethod.Title:
-            sortedProjectNames.sort((a, b) => {
-                const titleA = projects[a].getTitle();
-                const titleB = projects[b].getTitle();
-
-                if (sortOrder == SortOrder.Descending) {
-                    return titleB.localeCompare(titleA)
-                }
-        
-                return titleA.localeCompare(titleB);
-            })
-            break
-        case SortMethod.CreatedDate:
-            sortedProjectNames.sort((a, b) => {
-                const dateA = projects[a].getCreated();
-                const dateB = projects[b].getCreated();
-        
-                return sortDates(dateA, dateB, sortOrder);
-            })
-            break
-        case SortMethod.LatestReleaseDate:
-            sortedProjectNames.sort((a, b) => {
-                const dateA = projects[a].getLatestRelease().getDate();
-                const dateB = projects[b].getLatestRelease().getDate();
-        
-                return sortDates(dateA, dateB, sortOrder);
-            })
-            break
-    }
-
-    const projectsSorted = sortedProjectNames.map(project => projects[project]);
-    const projectLabels = Object.values(projectsSorted).map(project => <div className="pt-2" key={project.getName()}><ProjectPreview project={project}/></div>)   
-
-    // Create options for the selects depending on what the enums have
-    const sortByMethods: ReactElement[] = [];
-
-    for (const method of Object.values(SortMethod)) {
-        sortByMethods.push(<option key={method}>{method}</option>)
-    }
-
-    const sortByOrders: ReactElement[] = [];
-
-    for (const order of Object.values(SortOrder)) {
-        sortByOrders.push(<option value={order} key={order}>{`${order} (${getOrderName(order)})`}</option>)
-    }
-
-    return (
-        <>
-            <main>
-                <h1>Projects</h1>
-                <section>
-                    <section>
-                        <h2>A home for all of my projects.</h2>
-                        
-                        <p>
-                            Most of these are on my GitHub but some here will be private like university ones.<br/>
-                            <MainProjects/><br/>
-                            I like to have many main projects as I can switch between them when I get burned out and come back with some fresh ideas.<br/><br/>
-                        </p>
-                    </section>
-
-                    <hr/>
-        
-                    <section className="text-2xl flex flex-col text-center items-center space-y-5 lg:inline-block lg:text-left">
-                        <label htmlFor="projectSortBy">Sort By:</label>
-                        <select className="ml-5 p-1 mr-5 w-max" defaultValue={sortMethod} id="projectSortByMethod" onChange={() => {setSortMethod((document.getElementById("projectSortByMethod") as HTMLSelectElement).value as SortMethod)}}>
-                            {sortByMethods}
-                        </select>
-
-                        <select className="ml-5 p-1 w-max mr-5" defaultValue={sortOrder} id="projectSortByOrder" onChange={() => {setSortOrder((document.getElementById("projectSortByOrder") as HTMLSelectElement).value as SortOrder)}}>
-                            {sortByOrders}
-                        </select>
-
-                        <section className="pt-5">
-                            <p className="text-base">Clicking a project will give you more information on the project, and ways to view it if it has any.<br/></p>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 pt-5 text-center text-base">
-                                {projectLabels}
-                            </div>
-                        </section>
-                    </section>
-
-  
-                </section>
-            </main>
-        </>
-    )
+              <ProjectCard
+              id="little-man-computer"
+              title="Little Man Computer"
+              links={{
+                website: "https://little-man-computer.lukeshephard.com",
+                repository: "https://github.com/lukeshephard/little-man-computer"
+              }}
+              platforms={[Platform.Laptop, Platform.Desktop]}
+              description={`An educational web page designed to help students learn von Neumann architecture, using the Little Man Computer (LMC) model. Users can create their own programs then see an animation of how the program would be running on a CPU.`}
+              imagesData={[
+                {name: "running", alt: `A program running with the title "Square the input", partway through an animation.`},
+                {name: "blank", alt: "Default page, showing text boxes on the left for user input and on the right showing registers and RAM. There is no program running."}
+              ]}
+              devInfo="Made for my Computer Science A-Level final project. I researched existing LMC websites and made my own design, going for a more modern look while focusing on making it educational. It is written in JavaScript using the p5.js library."
+              />
+            </CardArray>
+          </div>
+      </>
+  );
 }
