@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { BookUser, Ghost, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
+import { BookUser, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, useEffect, useMemo, useState } from "react";
 
@@ -52,7 +52,7 @@ export default function ThemeButton() {
         setInitialTheme(theme);
     }, [setTheme, themeMap, initialTheme, theme])
 
-    return initialTheme === undefined ? <button className="w-12"><Palette className="text-text-title h-12"/></button> : (
+    return initialTheme === undefined ? <button className="w-12"><Palette className="text-text-title w-18 mx-auto lg:w-auto"/></button> : (
         <FormControl sx={{
             color: "transparent",
             "& .MuiInputLabel-root": {
@@ -70,7 +70,7 @@ export default function ThemeButton() {
                 label="Theme"
                 defaultValue={initialTheme}
                 renderValue={() => <Palette/>}
-                className="text-text-title h-12"
+                className="text-text-title h-12 w-18 lg:w-auto mx-auto"
                 MenuProps={{
                     slotProps: {
                         paper: {

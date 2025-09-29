@@ -1,41 +1,39 @@
-import { Project } from "./projects/project";
-import ProjectLabel from "./projects/display/projectLabel";
-import { NameLink } from "./template/link/nameLink";
-import MainProjects from "./projects/mainProjects";
+'use client'
 
-export default function Page() { // The website home page
-  const FAVOURITE_PROJECT = "personal-website";
+import { Archive } from "lucide-react";
+import { Cutive_Mono, Shadows_Into_Light } from "next/font/google";
+import Link from "next/link";
+import pk from "../package.json";
 
-  const codeStatsLink = new NameLink("coding statistics", "https://codestats.net/users/ShephardLuke").generateElement();
+const cutiveMono = Cutive_Mono({
+  subsets: ["latin"],
+  weight: "400"
+})
 
+const shadowsIntoLight = Shadows_Into_Light({
+    weight: "400",
+    subsets: ["latin"]
+})
+
+// About me page
+export default function Home() {
   return (
-    <>
-      <main>
-        <h1>Home</h1>
-        <section>
-          <p>Hi, I&#39;m Luke! Welcome to my little corner of the internet...</p>
-          <p>This website currently is just a place to organise my projects and write about them.</p>
-        </section>
-
-        <section className="pt-10">
-          <h2>About me</h2>
-          <ul>
-            <li>I am 20 years old.</li>
-            <li>I am currently studying Computer Science in my second year at Queen Mary University of London.</li>
-            <li>Here are my {codeStatsLink}.</li>
-            <li>Programming projects are my favourite pastime.</li>
-          </ul>
-        </section>
-
-        <section className="pt-10">
-          <h2>Highlighted Projects</h2>
-          <ul>
-            <li>My favourite project is currently <ProjectLabel project={Project.getProjectByName(FAVOURITE_PROJECT)}/>.</li>
-            <li><MainProjects/></li>
-            <li>My A-Level coursework I did in 2023 is <ProjectLabel project={Project.getProjectByName("little-man-computer")}/>.</li>
-          </ul>
-        </section>
-      </main>
-    </>
+    <div className="flex flex-col lg:h-[calc(100vh-var(--spacing)*18)] justify-between">
+      <div className="flex flex-col lg:flex-grow justify-center items-center text-center z-10">
+        <div className="backdrop-blur-md backdrop-opacity-100 px-9 rounded-4xl lg:p-9 lg:border-1">
+          {/* <pre className="text-lg text-center whitespace-pre text-logo py-12">{getFullName()}</pre> */}
+          <p className={`text-4xl sm:text-6xl md:text-7xl 2xl:text-8xl text-logo lg:py-12 ${shadowsIntoLight.className}`}>Luke Shephard</p>
+          <p className={`text-xl sm:text-xl md:text-2xl lg:text-3xl 2xl:text-5xl py-6`}>Software Engineer specialising in Web Development.</p> 
+          <div className="flex justify-center">
+            <p className="sm:text-md lg:text-xl 2xl:text-3xl">Final-Year Computer Science student looking for graduate roles. </p>
+          </div>
+          <Link href={"/projects"} className="text-3xl mt-12 block w-45 justify-center m-auto bg-background-alt p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active"><Archive className="mr-3 size-9"/>Projects</Link>
+        </div>
+      </div>
+      <div className="pt-10 lg:p-0 text-xs lg:text-xl">
+        <p>Version {pk.version}</p>
+        <p>Switch to latest 1.0.0 alpha version <a href="https://alpha.lukeshephard.com">here</a>.</p>
+      </div>
+    </div>
   );
 }

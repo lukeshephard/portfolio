@@ -129,7 +129,6 @@
 
   p a, li a, .linkStyle, .linkStyle a {
     color: var(--link);
-    text-decoration: underline;
   }
 
   p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
@@ -142,7 +141,6 @@
 
   .disabledLinkStyle, .disabledLinkStyle a {
     color: #9ca3af; /* gray-400 */
-    text-decoration: underline;
   }
 
   .disabledLinkStyle:hover, .disabledLinkStyle a:hover {
