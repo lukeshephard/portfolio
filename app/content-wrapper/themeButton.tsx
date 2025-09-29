@@ -56,7 +56,7 @@ export default function ThemeButton() {
         setInitialTheme(theme);
     }, [setTheme, themeMap, initialTheme, theme])
 
-    return initialTheme === undefined ? null : (
+    return initialTheme === undefined ? <button className="w-12"><Palette className="text-text-title h-12"/></button> : (
         <FormControl sx={{
             color: "transparent",
             "& .MuiInputLabel-root": {
@@ -74,7 +74,7 @@ export default function ThemeButton() {
                 label="Theme"
                 defaultValue={initialTheme}
                 renderValue={() => <Palette/>}
-                className="bg-background text-text-title h-12"
+                className="text-text-title h-12"
                 MenuProps={{
                     slotProps: {
                         paper: {
