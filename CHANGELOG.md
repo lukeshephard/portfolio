@@ -5,35 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-### Added
-- Coding demo to homepage.
-- Hero section to homepage.
-
-### Changed
-
-- "pre-release" theme to "Luke Shephard".
-- Default theme to "Luke Shephard".
-- Theme and logo colours.
-- Favicon to match new logo with light and dark modes.
-
-### Removed
-
-- "About" from navbar. To go to homepage the logo must be clicked instead.
-
-### Fixed
-
-- Light theme showing for a second when visiting for the first time.
-
 ## [0.5.0] - 2025-10-01
 
 ### Added
 
-- Ability to change themes in the navbar and keep the current one saved. There are Light, Dark and Luke Shephard (Default), and System to match Light/Dark with the system theme. (Backport from v1.0.0-alpha.2)
+- Ability to change themes in the navbar and keep the current one saved. There is Light, Dark and Luke Shephard (Default), and System to match Light/Dark with the system theme. (Backport from v1.0.0-alpha.2)
 - Icons to navbar titles and socials. (Backport from v1.0.0-alpha.2)
-- CHANGELOG.md. (Backport from v1.0.0-alpha.1)
-- QMTrack (backported from v1.0.0 alpha versions) and OutFit Weather to projects page. (Backport from v1.0.0-alpha.1)
+- CHANGELOG.md. (Backport from v1.0.0-alpha.2)
+- QMTrack (Backport from v1.0.0-alpha.1) and OutFit Weather to projects page.
 - Multiple pictures for each project. (Backport from v1.0.0-alpha.1)
 - Ability to view all project pictures on each of their supported platform. (Backport from v1.0.0-alpha.1)
 - Image optimization.
@@ -52,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Most projects from project page, only keeping the flagship ones for a less overwhelming experience. (Backport from v1.0.0-alpha.1)
+- Project "view" pages. (Backport from v1.0.0-alpha.1)
 - "About" from navbar. To get back to the homepage the user must press the logo.
 
 ## [1.0.0-alpha.2] - 2025-09-12
