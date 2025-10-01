@@ -30,28 +30,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Ability to change themes in the navbar and keep the current one saved. There are Light, Dark and Luke Shephard (Default), and System to match Light/Dark with the system theme.
-- CHANGELOG.md.
-- Icons to navbar titles and socials.
-- QMTrack (backported from v1.0.0 alpha versions) and OutFit Weather to projects page.
-- Multiple pictures for each project.
-- Ability to view all project pictures on each of their supported platform.
-- Image optimization
+- Ability to change themes in the navbar and keep the current one saved. There are Light, Dark and Luke Shephard (Default), and System to match Light/Dark with the system theme. (Backport from v1.0.0-alpha.2)
+- Icons to navbar titles and socials. (Backport from v1.0.0-alpha.2)
+- CHANGELOG.md. (Backport from v1.0.0-alpha.1)
+- QMTrack (backported from v1.0.0 alpha versions) and OutFit Weather to projects page. (Backport from v1.0.0-alpha.1)
+- Multiple pictures for each project. (Backport from v1.0.0-alpha.1)
+- Ability to view all project pictures on each of their supported platform. (Backport from v1.0.0-alpha.1)
+- Image optimization.
 
 ### Changed
 
+- Links to reflect new branding (lukeshephard from ShephardLuke). (Backport from v1.0.0-alpha.1)
+- Branding to now be "Luke Shephard" using the font "Shadows Into Light". (Backport from v1.0.0-alpha.1)
+- Projects page to show one project at a time, with more detail and more focus on images. (Backport from v1.0.0-alpha.1)
 - Default theme colours to be darker blues.
-- Branding to now be "Luke Shephard" using the font "Shadows Into Light"
 - Favicon to reflect the new branding, with versions for light and dark.
 - Tablet views, width >=768px to <1024px, to be more similar to desktop views instead of mobile.
-- Links to reflect new branding (lukeshephard from ShephardLuke).
 - Homepage to a more minimalist design.
-- Projects page to show one project at a time, with more detail and more focus on images.
 - Navbar to stay fixed at the top of the page when scrolling for devices with a width >=768px.
 
 ### Removed
 
-- Most projects from project page, only keeping the flagship ones for a less overwhelming experience.
+- Most projects from project page, only keeping the flagship ones for a less overwhelming experience. (Backport from v1.0.0-alpha.1)
 - "About" from navbar. To get back to the homepage the user must press the logo.
 
 ## [1.0.0-alpha.2] - 2025-09-12
