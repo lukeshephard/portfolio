@@ -3,8 +3,8 @@
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "preview": "next build && wrangler dev",
+    "build": "next build && next-image-export-optimizer",
+    "preview": "next build && next-image-export-optimizer && wrangler dev",
     "deploy": "wrangler deploy",
     "upload": "wrangler versions upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
@@ -22,6 +22,7 @@
     "highlight.js": "^11.11.1",
     "lucide-react": "^0.539.0",
     "next": "^15.4.6",
+    "next-image-export-optimizer": "^1.19.0",
     "next-themes": "^0.4.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

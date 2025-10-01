@@ -1,8 +1,9 @@
 import Platform from "../utils/platform";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
-import { FolderCode, House, Laptop, LucideIcon, Monitor, Smartphone, Tablet } from "lucide-react";
+import { FolderCode, House, Laptop, LucideIcon, Smartphone, Tablet } from "lucide-react";
 import React, { ReactNode, useEffect, useState } from "react";
+import ExportedImage from "next-image-export-optimizer";
 
 export default function ProjectCard({id, title, platforms, imagesData, description, devInfo, links}: {id:string, title: string, platforms: Platform[], description: string, imagesData: {name: string, alt:string}[], devInfo: string, links?: {website?: string, repository?: string}}) {
     const [selectedPlatform, setSelectedPlatform] = useState<Platform | undefined>()
@@ -68,7 +69,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
     }
 
 
-    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><img className="m-auto max-w-full max-h-120" src={`/images/projects/${id}/${imageData.name}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
+    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><ExportedImage className="m-auto max-w-full max-h-120" src={`/images/projects/${id}/${imageData.name}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
 
     return (
         <div className={"w-screen py-10 flex flex-col items-center gap-y-10"}>
@@ -85,7 +86,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
                 </Swiper>
             </div>
             <div>
-                <p>View on other platforms:</p>
+                <p>View on supported platforms:</p>
                 <p className="my-auto flex justify-center gap-3 pt-3">{generatePlatformIcons()}</p>
             </div>
             <p className="p-3 lg:w-1/3 lg:p-0">{devInfo}</p>

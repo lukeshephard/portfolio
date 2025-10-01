@@ -1,12 +1,11 @@
 'use client'
 
 import { ReactNode } from "react";
-import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml, User, UserRound, UserRoundSearch, UserSearch } from "lucide-react";
+import { Archive, ArchiveRestore, UserRound, UserRoundSearch, } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
 import ThemeButton from "./themeButton";
-import { usePathname } from "next/navigation";
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",
@@ -14,8 +13,6 @@ const shadowsIntoLight = Shadows_Into_Light({
 })
 
 export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
-    const path = usePathname();
-
     return (
         <>
             {/* Header */}

@@ -4,7 +4,6 @@ import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import Card from "../card/card";
 import CardArray from "../card/cardArray";
 import ProjectCard from "../card/projectCard";
 import Platform from "../utils/platform";
@@ -49,7 +48,7 @@ export default function Projects() {
                 {name: "calendar", alt: "The current tab, showing the weather for the next week in Reykjavík. There is information for the day and night temperature, and detailed hourly temperatures. There is also various other information like pressure and humidity."},
                 {name: "settings", alt: "The settings tab, showing each setting the user can customize. There are settings for preffered outdoor activity, day/night theme, colour theme, temperature units, 24-hour time and an option to clear saved data."}
               ]}
-              devInfo="Concieved, researched and delivered over 12 weeks in a group of 5 for my Graphical User Interfaces module and achieved a 92%. While I helped out with all aspects of development, my main focuses were on handling the calling and caching of the various APIs we used and making sure each page kept a consistent style."
+              devInfo="Concieved, researched and delivered over 12 weeks in a group of 5 for my Graphical User Interfaces module and achieved a 92%. It is a react application created with Create React App. While I helped out with all aspects of development, my main focuses were on handling the calling and caching of the various APIs we used and making sure each page kept a consistent style."
               />
 
               <ProjectCard

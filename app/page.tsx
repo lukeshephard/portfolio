@@ -1,14 +1,8 @@
 'use client'
 
 import { Archive, ScrollText } from "lucide-react";
-import { Cutive_Mono, Shadows_Into_Light } from "next/font/google";
+import { Shadows_Into_Light } from "next/font/google";
 import Link from "next/link";
-import pk from "../package.json";
-
-const cutiveMono = Cutive_Mono({
-  subsets: ["latin"],
-  weight: "400"
-})
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",
@@ -31,7 +25,7 @@ export default function Home() {
         </div>
       </div>
       <div className="pt-10 lg:p-0 text-xs lg:text-xl mb-3">
-        <p>Version {pk.version} - 01/10/2025</p>
+        <p>Version 0.5.0 - 01/10/2025</p>
         <a className="flex justify-center" target="_blank" href="https://github.com/lukeshephard/personal-website/blob/main/CHANGELOG.md"><ScrollText className="my-auto mr-1"/>Changelog</a>
       </div>
     </div>
