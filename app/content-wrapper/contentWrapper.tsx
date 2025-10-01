@@ -16,14 +16,14 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
     return (
         <>
             {/* Header */}
-            <header className="lg:fixed lg:z-10 lg:left-0 lg:top-0 w-full bg-background/75 backdrop-blur-md">
-                <div className="flex flex-col lg:flex-row lg:h-18 justify-between p-3">
-                    <p className={`${shadowsIntoLight.className} my-auto`}><Link href="/" className="flex gap-6 mx-auto text-2xl justify-center lg:text-left lg:text-3xl my-auto block no-underline hover:[&>*]:text-logo-hover active:[&>*]:text-logo-active">Luke Shephard</Link></p>
+            <header className="md:fixed md:z-10 md:left-0 md:top-0 w-full bg-background/75 backdrop-blur-sm">
+                <div className="flex flex-col md:flex-row md:h-18 justify-between p-3">
+                    <p className={`${shadowsIntoLight.className} my-auto`}><Link href="/" className="flex gap-6 mx-auto text-2xl justify-center md:text-left md:text-3xl my-auto block no-underline hover:[&>*]:text-logo-hover active:[&>*]:text-logo-active">Luke Shephard</Link></p>
                 
                     {/* Navbar */}
-                    <div className="flex flex-col py-6 justify-center mx-auto text-xl gap-6 lg:flex-row lg:py-0 lg:m-0 lg:gap-12">
+                    <div className="flex flex-col py-6 justify-center mx-auto text-xl gap-6 md:flex-row md:py-0 md:m-0 md:gap-12">
                         <nav className="my-auto">
-                            <ul className="flex flex-col gap-6 lg:flex-row lg:gap-12">
+                            <ul className="flex flex-col gap-6 md:flex-row md:gap-12">
                                 {/* <NavbarItem name="About" icon={<User/>} activeIcon={<UserSearch/>} customLink=""/> */}
                                 <NavbarItem name="Projects" icon={<Archive/>} activeIcon={<ArchiveRestore/>}/>
                                 <NavbarItem name="Socials" icon={<UserRound/>} activeIcon={<UserRoundSearch/>}/>
@@ -33,9 +33,9 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                     </div>
                 </div>
             </header>
-            <hr className="lg:hidden pb-9"/>
+            <hr className="md:hidden pb-9"/>
             {/* Main content */}
-            <main className={`lg:pt-18 w-full m-auto px-3 text-center`}>
+            <main className={`md:pt-18 w-full m-auto text-center`}>
                 {/* <hr className="text-text-title"/> */}
                 {children}
             </main>
