@@ -69,7 +69,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
     }
 
 
-    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><ExportedImage className="m-auto max-w-full max-h-120" src={`/images/projects/${id}/${imageData.name}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
+    const imageSlides = selectedPlatform !== undefined ? imagesData.map(imageData => <SwiperSlide key={imageData.name}><ExportedImage width={1920} height={1080} className="mx-auto w-full h-auto max-h-120 object-contain" src={`/images/projects/${id}/${imageData.name}/${selectedPlatform.toLowerCase()}.png`} alt={`${imageData.alt}`}/></SwiperSlide>) : null
 
     return (
         <div className={"w-screen py-10 flex flex-col items-center gap-y-10"}>
