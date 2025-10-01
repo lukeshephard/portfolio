@@ -4,6 +4,7 @@ import ContentWrapper from "./content-wrapper/contentWrapper";
 import { ThemeProvider } from "next-themes";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Geist } from "next/font/google";
+import Script from "next/script";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -68,6 +69,32 @@ export default function RootLayout({
           <ThemeProvider defaultTheme="luke_shephard">
             <ContentWrapper>
               {children}
+              <Script
+                id="id-person"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    name: "Luke Shephard",
+                    url: "https://lukeshephard.com",
+                    description: "Software engineer specialising in web development.",
+                    email: "mailto:luke@lukeshephard.com",
+                    jobTitle: "Final-Year Computer Science Student",
+                    knowsAbout: ["Software Engineering", "Web Development", "React", "Next.js", "JavaScript", "TypeScript"],
+                    affiliation: {
+                      "@type": "CollegeOrUniversity",
+                      "name": "Queen Mary University of London",
+                      "sameAs": "https://www.qmul.ac.uk/"
+                    },
+                    sameAs: [
+                      "https://github.com/lukeshephard",
+                      "https://www.linkedin.com/in/luke-shephard",
+                    ]
+                  })
+                }}
+              />
             </ContentWrapper>
           </ThemeProvider>
         </AppRouterCacheProvider>
