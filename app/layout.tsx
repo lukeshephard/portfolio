@@ -69,30 +69,39 @@ export default function RootLayout({
           <ThemeProvider defaultTheme="luke_shephard">
             <ContentWrapper>
               {children}
+              
               <Script
-                id="id-person"
+                id="id-json"
                 type="application/ld+json"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "Person",
-                    name: "Luke Shephard",
-                    url: "https://lukeshephard.com",
-                    description: "Software engineer specialising in web development.",
-                    email: "mailto:luke@lukeshephard.com",
-                    jobTitle: "Final-Year Computer Science Student",
-                    knowsAbout: ["Software Engineering", "Web Development", "React", "Next.js", "JavaScript", "TypeScript"],
-                    affiliation: {
-                      "@type": "CollegeOrUniversity",
-                      "name": "Queen Mary University of London",
-                      "sameAs": "https://www.qmul.ac.uk/"
+                  __html: JSON.stringify([
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "Person",
+                      name: "Luke Shephard",
+                      url: "https://lukeshephard.com",
+                      description: "Software engineer specialising in web development.",
+                      email: "mailto:luke@lukeshephard.com",
+                      jobTitle: "Final-Year Computer Science Student",
+                      knowsAbout: ["Software Engineering", "Web Development", "React", "Next.js", "JavaScript", "TypeScript"],
+                      affiliation: {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Queen Mary University of London",
+                        "sameAs": "https://www.qmul.ac.uk/"
+                      },
+                      sameAs: [
+                        "https://github.com/lukeshephard",
+                        "https://www.linkedin.com/in/luke-shephard",
+                      ]
                     },
-                    sameAs: [
-                      "https://github.com/lukeshephard",
-                      "https://www.linkedin.com/in/luke-shephard",
-                    ]
-                  })
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "WebSite",
+                      name: "Luke Shephard Portfolio",
+                      url: "https://lukeshephard.com",
+                    }
+                  ])
                 }}
               />
             </ContentWrapper>

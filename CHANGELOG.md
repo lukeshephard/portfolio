@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.5.0] - 2025-10-01
+## [0.5.0] - 2025-10-02
 
 ### Added
 
@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - QMTrack (Backport from v1.0.0-alpha.1) and OutFit Weather to projects page.
 - Multiple pictures for each project. (Backport from v1.0.0-alpha.1)
 - Ability to view all project pictures on each of their supported platform. (Backport from v1.0.0-alpha.1)
-- Image optimization.
+- Image optimisation.
+- Search optimisation.
 
 ### Changed
 
