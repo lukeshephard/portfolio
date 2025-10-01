@@ -34,9 +34,9 @@
   --text-title: black;
   --text: var(--color-neutral-700);
 
-  --logo: #ffa600;
-  --logo-hover: rgb(231, 151, 1);
-  --logo-active: #c98200;
+  --logo: var(--color-amber-700);
+  --logo-hover: var(--color-amber-800);
+  --logo-active: var(--color-amber-900);
 
   --link: var(--color-logo);
   --link-hover: var(--color-logo-hover);
@@ -50,7 +50,7 @@
   --background: var(--color-neutral-900);
   --background-alt: var(--color-neutral-800);
 
-  --logo: var(--color-amber-300);
+  --logo: rgb(187, 77, 0);
   --logo-hover: var(--color-amber-400);
   --logo-active: var(--color-amber-500);
 
