@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build && next-image-export-optimizer",
+    "postbuild": "next-sitemap",
     "preview": "next build && next-image-export-optimizer && wrangler dev",
     "deploy": "wrangler deploy",
     "upload": "wrangler versions upload",
@@ -36,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "next-sitemap": "^4.2.3",
     "tailwindcss": "^4.1.11",
     "typescript": "^5",
     "wrangler": "^4.30.0"

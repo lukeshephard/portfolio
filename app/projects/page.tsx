@@ -1,12 +1,19 @@
-'use client'
-
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import type { Metadata } from 'next';
 import CardArray from "../card/cardArray";
 import ProjectCard from "../card/projectCard";
 import Platform from "../utils/platform";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A selection of Luke Shephard's software engineering work.",
+  alternates: {
+    canonical: "/projects"
+  },
+}
 
 export default function Projects() {
   return (

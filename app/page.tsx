@@ -1,5 +1,3 @@
-'use client'
-
 import { Archive, ScrollText } from "lucide-react";
 import { Shadows_Into_Light } from "next/font/google";
 import Link from "next/link";
@@ -27,7 +25,7 @@ export default function Home() {
       <div className="pt-10 md:p-0 text-xs md:text-sm 2xl:text-lg mb-3">
         <hr className="mb-3 md:hidden" />
         <p>Version 0.5.0 - 01/10/2025</p>
-        <a className="flex justify-center" target="_blank" href="https://github.com/lukeshephard/personal-website/blob/main/CHANGELOG.md"><ScrollText className="my-auto mr-1"/>Changelog</a>
+        <a className="flex justify-center" target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard/personal-website/blob/main/CHANGELOG.md"><ScrollText className="my-auto mr-1"/>Changelog</a>
       </div>
     </div>
   );

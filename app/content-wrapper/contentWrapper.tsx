@@ -1,5 +1,3 @@
-'use client'
-
 import { ReactNode } from "react";
 import { Archive, ArchiveRestore, UserRound, UserRoundSearch, } from "lucide-react";
 import NavbarItem from "./navbarItem";

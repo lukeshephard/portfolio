@@ -1,3 +1,5 @@
+"use client"
+
 import Platform from "../utils/platform";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
@@ -55,7 +57,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         }
 
         if (links.repository) {
-            linksList.push(<a href={links.repository} target="_blank" className="flex gap-3 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
+            linksList.push(<a href={links.repository} target="_blank" rel="noopener noreferrer" className="flex gap-3 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
         }
 
         let fullText = <>{linksList[0]}</>;

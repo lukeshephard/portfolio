@@ -11,14 +11,47 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Luke Shephard",
-  description: "Luke Shephard's Personal Website.",
+  metadataBase: new URL("https://lukeshephard.com"),
+
+  title: {
+    default: "Luke Shephard - Software Engineer (Web Development)",
+    template: "%s | Luke Shephard - Software Engineer (Web Development)",
+  },
+  description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+
+  openGraph: {
+    type: "website",
+    url: "https://lukeshephard.com",
+    siteName: "Luke Shephard Portfolio",
+    title: "Luke Shephard - Software Engineer (Web Development)",
+    description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+    images: [
+      {
+        url: "og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Luke Shephard Portfolio"
+      }
+    ]
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Luke Shephard - Software Engineer (Web Development)",
+    description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+    images: ["og/image-png"],
+  },
+
   icons: {
     icon: [
       { rel: "icon", url: "/icons/favicon-light.svg", media: "(prefers-color-scheme: light)"},
       { rel: "icon", url: "/icons/favicon-dark.svg", media: "(prefers-color-scheme: dark)"}
     ]
-  }
+  },
+
+  alternates: {
+    canonical: "/"
+  },
 };
 
 export default function RootLayout({

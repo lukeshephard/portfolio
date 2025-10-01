@@ -1,3 +1,5 @@
+"use client"
+
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { BookUser, LucideIcon, Moon, Palette, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
