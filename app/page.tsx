@@ -1,6 +1,6 @@
 'use client'
 
-import { Archive } from "lucide-react";
+import { Archive, ScrollText } from "lucide-react";
 import { Cutive_Mono, Shadows_Into_Light } from "next/font/google";
 import Link from "next/link";
 import pk from "../package.json";
@@ -27,12 +27,12 @@ export default function Home() {
           <div className="flex justify-center">
             <h3 className="sm:text-md lg:text-xl 2xl:text-3xl">Final-Year Computer Science student looking for graduate roles. </h3>
           </div>
-          <Link href={"/projects"} className="text-3xl mt-12 block w-45 justify-center m-auto bg-background-alt p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active"><Archive className="mr-3 size-9"/>Projects</Link>
+          <Link href={"/projects"} className="text-3xl mt-12 block w-45 justify-center m-auto bg-background-alt p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active"><Archive className="mr-1 size-9"/>Projects</Link>
         </div>
       </div>
       <div className="pt-10 lg:p-0 text-xs lg:text-xl mb-3">
-        <p>Version {pk.version}</p>
-        <p>Switch to latest 1.0.0 alpha version <a href="https://alpha.lukeshephard.com">here</a>.</p>
+        <p>Version {pk.version} - 01/10/2025</p>
+        <a className="flex justify-center" target="_blank" href="https://github.com/lukeshephard/personal-website/blob/main/CHANGELOG.md"><ScrollText className="my-auto mr-1"/>Changelog</a>
       </div>
     </div>
   );

@@ -127,15 +127,15 @@
     color: #525252;
   } */
 
-  p a, li a, .linkStyle, .linkStyle a {
+  a, .linkStyle, .linkStyle a {
     color: var(--link);
   }
 
-  p a:hover, li a:hover, .linkStyle:hover, .linkStyle a:hover {
+  a:hover, .linkStyle:hover, .linkStyle a:hover {
     color: var(--link-hover);
   }
 
-  p a:active, li a:active, .linkStyle:active, .linkStyle a:active { 
+  a:active, .linkStyle:active, .linkStyle a:active { 
     color: var(--link-active);
   }
 

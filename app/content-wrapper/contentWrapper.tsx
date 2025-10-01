@@ -29,7 +29,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                             <ul className="flex flex-col gap-6 lg:flex-row lg:gap-12">
                                 {/* <NavbarItem name="About" icon={<User/>} activeIcon={<UserSearch/>} customLink=""/> */}
                                 <NavbarItem name="Projects" icon={<Archive/>} activeIcon={<ArchiveRestore/>}/>
-                                <NavbarItem name="Contact" icon={<UserRound/>} activeIcon={<UserRoundSearch/>}/>
+                                <NavbarItem name="Socials" icon={<UserRound/>} activeIcon={<UserRoundSearch/>}/>
                             </ul>
                         </nav>
                         <ThemeButton/>
