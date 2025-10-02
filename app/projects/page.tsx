@@ -50,7 +50,7 @@ export default function Projects() {
                 id="portfolio"
                 title="Portfolio"
                 platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop]}
-                description={`This very website. It was made with the goal of not only having something that can show on my CV, but also to be a way for my to grow and improve my web development skills.`}
+                description={`This very website. It was made with the goal of not only having something that I can show on my CV, but also to be a way for me to grow and improve my web development skills.`}
                 imagesData={[
                   {name: "homepage", alt: `The homepage, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
                   {name: "projects", alt: "The projects page, showing the project \"QMTrack\" with a description and a desktop image of the dashboard."},
