@@ -11,6 +11,7 @@ It showcases my projects and socials.
 |  **Homepage** | <img src="./public/images/projects/portfolio/homepage/laptop.png" width="1000"/>|<img src="./public/images/projects/portfolio/homepage/phone.png" width="300"/>|
 |  **Projects** | <img src="./public/images/projects/portfolio/projects/laptop.png" width="1000"/>|<img src="./public/images/projects/portfolio/projects/phone.png" width="300"/>|
 
+
 ## 🛠️ Tech Stack
 
 - [Next.js 13+ App Router](https://nextjs.org/docs/app)
