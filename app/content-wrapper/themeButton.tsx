@@ -10,6 +10,7 @@ export default function ThemeButton() {
     const [initialTheme, setInitialTheme] = useState<string | undefined>();
     const { theme, setTheme } = useTheme();
 
+    // Maps theme name to proper name and icon
     const themeMap: {[theme: string]: {name: string, icon: LucideIcon}} = useMemo(() => {
         return {
             "system": {
@@ -31,6 +32,7 @@ export default function ThemeButton() {
         }
     }, [])
 
+    // Turns icons into items for select
     function generateIconTags() {
         const iconTags = [];
         for (const themeName of Object.keys(themeMap)) {
@@ -40,6 +42,7 @@ export default function ThemeButton() {
         return iconTags
     }
 
+    // Get initial theme for the icon
     useEffect(() => {
         if (initialTheme !== undefined) {
             return;
@@ -54,6 +57,8 @@ export default function ThemeButton() {
         setInitialTheme(theme);
     }, [setTheme, themeMap, initialTheme, theme])
 
+
+    // Return dummy button until theme is loaded
     return initialTheme === undefined ? <button className="w-12"><Palette className="text-text-title w-18 mx-auto md:w-auto"/></button> : (
         <FormControl sx={{
             color: "transparent",

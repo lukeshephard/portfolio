@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import CardArray from "../card/cardArray";
 import ProjectCard from "../card/projectCard";
 import Platform from "../utils/platform";
+import Card from '../card/card';
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -20,7 +21,9 @@ export default function Projects() {
       <>
           <div className="flex flex-col items-center text-text text-lg">
             <CardArray>
-              <h1 className='pb-9 text-5xl'>Here are my flagship projects:</h1>
+              <Card title='My Projects' mainTitle>
+                <p>These are my best projects. You can find more projects on my <a target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard">GitHub</a>.</p>
+              </Card>
               <ProjectCard
               id="qmtrack"
               title="QMTrack"

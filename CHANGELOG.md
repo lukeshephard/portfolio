@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multiple pictures for each project. (Backport from v1.0.0-alpha.1)
 - Ability to view all project pictures on each of their supported platform. (Backport from v1.0.0-alpha.1)
 - Image optimisation.
-- Search optimisation.
+- Search Engine optimisation.
 
 ### Changed
 
