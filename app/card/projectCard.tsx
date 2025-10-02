@@ -75,7 +75,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
 
     return (
         <div className={"w-screen py-10 flex flex-col items-center gap-y-10"}>
-            <h2 className="text-6xl text-text-title no-underline">{title}</h2>
+            <h2 className="text-5xl text-text-title no-underline">{title}</h2>
             {generateLinks()}
             <p className="p-3 md:w-2/3 lg:w-1/3 md:p-0">{description}</p>
             <div className="w-full p-3 md:w-1/2 md:max-h-120 md:p-0">
