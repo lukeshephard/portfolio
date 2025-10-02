@@ -47,6 +47,19 @@ export default function Projects() {
               />
 
             <ProjectCard
+              id="portfolio"
+              title="Portfolio"
+              platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop]}
+              description={`This very website. It was made with the goal of not only having something that can show on my CV, but also to be a way for my to grow and improve my web development skills.`}
+              imagesData={[
+                {name: "homepage", alt: `The homepage, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
+                {name: "projects", alt: "The projects page, showing the project \"QMTrack\" with a description and a desktop image of the dashboard."},
+                {name: "homepage-light", alt: `The homepage in the "light" theme, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
+              ]}
+              devInfo="A static website built with Next.js (App Router) and React, hosted on Cloudflare Workers. I have been (and still am) working on this website on and off since August 2024, the same time I started to teach myself React. As my web development experience has grown, I have made great improvements in understanding what makes a good UI."
+            />
+
+            <ProjectCard
               id="outfit-weather"
               title="OutFit Weather"
               platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop]}
