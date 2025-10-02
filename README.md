@@ -1,4 +1,4 @@
-# Personal Website
+# Portfolio
 ### https://lukeshephard.com
 This is my website I made mostly just to keep my projects organised and to write a bit about them.
 

@@ -1,5 +1,5 @@
 {
-  "name": "personal-website",
+  "name": "portfolio",
   "version": "0.5.0",
   "private": true,
   "scripts": {
@@ -48,10 +48,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukeshephard/personal-website.git"
+    "url": "git+https://github.com/lukeshephard/portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/lukeshephard/personal-website/issues"
+    "url": "https://github.com/lukeshephard/portfolio/issues"
   },
-  "homepage": "https://github.com/lukeshephard/personal-website#readme"
+  "homepage": "https://github.com/lukeshephard/portfolio#readme"
 }
