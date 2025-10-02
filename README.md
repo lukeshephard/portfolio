@@ -5,6 +5,17 @@
 This is the source code for my portfolio, built with [Next.js](https://nextjs.org/) (App Router), [React](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/).
 It showcases my projects and socials.
 
+## 📷 Screenshots
+|  Page         |    Desktop                                                         |                        Mobile                                    |
+| :-----------: | :----------------------------------------------------------------: | :--------------------------------------------------------------: |
+|  **Homepage** | <img src="./public/images/projects/portfolio/homepage/laptop.png" width="1000"/>|<img src="./public/images/projects/portfolio/homepage/phone.png" width="300"/>|
+|  **Projects** | <img src="./public/images/projects/portfolio/projects/laptop.png" width="1000"/>|<img src="./public/images/projects/portfolio/projects/phone.png" width="300"/>|
+<!-- <img src="./public/images/projects/portfolio/homepage/laptop.png" width="700"/>
+Mobile:
+<img src="./public/images/projects/portfolio/homepage/phone.png" width="350"/>
+
+<img src="./public/images/projects/portfolio/projects/laptop.png" width="700"/> -->
+
 ## 🛠️ Tech Stack
 
 - [Next.js 13+ App Router](https://nextjs.org/docs/app)
