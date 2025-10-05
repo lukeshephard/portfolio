@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Unneeded scrollbars appearing on homepage and projects page.
 - Projects starting inside the scrollbar when using their id in the URI.
+- Favicon missing font in many cases by changing the SVG to use paths instead of text.
 
 ## [0.5.0] - 2025-10-02
 
