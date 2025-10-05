@@ -72,7 +72,7 @@ export default function ThemeButton() {
                 color: "var(--link-active)"
             },
         }} variant="outlined" fullWidth>
-            <InputLabel id="theme">Theme</InputLabel>
+            <InputLabel id="theme" className="ml-[1.1rem] md:m-0">Theme</InputLabel>
             <Select
                 label="Theme"
                 labelId="theme"

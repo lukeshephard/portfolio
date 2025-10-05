@@ -42,7 +42,7 @@
     "typescript": "^5",
     "wrangler": "^4.30.0"
   },
-  "description": "Luke Shephard's Personal Website",
+  "description": "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
   "main": "index.js",
   "author": "Luke Shephard",
   "license": "MIT",

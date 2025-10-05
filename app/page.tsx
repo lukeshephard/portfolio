@@ -11,7 +11,7 @@ const shadowsIntoLight = Shadows_Into_Light({
 export default function Home() {
   return (
     <div className="flex flex-col md:h-[calc(100vh-var(--spacing)*18)] justify-between">
-      <div className="flex flex-col md:flex-grow justify-center items-center text-center z-10">
+      <div className="flex flex-col md:flex-grow justify-center items-center text-center">
         <div className="backdrop-blur-md backdrop-opacity-100 px-9 rounded-4xl md:p-9 md:border-1">
           {/* <pre className="text-sm text-center whitespace-pre text-logo py-12">{getFullName()}</pre> */}
           <h1 className={`text-4xl md:text-6xl md:text-7xl 2xl:text-8xl text-logo md:py-12 ${shadowsIntoLight.className}`}>Luke Shephard</h1>
@@ -19,12 +19,12 @@ export default function Home() {
           <div className="flex justify-center">
             <h3 className="md:text-md md:text-xl 2xl:text-3xl">Final-Year Computer Science student looking for graduate roles. </h3>
           </div>
-          <Link href={"/projects"} className="text-3xl mt-12 block w-45 justify-center m-auto bg-background-alt p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active"><Archive className="mr-1 size-9"/>Projects</Link>
+          <Link href={"/projects"} className="text-xl mt-12 block w-33 justify-center m-auto border-[2px] p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active no-underline"><Archive className="mr-1 size-6"/>Projects</Link>
         </div>
       </div>
       <div className="pt-10 md:p-0 text-xs md:text-sm 2xl:text-lg mb-3">
         <hr className="mb-3 md:hidden" />
-        <p>Version 0.5.0 - 02/10/2025</p>
+        <p>Version 0.5.1 - 05/10/2025</p>
         <div className="flex justify-center gap-3">
           <a className="flex justify-center" target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard/portfolio"><Code className="my-auto mr-1"/>Repository</a>
           <p> | </p>
