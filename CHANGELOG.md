@@ -15,10 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Logo colours to be more accessible.
 - Font weight and text decoration to be more accessible.
 - Project image navigation buttons to be easier to select.
-- Light and dark favicons to reflect updated colours
+- Light and dark favicons to a single favicon with both themes and their updated colours.
 
 ### Fixed
 - Unneeded scrollbars appearing on homepage and projects page.
+- Projects starting inside the scrollbar when using their id in the URI.
 
 ## [0.5.0] - 2025-10-02
 
