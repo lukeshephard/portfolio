@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+- Homepage and repository links to Portfolio on projects page.
+
+### Changed
+- Style of light theme to be more accessible.
+- Logo colours to be more accessible.
+- Font weight and text decoration to be more accessible.
+- Project image navigation buttons to be easier to select.
+
 ## [0.5.0] - 2025-10-02
 
 ### Added
