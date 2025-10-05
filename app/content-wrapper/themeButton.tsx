@@ -36,7 +36,7 @@ export default function ThemeButton() {
     function generateIconTags() {
         const iconTags = [];
         for (const themeName of Object.keys(themeMap)) {
-            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background whitespace-pre ${themeName === theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(themeMap[themeName].icon, {className: themeName === theme ? "text-link" : "text-text-title"})} {themeMap[themeName].name}</MenuItem>)
+            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background flex gap-1 ${themeName === theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(themeMap[themeName].icon, {className: themeName === theme ? "text-link" : "text-text-title"})} {themeMap[themeName].name}</MenuItem>)
         } 
 
         return iconTags
