@@ -4,7 +4,7 @@ import Platform from "../utils/platform";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 import { FolderCode, House, Laptop, LucideIcon, Smartphone, Tablet } from "lucide-react";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { CSSProperties, ReactNode, useEffect, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
 
 export default function ProjectCard({id, title, platforms, imagesData, description, devInfo, links}: {id:string, title: string, platforms: Platform[], description: string, imagesData: {name: string, alt:string}[], devInfo: string, links?: {website?: string, repository?: string}}) {
@@ -84,6 +84,10 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
                 modules={[Navigation, Pagination, A11y]}
                 navigation
                 pagination={{clickable: true}}
+                style={{
+                    "--swiper-pagination-bullet-size": "0.75rem",
+                    "--swiper-pagination-bullet-horizontal-gap": "0.4rem",
+                } as CSSProperties}
                 slidesPerView={1}>
                     {imageSlides}
                 </Swiper>

@@ -42,3 +42,6 @@ next-env.d.ts
 # next-image-export-optimizer
 **nextImageExportOptimizer
 **next-image-export-optimizer-hashes.json
+
+# lighthouse reports
+**.report.html

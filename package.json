@@ -7,7 +7,7 @@
     "postbuild": "next-sitemap",
     "preview": "next build && next-image-export-optimizer && wrangler dev",
     "deploy": "wrangler deploy",
-    "upload": "wrangler versions upload",
+    "upload": "wrangler versions upload --preview-alias canary",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "dev": "next dev",
     "start": "next start",
