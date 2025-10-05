@@ -58,7 +58,9 @@ export default function Projects() {
                 imagesData={[
                   {name: "homepage", alt: `The homepage, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
                   {name: "projects", alt: "The projects page, showing the project \"QMTrack\" with a description and a desktop image of the dashboard."},
+                  {name: "socials", alt: "The socials page, showing different links for email, GitHub and LinkedIn."},
                   {name: "homepage-light", alt: `The homepage in the "light" theme, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
+                  {name: "homepage-dark", alt: `The homepage in the "dark" theme, showing a hero section in the center with "Luke Shephard" in large with a button to view projects.`},
                 ]}
                 devInfo="A static website built with Next.js (App Router) and React, hosted on Cloudflare Workers. I have been (and still am) working on this website on and off since August 2024, the same time I started to teach myself React. As my web development experience has grown, I have made great improvements in understanding what makes a good UI."
               />

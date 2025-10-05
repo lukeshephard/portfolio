@@ -100,10 +100,6 @@
     color: var(--logo-active)
   } */
 
-  html {
-    scroll-padding-top: calc(var(--spacing) * 18);
-  }
-
   body {
     color: var(--text);
     background: var(--background);
