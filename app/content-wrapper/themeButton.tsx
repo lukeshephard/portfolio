@@ -72,9 +72,10 @@ export default function ThemeButton() {
                 color: "var(--link-active)"
             },
         }} variant="outlined" fullWidth>
-            <InputLabel>Theme</InputLabel>
+            <InputLabel id="theme">Theme</InputLabel>
             <Select
                 label="Theme"
+                labelId="theme"
                 defaultValue={initialTheme}
                 renderValue={() => <Palette/>}
                 className="text-text-title h-12 w-18 md:w-auto mx-auto"
