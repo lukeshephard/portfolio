@@ -8,7 +8,7 @@ import Script from "next/script";
 
 const geist = Geist({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {

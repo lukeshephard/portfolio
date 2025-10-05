@@ -40,7 +40,7 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
             return React.createElement(currentPlatform, {
                 key: title + platform,
                 size: 48,
-                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-link" : "text-text"} hover:text-link-hover active:text-link-active border-1 rounded-lg p-2`,
+                className: `${currentPlatform === iconMap[selectedPlatform] ? "text-link border-[4px] p-[5px]" : "text-text border-1 border-[2px] p-[7px]"} hover:text-link-hover active:text-link-active rounded-lg`,
                 onClick: () => setSelectedPlatform(platform)
             })
         })
@@ -55,11 +55,11 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
         const linksList = []
 
         if (links.website) {
-            linksList.push(<a href={links.website} target="_blank" className="flex gap-3 no-underline hover:underline"><House className="my-auto"/>Homepage</a>)
+            linksList.push(<a href={links.website} target="_blank" className="flex gap-1"><House className="my-auto"/>Homepage</a>)
         }
 
         if (links.repository) {
-            linksList.push(<a href={links.repository} target="_blank" rel="noopener noreferrer" className="flex gap-3 no-underline hover:underline"><FolderCode className="my-auto"/>Repository</a>)
+            linksList.push(<a href={links.repository} target="_blank" rel="noopener noreferrer" className="flex gap-1"><FolderCode className="my-auto"/>Repository</a>)
         }
 
         let fullText = <>{linksList[0]}</>;

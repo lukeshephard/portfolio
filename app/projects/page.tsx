@@ -49,6 +49,10 @@ export default function Projects() {
               <ProjectCard
                 id="portfolio"
                 title="Portfolio"
+                links={{
+                  website: "https://lukeshephard.com",
+                  repository: "https://github.com/lukeshephard/portfolio"
+                }}
                 platforms={[Platform.Phone, Platform.Tablet, Platform.Laptop]}
                 description={`This very website. It was made with the goal of not only having something that I can show on my CV, but also to be a way for me to grow and improve my web development skills.`}
                 imagesData={[
