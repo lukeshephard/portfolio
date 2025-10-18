@@ -10,7 +10,7 @@ const shadowsIntoLight = Shadows_Into_Light({
     subsets: ["latin"]
 })
 
-export default function ContentWrapper({children, setForcedTheme}: {children: ReactNode, setForcedTheme: Dispatch<SetStateAction<string | undefined>>}) { // An element to add the header to each page
+export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
     return (
         <>
             {/* Header */}
@@ -27,7 +27,7 @@ export default function ContentWrapper({children, setForcedTheme}: {children: Re
                                 <NavbarItem name="Socials" icon={<UserRound/>} activeIcon={<UserRoundSearch/>}/>
                             </ul>
                         </nav>
-                        <ThemeButton setForcedTheme={setForcedTheme}/>
+                        <ThemeButton/>
                     </div>
                 </div>
             </header>

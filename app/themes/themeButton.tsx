@@ -5,12 +5,13 @@ import { Check, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, Dispatch, SetStateAction, useEffect, useState } from "react";
 import themeGroups, { createInventory, DEFAULT_THEME, getSeasonalTheme, themes } from "./themes";
+import { useLocalStorage } from 'usehooks-ts'
 
 // Button to switch themes
-export default function ThemeButton({setForcedTheme}: {setForcedTheme: Dispatch<SetStateAction<string | undefined>>}) {
+export default function ThemeButton() {
     const [ mounted, setMounted] = useState<boolean>(false);
     const { theme, setTheme } = useTheme();
-    const [ enableSeasonalThemes, setEnableSeasonalThemes ] = useState(true);
+    const [ enableSeasonalThemes, setEnableSeasonalThemes ] = useLocalStorage("enableSeasonalThemes", true);
 
     // WIP for later versions, currently used for seasonal only
     const inventory = createInventory();
@@ -31,21 +32,17 @@ export default function ThemeButton({setForcedTheme}: {setForcedTheme: Dispatch<
     useEffect(() => {
         setMounted(true);
     }, [])
+    
 
 
     // Get initial theme for the icon
     useEffect(() => {
-        const seasonalTheme = getSeasonalTheme();
         if (theme !== undefined && !inventory.has(theme)) {
             console.warn(`Cannot find theme "${theme}"! Reverting to default...`)
             setTheme(DEFAULT_THEME);
             return;
-        } else if (enableSeasonalThemes && seasonalTheme) {
-            setForcedTheme(seasonalTheme);
-        } else {
-            setForcedTheme(undefined)
         }
-    }, [setTheme, setForcedTheme, theme, inventory, enableSeasonalThemes])
+    }, [setTheme, theme, inventory])
 
 
     if (!mounted) {

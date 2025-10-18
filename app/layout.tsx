@@ -5,9 +5,10 @@ import { ThemeProvider } from "next-themes";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Geist } from "next/font/google";
 import Script from "next/script";
-import { DEFAULT_THEME } from "./themes/themes";
+import { DEFAULT_THEME, getSeasonalTheme } from "./themes/themes";
 import { useState } from "react";
 import Test from "./test";
+import { useLocalStorage } from "usehooks-ts";
 
 const geist = Geist({
   subsets: ["latin"],

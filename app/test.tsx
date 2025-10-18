@@ -2,15 +2,19 @@
 
 import { ThemeProvider } from "next-themes";
 import ContentWrapper from "./content-wrapper/contentWrapper";
-import { ReactNode, useState } from "react";
-import { DEFAULT_THEME } from "./themes/themes";
+import { ReactNode, useEffect, useState } from "react";
+import { DEFAULT_THEME, getSeasonalTheme } from "./themes/themes";
 import Script from "next/script";
+import { useLocalStorage } from "usehooks-ts";
 
 export default function Test({children}: {children: ReactNode}) {
-    const [forcedTheme, setForcedTheme] = useState<string | undefined>();
+    const [enableSeasonalThemes] = useLocalStorage("enableSeasonalThemes", true)
+    console.log(enableSeasonalThemes)
+    const seasonalTheme = getSeasonalTheme();
+
     return (
-        <ThemeProvider defaultTheme={DEFAULT_THEME} forcedTheme={forcedTheme}>
-            <ContentWrapper setForcedTheme={setForcedTheme}>
+        <ThemeProvider defaultTheme={DEFAULT_THEME} forcedTheme={(enableSeasonalThemes && seasonalTheme ? seasonalTheme : undefined)}>
+            <ContentWrapper>
               {children}
               
               <Script
