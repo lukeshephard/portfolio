@@ -59,7 +59,7 @@
   --text: var(--color-neutral-300);
 }
 
-[data-theme="luke_shephard"] {
+[data-theme="lukeShephard"] {
   --background: var(--color-slate-950);
   --background-alt: var(--color-slate-900);
 
@@ -71,11 +71,11 @@
   --logo-active: var(--color-amber-500);
 }
 
-[data-theme="EXPERIMENTAL_SEASONAL"] {
+[data-theme="halloween"] {
   --background: #000000;
   --background-alt: #0e0e0e;
 
-  --text-title:var(--color-purple-600);
+  --text-title:var(--color-purple-500);
   --text: var(--color-neutral-300);
 
   --logo: var(--color-orange-600);

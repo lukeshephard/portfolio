@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Primary",
+        "themes": [
+            "lukeShephard"
+        ]
+    },
+    {
+        "name": "Plain",
+        "themes": [
+            "system",
+            "light",
+            "dark"
+        ]
+    }
+]

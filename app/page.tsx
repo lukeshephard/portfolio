@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <div className="pt-10 md:p-0 text-xs md:text-sm 2xl:text-lg mb-3">
         <hr className="mb-3 md:hidden" />
-        <p>Version 0.5.1 - 06/10/2025</p>
+        <p>Version 0.5.2 - 2025-10-14</p>
         <div className="flex justify-center gap-3">
           <a className="flex justify-center" target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard/portfolio"><Code className="my-auto mr-1"/>Repository</a>
           <p> | </p>

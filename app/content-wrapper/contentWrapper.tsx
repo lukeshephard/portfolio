@@ -1,16 +1,16 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Archive, ArchiveRestore, UserRound, UserRoundSearch, } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
-import ThemeButton from "./themeButton";
+import ThemeButton from "../themes/themeButton";
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",
     subsets: ["latin"]
 })
 
-export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
+export default function ContentWrapper({children, setForcedTheme}: {children: ReactNode, setForcedTheme: Dispatch<SetStateAction<string | undefined>>}) { // An element to add the header to each page
     return (
         <>
             {/* Header */}
@@ -27,7 +27,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                                 <NavbarItem name="Socials" icon={<UserRound/>} activeIcon={<UserRoundSearch/>}/>
                             </ul>
                         </nav>
-                        <ThemeButton/>
+                        <ThemeButton setForcedTheme={setForcedTheme}/>
                     </div>
                 </div>
             </header>
