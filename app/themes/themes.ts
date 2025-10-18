@@ -42,7 +42,17 @@ export const DEFAULT_THEME = "lukeShephard";
 
 // Seasonal theme detection goes here
 export function getSeasonalTheme(): string | null {
-    return "halloween";
+    const date = new Date();
+
+    // Halloween 15-31 October inclusive
+    if (date.getUTCMonth() === 9) {
+        const day = date.getUTCDate();
+        if (day >= 15) {
+            return "halloween"
+        }
+    }
+
+    return null;
 }
 
 // Starter inventory - WIP

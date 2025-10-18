@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Geist } from "next/font/google";
-import { DEFAULT_THEME } from "./themes/themes";
+import { DEFAULT_THEME, getSeasonalTheme } from "./themes/themes";
 import { ThemeProvider } from "next-themes";
 import ContentWrapper from "./content-wrapper/contentWrapper";
 import Script from "next/script";
@@ -60,13 +60,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const seasonalTheme= getSeasonalTheme();
+
   return (
     <html lang="en" suppressHydrationWarning className="md:scroll-pt-18">
       <body
         className={`${geist.className} antialiased h-screen`}
       >
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
-          <ThemeProvider storageKey="next-theme" defaultTheme={DEFAULT_THEME}>
+          <ThemeProvider storageKey="next-theme" defaultTheme={seasonalTheme ? seasonalTheme : DEFAULT_THEME}>
             <ContentWrapper>
               {children}
               

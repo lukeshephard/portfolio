@@ -7,6 +7,7 @@ import CardArray from "../card/cardArray";
 import ProjectCard from "../card/projectCard";
 import Platform from "../utils/platform";
 import Card from '../card/card';
+import ProjectsThemeAwardHandler from './themeAwardHandler';
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
       <>
+        {/* THEME INVENTORY TEST */}
+        {/* <ProjectsThemeAwardHandler/> */}
+        
         <div className="flex flex-col items-center text-text text-lg">
           <CardArray>
             <Card title='My Projects' mainTitle>
