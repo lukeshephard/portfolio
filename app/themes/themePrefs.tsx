@@ -5,7 +5,7 @@ export type ThemePrefs = {
     enableSeasonalThemes: boolean;
 }
 
-
+// Theme prefs in localstorage
 export function createThemePrefs(theme: string, enableSeasonalThemes: boolean): ThemePrefs {
     return {
         theme: theme,
@@ -13,6 +13,7 @@ export function createThemePrefs(theme: string, enableSeasonalThemes: boolean): 
     } 
 }
 
+// Default theme prefs
 export default function getDefaultThemePrefs(): ThemePrefs {
     return {
         theme: DEFAULT_THEME,

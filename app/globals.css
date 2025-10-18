@@ -83,6 +83,22 @@
   --logo-active: var(--color-orange-800);
 }
 
+[data-theme="throwback"] {
+  --background: #0a182b;
+  --background-alt: #0d203b;
+
+  --text-title:white;
+  --text: white;
+
+  --logo: var(--color-white);
+  --logo-hover: var(--color-neutral-400);
+  --logo-active: var(--color-neutral-600);
+
+  --link: var(--color-amber-400);
+  --link-hover: var(--color-amber-500);
+  --link-active: var(--color-amber-600);
+}
+
 
 @layer base {
 /* 

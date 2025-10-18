@@ -1,5 +1,4 @@
-import { BookUser, Ghost, LucideIcon, Moon, Sun, SunMoon } from "lucide-react";
-import themeGroups from "./themeGroups.json";
+import { BookUser, Ghost, LucideIcon, Moon, RotateCcw, Sun, SunMoon } from "lucide-react";
 
 export type ThemeGroup = {
     name: string,
@@ -14,7 +13,7 @@ export type Theme = {
 // List of all themes
 export const themes: {[name: string]: Theme} = {
     "system": {
-        name: "System",
+        name: "System (Light/Dark)",
         icon: SunMoon,
     },
     "light": {
@@ -29,6 +28,10 @@ export const themes: {[name: string]: Theme} = {
         name: "Luke Shephard",
         icon: BookUser,
     },
+    "throwback": {
+        name: "Throwback",
+        icon: RotateCcw
+    },
     "halloween": {
         name: "Halloween",
         icon: Ghost,
@@ -37,12 +40,14 @@ export const themes: {[name: string]: Theme} = {
 
 export const DEFAULT_THEME = "lukeShephard";
 
+// Seasonal theme detection goes here
 export function getSeasonalTheme(): string | null {
     return "halloween";
 }
 
+// Starter inventory - WIP
 export function createInventory() {
-    return new Set(["system", "light", "dark", "lukeShephard"])
+    return ["lukeShephard", "system", "light", "dark", "halloween"];
 };
-// An array of groups of themes
-export default themeGroups as ThemeGroup[];
+
+export default themes;

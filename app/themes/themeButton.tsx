@@ -4,7 +4,7 @@ import { Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select }
 import { Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import { createElement, useEffect, useState } from "react";
-import themeGroups, { createInventory, DEFAULT_THEME, getSeasonalTheme, themes } from "./themes";
+import themes, { createInventory, DEFAULT_THEME, getSeasonalTheme } from "./themes";
 import { useLocalStorage } from 'usehooks-ts'
 import getDefaultThemePrefs, { createThemePrefs, ThemePrefs } from "./themePrefs";
 
@@ -14,18 +14,17 @@ export default function ThemeButton() {
     const { setTheme } = useTheme();
     const [ themePrefs, setThemePrefs ] = useLocalStorage<ThemePrefs>("themePrefs", getDefaultThemePrefs());
 
-    // WIP for later versions, currently used for seasonal only
-    const inventory = createInventory();
+    // The user's theme inventory, WIP just starter themes
+    const [ themeInventory ] = useLocalStorage<string[]>("themeInventory", createInventory())
 
     // Turns icons into items for select
     function generateIconTags() {
         const iconTags = [];
-        for (const group of themeGroups) {
-            for (const themeName of group.themes) {
-                const currentTheme = themes[themeName];
-                iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background flex gap-1 ${themeName === themePrefs.theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(currentTheme.icon, {className: themeName === themePrefs.theme ? "text-link" : "text-text-title"})} {currentTheme.name}</MenuItem>)
-            }
-        } 
+        for (const themeName of themeInventory) {
+            const currentTheme = themes[themeName];
+            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background flex gap-1 ${themeName === themePrefs.theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(currentTheme.icon, {className: themeName === themePrefs.theme ? "text-link" : "text-text-title"})} {currentTheme.name}</MenuItem>)
+        }
+
 
         return iconTags
     }
@@ -45,12 +44,12 @@ export default function ThemeButton() {
 
     // Get initial theme for the icon
     useEffect(() => {
-        if (themePrefs.theme !== undefined && !inventory.has(themePrefs.theme)) {
+        if (themePrefs.theme !== undefined && !themeInventory.includes(themePrefs.theme)) {
             console.warn(`Cannot find theme "${themePrefs.theme}"! Reverting to default...`)
             setThemePrefs(createThemePrefs(DEFAULT_THEME, themePrefs.enableSeasonalThemes));
             return;
         }
-    }, [inventory, setThemePrefs, themePrefs])
+    }, [themeInventory, setThemePrefs, themePrefs])
 
 
     if (!mounted) {
@@ -102,7 +101,7 @@ export default function ThemeButton() {
                     }
                 }}
             >
-                <FormControlLabel control={<Checkbox className="text-logo" checked={themePrefs.enableSeasonalThemes} onChange={() => setThemePrefs(createThemePrefs(themePrefs.theme, !themePrefs.enableSeasonalThemes))}/>} className="text-text-title pl-1 pr-4" label="Seasonal Theme Override" labelPlacement="start"/>
+                <FormControlLabel control={<Checkbox className="text-link" checked={themePrefs.enableSeasonalThemes} onChange={() => setThemePrefs(createThemePrefs(themePrefs.theme, !themePrefs.enableSeasonalThemes))}/>} className="text-text-title pl-1 pr-4" label="Seasonal Theme Override" labelPlacement="start"/>
                 {generateIconTags()}
             </Select>
         </FormControl>
