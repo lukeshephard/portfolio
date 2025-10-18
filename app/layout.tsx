@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ContentWrapper from "./content-wrapper/contentWrapper";
-import { ThemeProvider } from "next-themes";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Geist } from "next/font/google";
+import { DEFAULT_THEME } from "./themes/themes";
+import { ThemeProvider } from "next-themes";
+import ContentWrapper from "./content-wrapper/contentWrapper";
 import Script from "next/script";
-import { DEFAULT_THEME, getSeasonalTheme } from "./themes/themes";
-import { useState } from "react";
-import Test from "./test";
-import { useLocalStorage } from "usehooks-ts";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -69,9 +66,46 @@ export default function RootLayout({
         className={`${geist.className} antialiased h-screen`}
       >
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
-          <Test>
-            {children}
-          </Test>
+          <ThemeProvider storageKey="next-theme" defaultTheme={DEFAULT_THEME}>
+            <ContentWrapper>
+              {children}
+              
+              <Script
+                id="id-json"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify([
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "Person",
+                      name: "Luke Shephard",
+                      url: "https://lukeshephard.com",
+                      description: "Software engineer specialising in web development.",
+                      email: "mailto:luke@lukeshephard.com",
+                      jobTitle: "Final-Year Computer Science Student",
+                      knowsAbout: ["Software Engineering", "Web Development", "React", "Next.js", "JavaScript", "TypeScript"],
+                      affiliation: {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Queen Mary University of London",
+                        "sameAs": "https://www.qmul.ac.uk/"
+                      },
+                      sameAs: [
+                        "https://github.com/lukeshephard",
+                        "https://www.linkedin.com/in/luke-shephard",
+                      ]
+                    },
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "WebSite",
+                      name: "Luke Shephard Portfolio",
+                      url: "https://lukeshephard.com",
+                    }
+                  ])
+                }}
+              />
+            </ContentWrapper>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
