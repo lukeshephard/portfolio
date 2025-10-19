@@ -3,7 +3,7 @@ import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml } from "lu
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import { Shadows_Into_Light } from "next/font/google";
-import ThemeButton from "./themeButton";
+import ThemeButton from "../themes/themeButton";
 
 const shadowsIntoLight = Shadows_Into_Light({
     weight: "400",

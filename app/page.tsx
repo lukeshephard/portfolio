@@ -2,7 +2,8 @@
 
 import { Cutive_Mono, Shadows_Into_Light } from "next/font/google";
 import CodeTypewriter from "./typewriter/codeTypewriter";
-import { Archive, Code, Link, ScrollText } from "lucide-react";
+import { Archive, Code, ScrollText } from "lucide-react";
+import Link from "next/link";
 
 const cutiveMono = Cutive_Mono({
   subsets: ["latin"],
@@ -35,9 +36,9 @@ export default function Home() {
             <Link href={"/projects"} className="text-xl mt-12 block w-33 justify-center m-auto border-[2px] p-3 rounded-2xl flex items-center text-text hover:text-link-hover active:text-link-active no-underline"><Archive className="mr-1 size-6"/>Projects</Link>
           </div>
         </div>
-        <div className="pt-10 md:p-0 text-xs md:text-sm 2xl:text-lg mb-3">
+        <div className="pt-10 md:p-0 text-xs md:text-sm 2xl:text-lg mb-3 z-10">
           <hr className="mb-3 md:hidden" />
-          <p>Version 0.5.2 - 2025-10-18</p>
+          <p>Version 1.0.0-alpha.3 - XXXX-XX-XX</p>
           <div className="flex justify-center gap-3">
             <a className="flex justify-center" target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard/portfolio"><Code className="my-auto mr-1"/>Repository</a>
             <p> | </p>
