@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lukeshephard.com
+
+# Sitemaps
+Sitemap: https://lukeshephard.com/sitemap.xml

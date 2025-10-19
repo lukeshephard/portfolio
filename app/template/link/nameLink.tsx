@@ -25,7 +25,7 @@ export class NameLink {
         if (!this.enabled) {
             return <span className="disabledLinkStyle">{this.getLabel()}</span>
         }
-        return <a key={this.getLabel()} href={this.getLink()} target="_blank">{this.getLabel()}</a>
+        return <a key={this.getLabel()} href={this.getLink()} target="_blank" rel="noopener noreferrer">{this.getLabel()}</a>
     }
 
     setEnabled(enabled: boolean) {

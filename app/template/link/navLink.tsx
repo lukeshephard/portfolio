@@ -2,14 +2,17 @@
 
 import Link from "next/link"
 import { NameLink } from "./nameLink"
-import React from "react"
+import React, { ReactNode } from "react"
 
 export class NavLink extends NameLink {
-    constructor(label: string, customLink?: string) {
+    icon: ReactNode
+
+    constructor(label: string, customLink?: string, icon?: ReactNode) {
         super(label, customLink ? customLink : "/" + label.toLowerCase().replace(" ", "-"))
+        this.icon = icon;
     }    
 
     generateElement(): React.JSX.Element { // Returns as a NextJS Link Component
-        return <Link key={this.getLabel()} href={this.getLink()}>{this.getLabel()}</Link>
+        return <Link key={this.getLabel()} className={this.icon ? "flex gap-3" : ""} href={this.getLink()}>{this.icon ? <span className="my-auto">{this.icon}</span> : null}{this.getLabel()}</Link>
     }
 }

@@ -26,7 +26,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Light theme showing for a second when visiting for the first time.
 
-## [1-0-0-alpha.2]
+## [0.5.2] - 2025-10-18
+
+### Added
+- Seasonal themes, with an option to disable them in the theme menu.
+- Persistent storage for seasonal themes.
+- Halloween theme.
+
+### Fixed
+- Sitemap not generating correctly.
+
+## [0.5.1] - 2025-10-06
+
+### Added
+- Homepage and repository links to Portfolio on projects page.
+
+### Changed
+- Style of light theme to be more accessible.
+- Logo colours to be more accessible.
+- Font weight and text decoration to be more accessible.
+- Project image navigation buttons to be easier to select.
+- Light and dark favicons to a single favicon with both themes and their updated colours.
+
+### Fixed
+- Unneeded scrollbars appearing on homepage and projects page.
+- Projects starting inside the scrollbar when using their id in the URI.
+- Favicon missing font in many cases by changing the SVG to use paths instead of text.
+
+## [0.5.0] - 2025-10-02
+
+### Added
+
+- Ability to change themes in the navbar and keep the current one saved. There is Light, Dark and Luke Shephard (Default), and System to match Light/Dark with the system theme. (Backport from v1.0.0-alpha.2)
+- Icons to navbar titles and socials. (Backport from v1.0.0-alpha.2)
+- CHANGELOG.md. (Backport from v1.0.0-alpha.2)
+- QMTrack (Backport from v1.0.0-alpha.1) and OutFit Weather to projects page.
+- Multiple pictures for each project. (Backport from v1.0.0-alpha.1)
+- Ability to view all project pictures on each of their supported platform. (Backport from v1.0.0-alpha.1)
+- Image optimisation.
+- Search Engine optimisation.
+
+### Changed
+
+- Links to reflect new branding (lukeshephard from ShephardLuke). (Backport from v1.0.0-alpha.1)
+- Branding to now be "Luke Shephard" using the font "Shadows Into Light". (Backport from v1.0.0-alpha.1)
+- Projects page to show one project at a time, with more detail and more focus on images. (Backport from v1.0.0-alpha.1)
+- Default theme colours to be darker blues.
+- Favicon to reflect the new branding, with versions for light and dark.
+- Tablet views, width >=768px to <1024px, to be more similar to desktop views instead of mobile.
+- Homepage to a more minimalist design.
+- Navbar to stay fixed at the top of the page when scrolling for devices with a width >=768px.
+
+### Removed
+
+- Most projects from project page, only keeping the flagship ones for a less overwhelming experience. (Backport from v1.0.0-alpha.1)
+- Project "view" pages. (Backport from v1.0.0-alpha.1)
+- "About" from navbar. To get back to the homepage the user must press the logo.
+
+## [1.0.0-alpha.2] - 2025-09-12
 
 ### Added
 
@@ -133,10 +190,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial commit.
 
-[1.0.0-alpha.1]: https://github.com/lukeshephard/personal-website/compare/v0.4.0...v1.0.0-alpha.1
-[0.4.0]: https://github.com/lukeshephard/personal-website/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/lukeshephard/personal-website/compare/v0.2.0...v0.3.0
-[0.3.0-alpha.2]: https://github.com/lukeshephard/personal-website/compare/v0.3.0-alpha.1...v0.3.0-alpha.2
-[0.3.0-alpha.1]: https://github.com/lukeshephard/personal-website/compare/v0.2.0...v0.3.0-alpha.1
-[0.2.0]: https://github.com/lukeshephard/personal-website/compare/v0.1.0-alpha.1...v0.2.0
-[0.1.0-alpha.1]: https://github.com/lukeshephard/personal-website/commits/v0.1.0-alpha.1
+[0.5.2]: https://github.com/lukeshephard/portfolio/compare/v0.5.1...v0.5.2
+[0.5.1]: https://github.com/lukeshephard/portfolio/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/lukeshephard/portfolio/compare/v0.4.0...v0.5.0
+[1.0.0-alpha.2]: https://github.com/lukeshephard/portfolio/compare/v0.1.0-alpha.1...v1.0.0-alpha.2
+[1.0.0-alpha.1]: https://github.com/lukeshephard/portfolio/compare/v0.4.0...v1.0.0-alpha.1
+[0.4.0]: https://github.com/lukeshephard/portfolio/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/lukeshephard/portfolio/compare/v0.2.0...v0.3.0
+[0.3.0-alpha.2]: https://github.com/lukeshephard/portfolio/compare/v0.3.0-alpha.1...v0.3.0-alpha.2
+[0.3.0-alpha.1]: https://github.com/lukeshephard/portfolio/compare/v0.2.0...v0.3.0-alpha.1
+[0.2.0]: https://github.com/lukeshephard/portfolio/compare/v0.1.0-alpha.1...v0.2.0
+[0.1.0-alpha.1]: https://github.com/lukeshephard/portfolio/commits/v0.1.0-alpha.1

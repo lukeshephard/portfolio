@@ -6,8 +6,8 @@ export default function CardArray({children}: {children: ReactNode[]}) {
         modifiedCards.push(<div key={"card " + i} className={i % 2 === 0 ? "bg-background" : "bg-background-alt"}>{children[i]}</div>)
     }
     return (
-        <>
+        <div className="w-full">
             {modifiedCards}
-        </>
+        </div>
     )
 }

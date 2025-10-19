@@ -1,12 +1,13 @@
 {
-  "name": "personal-website",
-  "version": "1.0.0-alpha.3",
+  "name": "portfolio",
+  "version": "0.5.2",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "preview": "next build && wrangler dev",
+    "build": "next build && next-image-export-optimizer",
+    "postbuild": "next-sitemap",
+    "preview": "next build && next-image-export-optimizer && wrangler dev",
     "deploy": "wrangler deploy",
-    "upload": "wrangler versions upload",
+    "upload": "wrangler versions upload --preview-alias canary",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "dev": "next dev",
     "start": "next start",
@@ -22,11 +23,13 @@
     "highlight.js": "^11.11.1",
     "lucide-react": "^0.539.0",
     "next": "^15.4.6",
+    "next-image-export-optimizer": "^1.19.0",
     "next-themes": "^0.4.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "swiper": "^11.2.10",
-    "typewriter-effect": "^2.22.0"
+    "typewriter-effect": "^2.22.0",
+    "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
@@ -35,20 +38,21 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "next-sitemap": "^4.2.3",
     "tailwindcss": "^4.1.11",
     "typescript": "^5",
     "wrangler": "^4.30.0"
   },
-  "description": "Luke Shephard's Personal Website",
+  "description": "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
   "main": "index.js",
   "author": "Luke Shephard",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukeshephard/personal-website.git"
+    "url": "git+https://github.com/lukeshephard/portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/lukeshephard/personal-website/issues"
+    "url": "https://github.com/lukeshephard/portfolio/issues"
   },
-  "homepage": "https://github.com/lukeshephard/personal-website#readme"
+  "homepage": "https://github.com/lukeshephard/portfolio#readme"
 }
