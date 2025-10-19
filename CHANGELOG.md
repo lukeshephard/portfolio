@@ -107,6 +107,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0-alpha.1] - 2025-08-19
 
+### Notes
+- Changes are in the context of 0.4.0, not 1.0.0-alpha due to it being a different codebase.
+- Many of these changes are ported from 1.0.0-alpha with some tweaks.
+
 ### Added
 
 - Light and dark modes with a button on the navbar to switch theme.
@@ -116,15 +120,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Blue theme to either light or dark depending on the user's preferences.
 - Navbar to be smaller and include icons.
-- Logo text and style.
-- View on GitHub to an icon.
-- Upgrade all packages to latest versions.
+- Logo to "Luke Shephard" with font Shadows Into Light.
+- "View on GitHub" link to icon.
+- All packages to latest versions.
 - Handles and links on the socials page.
 - Migrated from Cloudflare Pages to Cloudflare Workers, still a static website.
+
+## 1.0.0-alpha - 2025-08-05
+
+### Notes
+- This was original created from the ground up in a separate repository as a successor, but the codebases ended up being so similar that they got merged to create 1.0.0-alpha.1. Therefore the code or commit history is not available.
+
+### Added
+
+- A button on the navbar to switch between different themes, preference is saved between sessions.
+- System, light, dark, TEST_BLUE, TEST_CUSTOM and TEST_SEASONAL themes.
+- WIP experience page.
+- WIP education page.
+- Icons to navbar pages which change when hovered and selected.
+
+### Changed
+
+- Homepage to use "cards" of my skills (WIP), with a programming animation. 
+- Projects page to use "cards" to show each project one by one (WIP).
+- "View on GitHub" link to icon.
+- Default theme to system.
+- Navbar to be smaller and include icons.
+- "Home" to "About" on navbar.
+- Logo font to Shadows Into Light.
+- All packages to latest versions.
+
 
 ### Removed
 
 - Project details pages.
+- Socials page.
 - Footer.
 
 ## [0.4.0] - 2025-03-03
