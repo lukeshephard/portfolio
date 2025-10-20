@@ -20,9 +20,7 @@ export default function Home() {
   return (
     <>
       <div className={`absolute w-screen h-full z-0 text-5xl saturate-60 contrast-60 blur-[1.5px] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
-        <pre className="h-full overflow-hidden" id="codeBox">
-          <CodeTypewriter/>
-        </pre>
+        <CodeTypewriter/>
       </div>
       <div className="flex flex-col md:h-[calc(100vh-var(--spacing)*18)] justify-between">
         <div className="flex flex-col md:flex-grow justify-center items-center text-center">

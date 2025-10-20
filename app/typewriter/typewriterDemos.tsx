@@ -1,25 +1,15 @@
-import { ReactNode } from "react";
-import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml } from "lucide-react";
-import NavbarItem from "./navbarItem";
-import Link from "next/link";
-import { Shadows_Into_Light } from "next/font/google";
-import ThemeButton from "../themes/themeButton";
-
-const shadowsIntoLight = Shadows_Into_Light({
-    weight: "400",
-    subsets: ["latin"]
-})
-
-export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
+// Code for the typewriter, at the moment only 1 segment
+const codeList = [
+`export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
     return (
         <>
             {/* Header */}
             <header className="md:fixed md:z-10 md:left-0 md:top-0 w-full bg-background/75 backdrop-blur-sm">
                 <div className="flex flex-col md:flex-row md:h-18 justify-between p-3">
-                    <p className={`${shadowsIntoLight.className} my-auto`}>
+                    <p className={\`\${shadowsIntoLight.className} my-auto\`}>
                         <Link href="/" className={
-                            `flex gap-6 mx-auto text-2xl justify-center md:text-left md:text-3xlmy-auto block no-underline
-                            text-logo hover:text-logo-hover active:text-logo-active`}>
+                            \`flex gap-6 mx-auto text-2xl justify-center md:text-left md:text-3xlmy-auto block no-underline
+                            text-logo hover:text-logo-hover active:text-logo-active\`}>
                         Luke Shephard
                         </Link>
                     </p>
@@ -39,10 +29,13 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
             </header>
             <hr className="md:hidden pb-9"/>
             {/* Main content */}
-            <main className={`md:pt-18 w-full m-auto text-center`}>
+            <main className={\`md:pt-18 w-full m-auto text-center\`}>
                 {/* <hr className="text-text-title"/> */}
                 {children}
             </main>
         </>
     )
-}
+}`,
+]
+
+export default codeList
