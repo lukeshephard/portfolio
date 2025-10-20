@@ -13,7 +13,7 @@ export default function CodeTypewriter() {
     const codeElement = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        setTypewriterCode(codeList[0]);
+        setTypewriterCode(codeList[Math.floor(Math.random() * codeList.length)]);
     }, [])
 
 
@@ -21,12 +21,13 @@ export default function CodeTypewriter() {
     useEffect(() => {
         if (!codeElement.current || typewriterCode === null) return;
 
+
+
         const hiddenCodeElement = document.createElement("code")
         hiddenCodeElement.innerHTML = hljs.highlight(typewriterCode, {language: "tsx"}).value.replaceAll("    ", "\t")
 
-
         const CURSOR = document.createTextNode("|");
-        const CHAR_DELAY = 50;
+        const CHAR_DELAY = 150;
 
         codeElement.current.innerHTML = "";
 
@@ -34,18 +35,61 @@ export default function CodeTypewriter() {
             displayedParentNode: codeElement.current as Node,
             hiddenNode: hiddenCodeElement.childNodes[0],
             currentChar: 0,
+            complete: false,
+            delay: CHAR_DELAY
         }
 
-        setTimeout(() => type(pointer), CHAR_DELAY)
+            
+        startTypewriter()
 
-        function onComplete() {
-            console.log("COMPLETE")
+
+        function startTypewriter() {
+            createStarterCode();
+            createTimeout();
         }
-    
+
+
+        // Continues typing until bottom of page or all text is typed, whichever is first
+        function createTimeout() {
+            setTimeout(() => {
+                type(pointer);
+                if (!codeElement.current) return;
+
+                    const codeElementRect = codeElement.current.getBoundingClientRect();
+                    const codeElementEnd = codeElementRect.y + codeElementRect.height;
+
+                if (pointer.complete || codeElementEnd > window.innerHeight + window.innerHeight * 0.05) {
+                    console.log("END")
+                } else {
+                    createTimeout();
+                }
+            }, pointer.delay)
+        }
+
+        // Pastes in code until at least 40% of the screen is filled, with some extra noise added in
+        function createStarterCode() {
+            if (!codeElement.current) return;
+            let codeElementRect = codeElement.current.getBoundingClientRect();
+            let codeElementEnd = codeElementRect.y + codeElementRect.height;
+            const minimumHeight = Math.random() * 2 / 10 + 0.6;
+            console.log(minimumHeight)
+            while (codeElementEnd < window.innerHeight * minimumHeight) {
+                type(pointer, false);
+
+                codeElementRect = codeElement.current.getBoundingClientRect();
+                codeElementEnd = codeElementRect.y + codeElementRect.height;
+                console.log(codeElementEnd)
+            }
+
+            for (let i = 0; i < 100; i++) {
+                type(pointer)
+            }
+        }
+
         // Type the next character / tag, runs on timeouts until all of hiddenCodeElement is typed into codeElement
         // Starts at first child of hiddenCodeElement
         // Decides next node (hiddenNode) to type by doing a depth first search: 1. Itself, 2. First Child, 3.Next sibling, 3. Parent's next sibling
-        function type(pointer: {displayedParentNode: Node, hiddenNode: Node, currentChar: number}) {
+        function type(pointer: {displayedParentNode: Node, hiddenNode: Node, currentChar: number, complete: boolean, delay: number}, characterTyping: boolean=true) {
             if (!codeElement.current) return;
 
             if (pointer.displayedParentNode.lastChild === CURSOR) {
@@ -56,10 +100,10 @@ export default function CodeTypewriter() {
             let hiddenNodeIndex = pointer.displayedParentNode.childNodes.length;
             const displayedParentParentNode = pointer.displayedParentNode.parentNode as Node;
 
-            let delay = CHAR_DELAY;
+            let newDelay = CHAR_DELAY;
 
             // If text node, type char by char, otherwise paste the whole tag
-            if (pointer.hiddenNode.nodeType === Node.TEXT_NODE) {
+            if (pointer.hiddenNode.nodeType === Node.TEXT_NODE && characterTyping) {
                 const text = pointer.hiddenNode.textContent as string;
                 hiddenNodeIndex = pointer.displayedParentNode.childNodes.length - 1;
 
@@ -72,7 +116,7 @@ export default function CodeTypewriter() {
 
                     pointer.currentChar += 1;
                     if (text[pointer.currentChar] === "\t") {
-                        delay = 0;
+                        newDelay = 0;
                     }
                     
                     onEnd();
@@ -82,10 +126,10 @@ export default function CodeTypewriter() {
                 pointer.currentChar = 0
             } else {
                 pointer.displayedParentNode.appendChild(pointer.hiddenNode.cloneNode(false));
-                delay = 0;
+                newDelay = 0;
             }
 
-            // The cycle goes -> 
+            // Go to next stage in the DFS
             if (pointer.hiddenNode.hasChildNodes()) { 
                 pointer.hiddenNode = pointer.hiddenNode.childNodes[0];
                 pointer.displayedParentNode = pointer.displayedParentNode.childNodes[hiddenNodeIndex];
@@ -95,24 +139,25 @@ export default function CodeTypewriter() {
                 pointer.displayedParentNode = displayedParentParentNode;
                 pointer.hiddenNode = (hiddenParentNode.parentNode as Node).childNodes[displayedParentParentNode.childNodes.length]
             } else {
-                onComplete();
+                pointer.complete = true;
                 return;
             }
 
             onEnd();
         
             function onEnd() {
-                if (delay !== 0) {
+
+                if (newDelay !== 0) {
                     pointer.displayedParentNode.appendChild(CURSOR);
                 }
-                setTimeout(() => type(pointer), delay);
+                pointer.delay = newDelay;
             }
         }
     }, [typewriterCode])
 
     return (
-        <pre className="h-full overflow-hidden select-none pointer-events-none text-[2.5vh] transition-opacity ease-in-out duration-[3s]">
-            <code ref={codeElement}>
+        <pre className="h-full overflow-hidden">
+            <code ref={codeElement} className="select-none pointer-events-none text-2xl transition-opacity ease-in-out duration-[3s]">
             
             </code>
         </pre>

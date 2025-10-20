@@ -18,7 +18,7 @@ export default function ContentWrapper({children}: {children: ReactNode}) { // A
                 <div className="flex flex-col md:flex-row md:h-18 justify-between p-3">
                     <p className={`${shadowsIntoLight.className} my-auto`}>
                         <Link href="/" className={
-                            `flex gap-6 mx-auto text-2xl justify-center md:text-left md:text-3xlmy-auto block no-underline
+                            `flex gap-6 mx-auto text-2xl justify-center md:text-left md:text-3xl my-auto block no-underline
                             text-logo hover:text-logo-hover active:text-logo-active`}>
                         Luke Shephard
                         </Link>
