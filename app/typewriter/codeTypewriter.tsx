@@ -146,27 +146,36 @@ export default function CodeTypewriter() {
             let newDelay = CHAR_DELAY;
 
             // If text node, type char by char, otherwise paste the whole tag
-            if (pointer.hiddenNode.nodeType === Node.TEXT_NODE && characterTyping) {
-                const text = pointer.hiddenNode.textContent as string;
-                hiddenNodeIndex = pointer.displayedParentNode.childNodes.length - 1;
+            if (pointer.hiddenNode.nodeType === Node.TEXT_NODE) {
+                if (characterTyping) {
+                    const text = pointer.hiddenNode.textContent as string;
+                    let char = text[pointer.currentChar];
+                    if (char === "\t") {
+                        char = "    ";
+                    }
+                    hiddenNodeIndex = pointer.displayedParentNode.childNodes.length - 1;
 
-                if (pointer.currentChar !== text.length) {
-                    if (pointer.currentChar === 0) {
-                         pointer.displayedParentNode.appendChild(document.createTextNode(text[pointer.currentChar]));
-                    } else {
-                        pointer.displayedParentNode.childNodes[hiddenNodeIndex].textContent += text[pointer.currentChar];
+                    if (pointer.currentChar !== text.length) {
+                        if (pointer.currentChar === 0) {
+                            pointer.displayedParentNode.appendChild(document.createTextNode(char));
+                        } else {
+                            pointer.displayedParentNode.childNodes[hiddenNodeIndex].textContent += char;
+                        }
+
+                        pointer.currentChar += 1;
+                        
+                        onEnd();
+                        return false;
                     }
 
-                    pointer.currentChar += 1;
-                    if (text[pointer.currentChar] === "\t") {
-                        newDelay = 0;
-                    }
-                    
-                    onEnd();
-                    return false;
+                    pointer.currentChar = 0
+                } else {
+                    const textNode = pointer.hiddenNode.cloneNode(false);
+                    textNode.textContent = (textNode.textContent as string).replaceAll("\t", "    ")
+                    pointer.displayedParentNode.appendChild(textNode);
+                    newDelay = 0;
                 }
 
-                pointer.currentChar = 0
             } else {
                 pointer.displayedParentNode.appendChild(pointer.hiddenNode.cloneNode(false));
                 newDelay = 0;
