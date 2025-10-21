@@ -13,7 +13,7 @@ export default function CodeTypewriter() {
     const codeElement = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        setTypewriterCode(codeList[Math.floor(Math.random() * codeList.length)]);
+        setTypewriterCode(codeList[2])//codeList[Math.floor(Math.random() * codeList.length)]);
     }, [])
 
 
@@ -27,13 +27,13 @@ export default function CodeTypewriter() {
         hiddenCodeElement.innerHTML = hljs.highlight(typewriterCode, {language: "tsx"}).value.replaceAll("    ", "\t")
 
         const CURSOR = document.createTextNode("|");
-        const CHAR_DELAY = 150;
+        const CHAR_DELAY = 200;
 
         codeElement.current.innerHTML = "";
 
         const pointer = {
             displayedParentNode: codeElement.current as Node,
-            hiddenNode: hiddenCodeElement.childNodes[0],
+            hiddenNode: document.createTextNode("") as Node,
             currentChar: 0,
             complete: false,
             delay: CHAR_DELAY
@@ -66,12 +66,24 @@ export default function CodeTypewriter() {
             }, pointer.delay)
         }
 
-        // Pastes in code until at least 40% of the screen is filled, with some extra noise added in
+        // Pastes in code until at least BASE_HEIGHTvh of the screen is filled, with some extra noise added in
         function createStarterCode() {
             if (!codeElement.current) return;
+
+            const BASE_HEIGHT = 0.5;
+            const HEIGHT_NOISE = 0.2;
+            const LINE_NOISE = Math.floor(Math.random() * 100);
+            const START_INDEX = Math.floor(Math.random() * hiddenCodeElement.childNodes.length * 0.4)
+
+            for (let i = 0; i < START_INDEX; i++) {
+                hiddenCodeElement.removeChild(hiddenCodeElement.firstChild as ChildNode);
+            } 
+            pointer.hiddenNode = hiddenCodeElement.childNodes[0];
+
             let codeElementRect = codeElement.current.getBoundingClientRect();
             let codeElementEnd = codeElementRect.y + codeElementRect.height;
-            const minimumHeight = Math.random() * 2 / 10 + 0.6;
+
+            const minimumHeight = (Math.random() * HEIGHT_NOISE * 10) / 10 + BASE_HEIGHT;
             console.log(minimumHeight)
             while (codeElementEnd < window.innerHeight * minimumHeight) {
                 type(pointer, false);
@@ -81,7 +93,7 @@ export default function CodeTypewriter() {
                 console.log(codeElementEnd)
             }
 
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < LINE_NOISE; i++) {
                 type(pointer)
             }
         }
@@ -155,9 +167,13 @@ export default function CodeTypewriter() {
         }
     }, [typewriterCode])
 
+    // TEXT SIZES WITH MAX CHARS = 110
+    //
+    // 1280 -> LG
+    // 1536 -> XL
     return (
         <pre className="h-full overflow-hidden">
-            <code ref={codeElement} className="select-none pointer-events-none text-2xl transition-opacity ease-in-out duration-[3s]">
+            <code ref={codeElement} className="select-none pointer-events-none text-md md:text-lg xl:text-2xl 2xl:text-[1.5vw] transition-opacity ease-in-out duration-[3s]">
             
             </code>
         </pre>

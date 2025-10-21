@@ -149,6 +149,43 @@ export default function ProjectCard({id, title, platforms, imagesData, descripti
             <p className="p-3 md:w-2/3 lg:w-1/3 md:p-0">{devInfo}</p>
         </div>
     )
+}`,
+`import { Pie } from "react-chartjs-2";
+import { useSkillsStore } from "./stores/useSkillsStore";
+
+// Currently dummy response
+export default function SkillsChart({today=false}: {today?: boolean}) { // Creates a pie chart, default using all codestats data otherwise just todays
+    const {skills} = useSkillsStore();
+    const languageNames = Object.keys(skills.languages);
+    const languageNewXps = Object.values(skills.languages).map(language => language.new_xps);
+    const languageAllXps = Object.values(skills.languages).map(language => language.xps);
+
+    const chosenData = today ? languageNewXps : languageAllXps;
+
+    // Turn separate data into list of objects
+    let mergedData: {name: string, value: number}[] = [] 
+    for (let i = 0; i < languageNames.length; i++) {
+        if (chosenData[i] === 0) {
+            continue;
+        }
+        mergedData.push({name: languageNames[i], value: chosenData[i]});
+    }
+    mergedData.sort((a, b) => b.value - a.value);
+    mergedData = mergedData.slice(0, 5)
+
+    // Create parameters
+    const labels = mergedData.map(language => language.name)
+    const dataset: {label: string, data: number[]} = {
+      label: "Keystrokes",
+      data: mergedData.map(language => language.value)
+    }
+
+    return (
+        <Pie data={{
+            datasets: [dataset],
+            labels: labels
+        }}/>
+    )
 }`
 ]
 
