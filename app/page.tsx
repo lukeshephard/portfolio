@@ -19,7 +19,7 @@ const shadowsIntoLight = Shadows_Into_Light({
 export default function Home() {
   return (
     <>
-      <div className={`absolute w-screen h-full top-0  z-0 saturate-75 contrast-75 blur-[2px] xl:blur-[2.5px] 2xl:blur-[0.15vw] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
+      <div className={`absolute w-screen h-full top-0  z-0 saturate-75 contrast-75 blur-[2px] lg:blur-[2.5px] 2xl:blur-[0.15vw] text-left self-start overflow-y-scroll ${cutiveMono.className}`}>
         <CodeTypewriter/>
       </div>
       <div className="flex flex-col md:h-[calc(100vh-var(--spacing)*18)] justify-between">
