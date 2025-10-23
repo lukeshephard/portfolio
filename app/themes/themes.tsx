@@ -1,4 +1,5 @@
-import { BookUser, Ghost, LucideIcon, Moon, RotateCcw, Sun, SunMoon } from "lucide-react";
+import { Ghost, Moon, RotateCcw, Sun, SunMoon } from "lucide-react";
+import Logo from "../../public/icons/logo.svg";
 
 export type ThemeGroup = {
     name: string,
@@ -7,7 +8,7 @@ export type ThemeGroup = {
 
 export type Theme = {
     name: string;
-    icon: LucideIcon;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 // List of all themes
@@ -25,8 +26,8 @@ export const themes: {[name: string]: Theme} = {
         icon: Moon,
     },
     "lukeShephard": {
-        name: "Luke Shephard",
-        icon: BookUser,
+        name: "Default",
+        icon: Logo
     },
     "throwback": {
         name: "Throwback",

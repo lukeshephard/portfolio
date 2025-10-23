@@ -7,8 +7,6 @@ import CardArray from "../card/cardArray";
 import ProjectCard from "../card/projectCard";
 import Platform from "../utils/platform";
 import Card from '../card/card';
-import ProjectsThemeAwardHandler from './themeAwardHandler';
-
 export const metadata: Metadata = {
   title: "Projects",
   description: "A selection of Luke Shephard's software engineering work.",

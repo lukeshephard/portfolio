@@ -22,7 +22,7 @@ export default function ThemeButton() {
         const iconTags = [];
         for (const themeName of themeInventory) {
             const currentTheme = themes[themeName];
-            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background flex gap-1 ${themeName === themePrefs.theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(currentTheme.icon, {className: themeName === themePrefs.theme ? "text-link" : "text-text-title"})} {currentTheme.name}</MenuItem>)
+            iconTags.push(<MenuItem key={`theme${themeName}`} className={`bg-background flex gap-1 ${themeName === themePrefs.theme ? "text-link" : "text-text-title"}`} value={themeName}>{createElement(currentTheme.icon, {className: `${themeName === themePrefs.theme ? "text-link" : "text-text-title"}`})} {currentTheme.name}</MenuItem>)
         }
 
 

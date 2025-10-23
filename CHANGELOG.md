@@ -12,14 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Coding demo to homepage.
-- Hero section to homepage.
 
 ### Changed
 
-- "pre-release" theme to "Luke Shephard".
-- Default theme to "Luke Shephard".
-- Theme and logo colours.
-- Favicon to match new logo with light and dark modes.
+- Renamed "Luke Shephard" theme to "Default" with the logo as the icon.
 
 ### Removed
 
