@@ -1,5 +1,6 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react";
-import 'highlight.js/styles/github-dark.css'; // Needs changing for light mode
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';

@@ -2,13 +2,8 @@ import { ReactNode } from "react";
 import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml } from "lucide-react";
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
-import { Shadows_Into_Light } from "next/font/google";
 import ThemeButton from "../themes/themeButton";
-
-const shadowsIntoLight = Shadows_Into_Light({
-    weight: "400",
-    subsets: ["latin"]
-})
+import { shadowsIntoLight } from "../layout";
 
 export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
     return (
