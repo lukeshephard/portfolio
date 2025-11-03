@@ -2,26 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import 'highlight.js/styles/github-dark.css'; // Needs changing for light mode
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { Cutive_Mono, Geist, Shadows_Into_Light } from "next/font/google";
 import { DEFAULT_THEME, getSeasonalTheme } from "./themes/themes";
 import { ThemeProvider } from "next-themes";
 import ContentWrapper from "./content-wrapper/contentWrapper";
 import Script from "next/script";
-
-export const geist = Geist({
-  subsets: ["latin"],
-});
-
-export const shadowsIntoLight = Shadows_Into_Light({
-    weight: "400",
-    subsets: ["latin"]
-})
-
-export const cutiveMono = Cutive_Mono({
-  subsets: ["latin"],
-  weight: "400",
-})
-
+import { geist } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lukeshephard.com"),

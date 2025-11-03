@@ -3,7 +3,7 @@ import { Archive, ArchiveRestore, BookMarked, BookOpen, Code, CodeXml } from "lu
 import NavbarItem from "./navbarItem";
 import Link from "next/link";
 import ThemeButton from "../themes/themeButton";
-import { shadowsIntoLight } from "../layout";
+import { shadowsIntoLight } from "../fonts";
 
 export default function ContentWrapper({children}: {children: ReactNode}) { // An element to add the header to each page
     return (
