@@ -15,7 +15,7 @@ export default function Home() {
         <div className="backdrop-blur-md backdrop-opacity-100 px-9 rounded-4xl md:p-9 md:border-1">
           {/* <pre className="text-sm text-center whitespace-pre text-logo py-12">{getFullName()}</pre> */}
           <h1 className={`text-4xl md:text-6xl md:text-7xl 2xl:text-8xl text-logo md:py-12 ${shadowsIntoLight.className}`}>Luke Shephard</h1>
-          <h2 className={`text-xl md:text-xl md:text-2xl md:text-3xl 2xl:text-5xl py-6`}>Software Engineer specialising in Web Development.</h2> 
+          <h2 className={`text-xl md:text-xl md:text-2xl md:text-3xl 2xl:text-5xl py-6`}>Software Engineer specialising in Fullstack Web Development.</h2> 
           <div className="flex justify-center">
             <h3 className="md:text-md md:text-xl 2xl:text-3xl">Final-Year Computer Science student looking for graduate roles. </h3>
           </div>
