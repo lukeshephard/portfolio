@@ -16,17 +16,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lukeshephard.com"),
 
   title: {
-    default: "Luke Shephard - Software Engineer (Web Development)",
-    template: "%s | Luke Shephard - Software Engineer (Web Development)",
+    default: "Luke Shephard - Software Engineer (Full Stack Web Development)",
+    template: "%s | Luke Shephard - Software Engineer (Full Stack Web Development)",
   },
-  description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+  description: "Portfolio of Luke Shephard, a Software Engineer specialising in full stack web development. View projects and contact information.",
 
   openGraph: {
     type: "website",
     url: "https://lukeshephard.com",
     siteName: "Luke Shephard Portfolio",
-    title: "Luke Shephard - Software Engineer (Web Development)",
-    description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+    title: "Luke Shephard - Software Engineer (Full Stack Web Development)",
+    description: "Portfolio of Luke Shephard, a Software Engineer specialising in full stack web development. View projects and contact information.",
     images: [
       {
         url: "og-image.png",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Luke Shephard - Software Engineer (Web Development)",
-    description: "Portfolio of Luke Shephard, a Software Engineer specialising in web development. View projects and contact information.",
+    title: "Luke Shephard - Software Engineer (Full Stack Web Development)",
+    description: "Portfolio of Luke Shephard, a Software Engineer specialising in full stack web development. View projects and contact information.",
     images: ["og/image-png"],
   },
 
@@ -83,10 +83,10 @@ export default function RootLayout({
                       "@type": "Person",
                       name: "Luke Shephard",
                       url: "https://lukeshephard.com",
-                      description: "Software engineer specialising in web development.",
+                      description: "Software engineer specialising in full stack web development.",
                       email: "mailto:luke@lukeshephard.com",
                       jobTitle: "Final-Year Computer Science Student",
-                      knowsAbout: ["Software Engineering", "Web Development", "React", "Next.js", "JavaScript", "TypeScript"],
+                      knowsAbout: ["Software Engineering", "Web Development", "Frontend Development", "Backend Development", "React", "Next.js", "JavaScript", "TypeScript"],
                       affiliation: {
                         "@type": "CollegeOrUniversity",
                         "name": "Queen Mary University of London",
