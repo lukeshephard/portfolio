@@ -6,6 +6,8 @@ This is the source code for my portfolio, built with [Next.js](https://nextjs.or
 It showcases my projects and socials.
 
 ## 📷 Screenshots
+Showing version 0.5.1.
+
 |  Page         |    Desktop                                                         |                        Mobile                                    |
 | :-----------: | :----------------------------------------------------------------: | :--------------------------------------------------------------: |
 |  **Homepage** | <img src="./public/images/projects/portfolio/homepage/laptop.png" width="1000"/>|<img src="./public/images/projects/portfolio/homepage/phone.png" width="300"/>|

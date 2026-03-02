@@ -101,7 +101,7 @@ export default function ThemeButton() {
                     }
                 }}
             >
-                <FormControlLabel control={<Checkbox className="text-link" checked={themePrefs.enableSeasonalThemes} onChange={() => setThemePrefs(createThemePrefs(themePrefs.theme, !themePrefs.enableSeasonalThemes))}/>} className="text-text-title pl-1 pr-4" label="Seasonal Theme Override" labelPlacement="start"/>
+                { getSeasonalTheme() == null ? null : <FormControlLabel control={<Checkbox className="text-link" checked={themePrefs.enableSeasonalThemes} onChange={() => setThemePrefs(createThemePrefs(themePrefs.theme, !themePrefs.enableSeasonalThemes))}/>} className="text-text-title pl-1 pr-4" label="Seasonal Theme Override" labelPlacement="start"/> }
                 {generateIconTags()}
             </Select>
         </FormControl>

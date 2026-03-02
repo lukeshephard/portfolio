@@ -26,7 +26,7 @@ export default function Projects() {
         <div className="flex flex-col items-center text-text text-lg">
           <CardArray>
             <Card title='My Projects' mainTitle>
-              <p>These are my best projects. You can find more projects on my <a target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard">GitHub</a>.</p>
+              <p>These are my featured projects. You can find more projects on my <a target="_blank" rel="noopener noreferrer" href="https://github.com/lukeshephard">GitHub</a>.</p>
             </Card>
             <ProjectCard
               id="qmtrack"
